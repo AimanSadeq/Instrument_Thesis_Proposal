@@ -1,0 +1,392 @@
+/*
+ * Research instrument platform.
+ *
+ * Mobile first: the participants are on their own phones on a corporate
+ * network, so there are no web fonts, no images and no framework. Direction
+ * comes from <html dir>, and every rule below uses logical properties
+ * (inline-start, inline-end, margin-block) so that Arabic lays itself out
+ * right to left without a second stylesheet.
+ */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --ink: #14181f;
+  --ink-soft: #4b5563;
+  --line: #c9cfd8;
+  --line-strong: #6b7280;
+  --accent: #14181f;
+  --error: #b3261e;
+  --error-bg: #fdecea;
+  --ok: #14663f;
+  --ok-bg: #e8f5ee;
+  --focus: #1a56db;
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181f;
+    --surface: #1d232c;
+    --ink: #f2f4f7;
+    --ink-soft: #c3cad4;
+    --line: #454e5b;
+    --line-strong: #8b95a3;
+    --accent: #f2f4f7;
+    --error: #ff9a92;
+    --error-bg: #3a1c1a;
+    --ok: #8fe0b6;
+    --ok-bg: #12291f;
+    --focus: #8ab4ff;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  /* System stacks only. Arabic falls back to the platform's own Arabic face,
+     which is what these phones render best. */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", "Noto Sans Arabic", "Geeza Pro", "Segoe UI Arabic", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+html[lang="ar"] body { line-height: 1.85; }
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+}
+
+h1 {
+  font-size: 1.45rem;
+  line-height: 1.35;
+  margin: 0.5rem 0 1rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+p { margin: 0 0 0.9rem; }
+ul { margin: 0 0 1rem; padding-inline-start: 1.35rem; }
+li { margin-block-end: 0.5rem; }
+hr { border: none; border-block-start: 1px solid var(--line); margin: 1.75rem 0; }
+code { font-size: 0.9em; word-break: break-all; }
+
+.lead { font-size: 1.05rem; }
+.intro, .reminder { color: var(--ink-soft); }
+.reminder { font-style: italic; }
+.hint { color: var(--ink-soft); font-size: 0.9rem; margin: 0.15rem 0 0.6rem; }
+.closing { font-weight: 600; }
+
+/* Header and language toggle ------------------------------------------------ */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  border-block-end: 1px solid var(--line);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar-mark {
+  inline-size: 2.2rem;
+  block-size: 0.35rem;
+  background: var(--line-strong);
+  border-radius: 999px;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 44px;
+  min-inline-size: 5.5rem;
+  padding: 0 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: -9999px;
+}
+.skip-link:focus {
+  inset-inline-start: 0.5rem;
+  inset-block-start: 0.5rem;
+  z-index: 20;
+  background: var(--bg);
+  color: var(--ink);
+  padding: 0.6rem 1rem;
+  border: 2px solid var(--focus);
+  border-radius: var(--radius);
+}
+
+.footnote {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+/* Fields --------------------------------------------------------------------- */
+
+.section { margin-block-end: 1.5rem; }
+
+.field {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+}
+
+fieldset.field { min-inline-size: 0; }
+
+legend, .field-label {
+  display: block;
+  font-weight: 600;
+  margin-block-end: 0.6rem;
+  padding: 0;
+}
+
+.options { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.option input[type="radio"] {
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
+  margin: 0.15rem 0 0;
+  flex: none;
+  accent-color: var(--focus);
+}
+
+.option label { flex: 1; cursor: pointer; }
+
+.option:focus-within { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+textarea, input[type="text"], input[type="password"] {
+  inline-size: 100%;
+  /* 16px or larger stops iOS Safari zooming in on focus. */
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 0.7rem;
+  resize: vertical;
+}
+
+textarea:focus, input:focus, .lang-toggle:focus, .btn:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.field-invalid { border-inline-start: 4px solid var(--error); padding-inline-start: 0.75rem; }
+.field-error { color: var(--error); font-weight: 600; margin: 0 0 0.5rem; }
+
+/* Buttons -------------------------------------------------------------------- */
+
+.actions { margin-block-start: 2rem; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  min-block-size: 52px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.05rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.btn[disabled] { opacity: 0.6; cursor: progress; }
+
+.btn-quiet {
+  color: var(--ink);
+  background: var(--bg);
+  border-color: var(--line-strong);
+  font-weight: 500;
+}
+
+.btn-danger { background: var(--error); border-color: var(--error); color: #fff; }
+
+/*
+ * Consent.
+ *
+ * The two options are one rule: identical size, weight, colour, border and
+ * width, neither marked as primary, neither pre-selected. Nothing in this
+ * stylesheet distinguishes the first from the second, and there is no
+ * :first-child or :last-child rule anywhere in this block.
+ */
+.choose-one { margin-block-start: 1.5rem; }
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.choices .choice {
+  inline-size: 100%;
+  min-block-size: 60px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  text-align: center;
+  white-space: normal;
+}
+
+/* Likert grid ----------------------------------------------------------------- */
+
+.table-scroll { overflow-x: auto; }
+
+table.likert {
+  inline-size: 100%;
+  border-collapse: collapse;
+  margin-block-end: 1rem;
+}
+
+table.likert caption { text-align: start; }
+
+table.likert th, table.likert td {
+  border: 1px solid var(--line);
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table.likert th[scope="row"] {
+  text-align: start;
+  font-weight: 500;
+  inline-size: 45%;
+}
+
+table.likert thead th { background: var(--surface); font-size: 0.95rem; }
+.statement-head { text-align: start; }
+.item-code { font-weight: 700; }
+
+table.likert input[type="radio"] {
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
+  margin: 0;
+  accent-color: var(--focus);
+}
+
+.scale-label { display: block; cursor: pointer; }
+.scale-label span { display: none; }
+
+/* Below this width the same table becomes one card per statement, which is how
+   it will actually be filled in. */
+@media (max-width: 40rem) {
+  table.likert thead { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
+  table.likert, table.likert tbody, table.likert tr, table.likert th, table.likert td { display: block; }
+  table.likert tr {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 0.85rem;
+    margin-block-end: 1rem;
+  }
+  table.likert th[scope="row"] {
+    inline-size: auto;
+    border: none;
+    padding: 0 0 0.7rem;
+    font-weight: 600;
+  }
+  table.likert tbody tr { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4rem; }
+  table.likert th[scope="row"] { grid-column: 1 / -1; }
+  table.likert td {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    padding: 0.55rem 0.25rem;
+  }
+  .scale-label span { display: block; font-size: 0.95rem; margin-block-start: 0.25rem; }
+}
+
+/* Banners --------------------------------------------------------------------- */
+
+.banner {
+  border: 2px solid var(--error);
+  background: var(--error-bg);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  margin: 0 0 1.25rem;
+}
+
+/* The header is sticky, so keep it from covering the banner when the page
+   scrolls an error into view. */
+.banner { scroll-margin-block-start: 4.5rem; }
+.banner-title { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.banner p { margin: 0; }
+.banner-error { color: var(--error); }
+.banner-ok { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); }
+
+.done { padding-block-start: 1.5rem; }
+
+/* Admin ----------------------------------------------------------------------- */
+
+.admin table.counts {
+  inline-size: 100%;
+  border-collapse: collapse;
+  margin-block-end: 1.75rem;
+  font-size: 0.95rem;
+}
+.admin table.counts caption { text-align: start; font-weight: 700; padding-block-end: 0.4rem; }
+.admin table.counts th, .admin table.counts td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.6rem;
+  text-align: start;
+}
+.admin table.counts thead th { background: var(--surface); }
+.admin .inline-form { display: inline-block; margin: 0 0 0.6rem; inline-size: 100%; }
+.admin .danger { border: 2px solid var(--error); border-radius: var(--radius); padding: 1rem; }
+.admin .qr { margin: 0 0 1.5rem; padding: 0; }
+.admin .qr svg { inline-size: 180px; block-size: 180px; background: #fff; padding: 6px; border-radius: 6px; }
+.admin figcaption { margin-block-end: 0.5rem; }
+
+@media (min-width: 34rem) {
+  .btn, .choices .choice { inline-size: auto; min-inline-size: 14rem; }
+  .choices { flex-direction: row; flex-wrap: wrap; }
+  .choices .choice { flex: 1 1 16rem; }
+}

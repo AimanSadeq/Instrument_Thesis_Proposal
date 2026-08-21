@@ -1,0 +1,30 @@
+{
+  "name": "instrument-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Anonymous research instrument platform for the doctoral study 'Leveraging Artificial Intelligence for Financial Competence Development'",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "migrate": "node scripts/migrate.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "build:paper": "node scripts/build-paper-forms.js",
+    "verify:wording": "node scripts/verify-wording.js",
+    "verify:privacy": "node scripts/verify-privacy.js",
+    "verify:rows": "node scripts/verify-stored-rows.js",
+    "verify:browser": "node scripts/browser-check.js",
+    "screenshots": "node scripts/screenshots.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
+}
