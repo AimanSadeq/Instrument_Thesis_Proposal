@@ -58,12 +58,13 @@ npm start                     # http://localhost:3000
 ## Checking it
 
 ```bash
-npm test                  # 36 tests across instruments, privacy, admin, export, deletion
+npm test                  # 38 tests across instruments, privacy, admin, export, deletion
 npm run verify:wording    # every instrument string against docs/source/Research_Instruments_v2.0.md
 npm run verify:privacy    # source scan and schema checks against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them
 npm run verify:browser    # real browser: the Day 4 rule, an offline submission, both consent options
 npm run screenshots       # captures docs/screenshots and re-checks that the browser holds nothing
+npm run build:paper       # rebuilds the printed fallback in docs/paper, English and Arabic
 ```
 
 The tests need a Postgres database; set `TEST_DATABASE_URL` if it is not
@@ -84,5 +85,7 @@ docs/VERIFICATION.md         the report against the build brief checklist
 docs/DEPLOYMENT.md           Supabase and Render, and how to take it down again
 docs/OPERATIONS.md           what the facilitator and the researcher do on the day
 docs/source/                 Research Instruments v2.0, the content this must match
+docs/paper/                  printed fallback, generated from the same content module
+docs/APPENDIX_instrument_platform.md   draft methods appendix for the thesis
 docs/screenshots/            evidence, every screen, both languages, two phone sizes
 ```

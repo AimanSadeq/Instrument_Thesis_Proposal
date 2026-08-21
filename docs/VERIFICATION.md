@@ -104,6 +104,7 @@ protocol needs a different mechanism, not a different implementation.
 |---|---|
 | Implemented verbatim: nothing reworded, reordered, added or dropped | **Pass.** `npm run verify:wording` takes all 248 participant-facing strings out of `src/content/instruments.js`, English and Arabic, and checks each one appears verbatim in `docs/source/Research_Instruments_v2.0.md`, which is committed alongside the code. All 248 are found. It also counts items against section 4 of the brief: 8 pre-training items, 4 daily reflection items including R4, 4 day options, 14 Likert items, 4 open evaluation items, 2 consent options. Run it after any edit to the instrument content. |
 | R4 appears only when Day 4 is selected | **Pass.** In the browser, R4 is hidden until a day is chosen, stays hidden on Days 1 to 3, and appears on Day 4 (`npm run verify:browser`). Without JavaScript it stays visible under its "Day 4 only" heading, as on paper. The server stores it only when Day 4 was chosen, and the database refuses the combination independently through a check constraint (test *R4 is stored on day 4 and dropped on every other day*). |
+| Paper fallback carries the same wording | **Pass.** `npm run build:paper` renders `docs/paper/instruments-{en,ar}.pdf` from `src/content/instruments.js`, the same module the screens use, so printed and on-screen wording cannot diverge and `verify:wording` covers both at once. The printed sheets carry no name, date or signature field, asserted in test *the printed fallback carries no name, date or signature field*; v2.0 removed those on purpose and a paper form is where they would creep back. Two lines appear on paper that are not on screen, both administration rather than instrument content: a request not to write anything identifying, and the collection instruction from the run sheet. |
 | The day is chosen by the participant, not derived from the date | **Pass.** Test *the day is taken from the participant, never from the date*: a reflection submitted with Day 3 selected stores training day 3 and today's calendar date, whatever they are relative to each other. |
 
 ### Deletion, from section 3.7
@@ -207,7 +208,7 @@ first screen.
 ## 6. How to re-run every check
 
 ```bash
-npm test                  # 36 tests: instruments, privacy, admin, export, deletion
+npm test                  # 38 tests: instruments, privacy, admin, export, deletion
 npm run verify:wording    # all 248 instrument strings against Research Instruments v2.0
 npm run verify:privacy    # source scan and schema checks, against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them

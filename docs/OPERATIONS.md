@@ -60,6 +60,15 @@ record the substitution in the deviations log.
 sheet describes: completed unaided, placed in the collection box unfolded and
 unmarked, box sealed in the room. Record it.
 
+The printed forms are `docs/paper/instruments-en.pdf` and
+`docs/paper/instruments-ar.pdf`, generated from the same content as the
+screens, so the printed and on-screen wording cannot drift apart. Print both
+languages, single sided, and print **four copies of the daily reflection per
+participant**, one for each day. The sheets carry no name, date or signature
+field; they do carry a line asking the participant not to write anything
+identifying, and the collection instruction from the run sheet. Rebuild them
+with `npm run build:paper` if the instrument content ever changes.
+
 **Nobody can reach the site at all.** `INSTRUMENTS_OPEN` may have been left at
 `false`; a form that is closed says so plainly. Otherwise check the Render
 service is running.

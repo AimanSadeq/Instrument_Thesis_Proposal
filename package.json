@@ -12,6 +12,7 @@
     "start": "node src/server.js",
     "migrate": "node scripts/migrate.js",
     "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "build:paper": "node scripts/build-paper-forms.js",
     "verify:wording": "node scripts/verify-wording.js",
     "verify:privacy": "node scripts/verify-privacy.js",
     "verify:rows": "node scripts/verify-stored-rows.js",

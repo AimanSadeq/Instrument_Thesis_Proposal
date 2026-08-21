@@ -139,6 +139,31 @@ test('no dependency is a tracker, an auth library or a logger', async () => {
   assert.deepEqual(Object.keys(pkg.dependencies).sort(), ['express', 'pg', 'qrcode']);
 });
 
+test('the printed fallback carries no name, date or signature field', async () => {
+  const { paperPack } = require('../src/render/paper');
+  for (const lang of ['en', 'ar']) {
+    const sheet = paperPack(lang);
+    // v2.0 removed these on purpose, and a paper form is where they creep back.
+    for (const forbidden of [/name\s*[::_.]/i, /signature/i, /التوقيع/, /الاسم\s*[::_.]/, /\bdate\s*[::_.]/i, /التاريخ\s*[::_.]/]) {
+      assert.ok(!forbidden.test(sheet), `${forbidden} appears on the ${lang} printed form`);
+    }
+    assert.ok(/مجهول الهوية|anonymous/i.test(sheet), 'the printed form says it is anonymous');
+    // The two consent options are the same markup but for the words.
+    const ticks = sheet.match(/<li><span class="tick"><\/span><span class="tick-label">[^<]+<\/span><\/li>/g);
+    assert.ok(ticks.length > 6, 'the printed form has tick boxes');
+  }
+});
+
+test('the printed forms and the screens come from one source', async () => {
+  const { paperPack } = require('../src/render/paper');
+  const { POST_TRAINING, CONSENT } = require('../src/content/instruments');
+  for (const lang of ['en', 'ar']) {
+    const sheet = paperPack(lang);
+    assert.ok(sheet.includes(POST_TRAINING.likertSections[0].items[0].label[lang]));
+    assert.ok(sheet.includes(CONSENT.choices[1][lang]));
+  }
+});
+
 test('the response never carries a cookie, an ETag or a client hint request', async () => {
   for (const path of ['/', '/pre', '/daily', '/eval', '/done', '/admin', '/healthz']) {
     const response = await fetch(base + path);
