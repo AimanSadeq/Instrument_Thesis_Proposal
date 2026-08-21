@@ -1,0 +1,36 @@
+# Render blueprint.
+#
+# Region is a United States region on purpose. The protocol discloses that
+# hosting is in the United States; moving the service elsewhere would make a
+# statement in the protocol untrue, so change this only if the protocol and the
+# data management plan change with it.
+services:
+  - type: web
+    name: instrument-platform
+    runtime: node
+    region: oregon
+    plan: starter
+    buildCommand: npm ci --omit=dev
+    startCommand: node src/server.js
+    healthCheckPath: /healthz
+    autoDeployTrigger: off
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: COLLECTION_TIMEZONE
+        value: Asia/Riyadh
+      - key: COHORT
+        value: cohort-1
+      - key: INSTRUMENTS_OPEN
+        value: "true"
+      # Set these in the dashboard. They are never committed.
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: verify
+      - key: ADMIN_SECRET
+        sync: false
+      - key: EXPORT_SECRET
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
