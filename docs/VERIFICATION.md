@@ -208,7 +208,7 @@ first screen.
 ## 6. How to re-run every check
 
 ```bash
-npm test                  # 38 tests: instruments, privacy, admin, export, deletion
+npm test                  # 39 tests: instruments, privacy, admin, export, deletion
 npm run verify:wording    # all 248 instrument strings against Research Instruments v2.0
 npm run verify:privacy    # source scan and schema checks, against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them

@@ -26,7 +26,17 @@ turn certificate verification off.
 
 ## 2. Render
 
-1. New Web Service from this repository, or apply `render.yaml` as a blueprint.
+The quickest path is the blueprint: **New → Blueprint**, point it at this
+repository, and `render.yaml` supplies the region, runtime, build and start
+commands, health check path and auto-deploy setting. It generates both
+secrets, takes the public address from the service itself, and asks you for
+one value only: `DATABASE_URL`. Read the generated `ADMIN_SECRET` and
+`EXPORT_SECRET` from the Environment tab afterwards; the facilitator is given
+`ADMIN_SECRET` and only `ADMIN_SECRET`.
+
+To create the service by hand instead:
+
+1. New Web Service from this repository.
 2. Region: a **United States** region. The protocol discloses United States
    hosting; deploying elsewhere would make that disclosure untrue.
 3. Build `npm ci --omit=dev`, start `node src/server.js`, health check `/healthz`.
