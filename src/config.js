@@ -12,6 +12,18 @@ function bool(value, fallback) {
   return String(value).toLowerCase() === 'true';
 }
 
+/**
+ * The public address, used only to draw links and QR codes on the admin page.
+ * Render's blueprint supplies a bare hostname, and a hand-typed value often
+ * carries a trailing slash, so both are normalised here rather than producing
+ * a QR code that sends a room full of people to a broken address.
+ */
+function normalisePublicUrl(raw) {
+  const trimmed = String(raw || '').trim().replace(/\/+$/, '');
+  if (!trimmed) return '';
+  return /^https?:\/\//i.test(trimmed) ? trimmed : 'https://' + trimmed;
+}
+
 const config = {
   port: Number(process.env.PORT || 3000),
   env: process.env.NODE_ENV || 'development',
@@ -42,7 +54,7 @@ const config = {
   instrumentsOpen: bool(process.env.INSTRUMENTS_OPEN, true),
 
   // Used only to render links and QR codes on the admin page.
-  publicUrl: (process.env.PUBLIC_URL || '').replace(/\/+$/, ''),
+  publicUrl: normalisePublicUrl(process.env.PUBLIC_URL),
 
   maxTextLength: Number(process.env.MAX_TEXT_LENGTH || 5000)
 };
@@ -60,4 +72,4 @@ function requireProductionConfig() {
   }
 }
 
-module.exports = { config, requireProductionConfig };
+module.exports = { config, requireProductionConfig, normalisePublicUrl };

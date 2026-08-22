@@ -58,7 +58,7 @@ npm start                     # http://localhost:3000
 ## Checking it
 
 ```bash
-npm test                  # 38 tests across instruments, privacy, admin, export, deletion
+npm test                  # 39 tests across instruments, privacy, admin, export, deletion
 npm run verify:wording    # every instrument string against docs/source/Research_Instruments_v2.0.md
 npm run verify:privacy    # source scan and schema checks against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them

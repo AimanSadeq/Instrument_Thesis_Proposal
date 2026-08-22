@@ -48,7 +48,7 @@ a way. That is the expected answer, not a failure.
 ## Before you finish
 
 ```bash
-npm test                  # 38 tests
+npm test                  # 39 tests
 npm run verify:wording    # instrument text against the source document
 npm run verify:privacy    # source scan and schema checks
 ```
