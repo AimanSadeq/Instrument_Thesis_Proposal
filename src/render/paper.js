@@ -282,4 +282,4 @@ ${evalSheet(lang)}
 </html>`;
 }
 
-module.exports = { paperPack, informationPack, informationSheet, PAPER };
+module.exports = { paperPack, informationPack, informationSheet, PAPER, LINES };

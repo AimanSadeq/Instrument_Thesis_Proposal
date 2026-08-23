@@ -67,7 +67,9 @@ handed out on Day 1 for people to keep. Research Protocol v1.1 section 5
 requires it.
 
 The printed forms are `docs/paper/instruments-en.pdf` and
-`docs/paper/instruments-ar.pdf`, generated from the same content as the
+`docs/paper/instruments-ar.pdf`, with Word versions of both alongside them
+(`instruments-en.docx`, `instruments-ar.docx`) if you would rather adjust the
+layout before printing. All four are generated from the same content as the
 screens, so the printed and on-screen wording cannot drift apart. Print both
 languages, single sided, and print **four copies of the daily reflection per
 participant**, one for each day. The sheets carry no name, date or signature
