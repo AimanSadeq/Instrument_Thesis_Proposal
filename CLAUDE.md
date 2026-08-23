@@ -44,11 +44,15 @@ a way. That is the expected answer, not a failure.
   suite and against the live database.
 - `docs/VERIFICATION.md` — the report against the build brief, including the
   one requirement that cannot be met as written and the items still open.
+- `docs/PROTOCOL_CONFORMANCE.md` — the check against Research Protocol and DMP
+  v1.1, which is the governing document. Where it and the build brief
+  disagree, the protocol wins and the conflict is flagged rather than resolved
+  in code.
 
 ## Before you finish
 
 ```bash
-npm test                  # 39 tests
+npm test                  # 40 tests
 npm run verify:wording    # instrument text against the source document
 npm run verify:privacy    # source scan and schema checks
 ```

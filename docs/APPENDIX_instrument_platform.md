@@ -164,7 +164,7 @@ counts before and after.
 
 The platform's properties were verified by inspecting stored rows and
 observed behaviour, not by reading the source code. The verification comprises
-an automated test suite of thirty-nine tests covering the instruments, the
+an automated test suite of forty tests covering the instruments, the
 privacy properties, the administrative separation, export and deletion; SQL
 checks asserting the absence of time columns, clock defaults, identifier-like
 columns and foreign keys; an inspection script that prints stored rows and
