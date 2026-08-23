@@ -22,9 +22,34 @@ types.setTypeParser(1082, (value) => value);
 function sslConfig() {
   if (config.databaseSsl === 'disable') return false;
   if (config.databaseSsl === 'ca') {
-    const ca = config.databaseCaCert.startsWith('-----BEGIN')
-      ? config.databaseCaCert
-      : fs.readFileSync(config.databaseCaCert, 'utf8');
+    if (!config.databaseCaCert) {
+      throw new Error(
+        'DATABASE_SSL is "ca" but DATABASE_CA_CERT is empty. Set it to the ' +
+        'certificate text, or to a path such as /etc/secrets/prod-ca-2021.crt.'
+      );
+    }
+    if (config.databaseCaCert.startsWith('-----BEGIN')) {
+      return { ca: config.databaseCaCert, rejectUnauthorized: true };
+    }
+    let ca;
+    try {
+      ca = fs.readFileSync(config.databaseCaCert, 'utf8');
+    } catch (err) {
+      // ENOENT here used to surface on the first database query as a bare
+      // error code, which reads like a database fault and is not one.
+      throw new Error(
+        `DATABASE_CA_CERT points at "${config.databaseCaCert}", which cannot be ` +
+        `read (${err.code || err.message}). Check the file name against the ` +
+        'secret files on the host, or paste the certificate text into ' +
+        'DATABASE_CA_CERT instead of a path.'
+      );
+    }
+    if (!ca.includes('-----BEGIN')) {
+      throw new Error(
+        `The file at "${config.databaseCaCert}" is not a certificate: it has no ` +
+        'BEGIN line. Download it again from the database dashboard.'
+      );
+    }
     return { ca, rejectUnauthorized: true };
   }
   return { rejectUnauthorized: true };
@@ -212,6 +237,6 @@ async function close() {
 }
 
 module.exports = {
-  getPool, query, todayInZone, insertSubmission, counts,
+  getPool, sslConfig, query, todayInZone, insertSubmission, counts,
   exportTable, exportAll, deleteAll, close, EXPORT_QUERIES
 };

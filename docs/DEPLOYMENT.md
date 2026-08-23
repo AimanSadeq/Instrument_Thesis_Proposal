@@ -19,10 +19,26 @@ Target: deployed and tested by **3 September 2026**, first live use **6 Septembe
 5. While in the dashboard, note the answers to outstanding item **O2** in
    `VERIFICATION.md`: `log_connections`, `log_statement` and log retention.
 
-The certificate. If a `verify` connection fails, download the Supabase CA
-certificate from the dashboard and set `DATABASE_SSL=ca` with
-`DATABASE_CA_CERT` holding either the certificate text or a path to it. Do not
-turn certificate verification off.
+**The certificate.** Expect `DATABASE_SSL=verify` to fail against the Supabase
+pooler with `SELF_SIGNED_CERT_IN_CHAIN` in the service log. The pooler presents
+a chain signed by Supabase's own root, which is not in Node's default trust
+store. This happened on the first deployment and the fix takes five minutes:
+
+1. Supabase → Settings → Database → SSL Configuration → **Download
+   certificate** (`prod-ca-2021.crt`).
+2. Render → the service → Environment → **Secret Files** → add
+   `prod-ca-2021.crt` with the full certificate text, `BEGIN` and `END` lines
+   included. Render mounts it at `/etc/secrets/prod-ca-2021.crt`.
+3. Set `DATABASE_SSL=ca` and `DATABASE_CA_CERT=/etc/secrets/prod-ca-2021.crt`.
+4. Save, redeploy if Render does not do it itself, and reload `/admin`.
+
+The application then trusts exactly one certificate, Supabase's, and still
+verifies the connection fully. Pasting the certificate text straight into
+`DATABASE_CA_CERT` works too; the code accepts a path or the certificate.
+
+Do not reach for `rejectUnauthorized: false`, which most guides suggest and
+which this codebase deliberately cannot do. It would leave the connection
+encrypted but unauthenticated, and participant text travels over it.
 
 ## 2. Render
 
@@ -60,6 +76,18 @@ To create the service by hand instead:
 5. A short URL is worth arranging: participants type it from a screen. Either a
    custom domain on Render or a short redirect the client's IT can host.
 
+## 2a. A blueprint overwrites the dashboard
+
+If the service is connected to a blueprint with auto sync on, every value in
+`render.yaml` is pushed over whatever the dashboard holds. On 23 August 2026 a
+sync pushed `DATABASE_SSL: verify` over a working `ca`, and every database call
+began failing. The cohort-1 service was therefore disconnected from its
+blueprint and is managed from the dashboard.
+
+So: use the blueprint to create a service, then either disconnect it or keep
+`render.yaml` correct. Do not leave a stale file connected to a live service in
+the middle of a collection period.
+
 ## 3. After deploying, before the first session
 
 ```bash
@@ -71,7 +99,10 @@ Then, by hand:
 
 - Open `/`, `/pre`, `/daily`, `/eval` in both languages on a phone.
 - Submit one test response to each instrument.
-- `DATABASE_URL='…' npm run verify:rows` and read the rows that come back.
+- `DATABASE_URL='…' npm run verify:rows` and read the rows that come back. If
+  Node is not to hand, paste `db/checks/inspect_rows.sql` into the Supabase SQL
+  editor instead: it prints every stored row with a verdict on whether anything
+  carries a time, an address or a user agent.
 - Delete the test data: `/admin` with the export secret, then the delete-all
   form. Confirm the counts return to zero before the first real session.
 - Print every instrument in both languages for the paper fallback.

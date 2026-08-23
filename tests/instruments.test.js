@@ -209,6 +209,21 @@ test('the confirmation page after the evaluation carries the closing line', asyn
   assert.match(html, /Thank you for your time and your thoughtful responses\./);
 });
 
+test('a failure at our end does not masquerade as a mistyped address', async () => {
+  const { serverErrorPage, notFoundPage } = require('../src/render/pages');
+  for (const lang of ['en', 'ar']) {
+    const failure = serverErrorPage({ lang });
+    const missing = notFoundPage({ lang });
+    assert.notEqual(failure, missing);
+    assert.ok(!failure.includes('Page not found'));
+    assert.ok(!failure.includes('الصفحة غير موجودة'));
+    // It says nothing about why, because the reason belongs in the log.
+    assert.ok(!/database|postgres|supabase|ECONN/i.test(failure));
+  }
+  assert.match(serverErrorPage({ lang: 'en' }), /nothing was recorded/);
+  assert.match(serverErrorPage({ lang: 'ar' }), /لم يتم تسجيل أي شيء/);
+});
+
 test('an unknown page is a plain not-found, in the chosen language', async () => {
   const response = await fetch(base + '/finplay?lang=ar');
   assert.equal(response.status, 404);

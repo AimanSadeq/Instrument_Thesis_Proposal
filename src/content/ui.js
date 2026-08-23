@@ -56,6 +56,12 @@ const UI = {
     ar: 'هذا النموذج لا يستقبل استجابات في الوقت الحالي. يرجى إبلاغ الميسّر.'
   },
 
+  serverErrorHeading: { en: 'Something went wrong', ar: 'حدث خطأ ما' },
+  serverErrorBody: {
+    en: 'The page could not be loaded, and nothing was recorded. Please try again, and tell the facilitator if it happens twice.',
+    ar: 'تعذّر تحميل الصفحة، ولم يتم تسجيل أي شيء. يرجى المحاولة مرة أخرى، وأبلغ الميسّر إذا تكرر ذلك.'
+  },
+
   notFoundHeading: { en: 'Page not found', ar: 'الصفحة غير موجودة' },
   notFoundBody: {
     en: 'Please check the link or the QR code shown in the room.',

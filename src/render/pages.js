@@ -141,6 +141,17 @@ function closedPage({ lang, path = '/' }) {
   return page({ lang, title: UI.closedHeading, main, path });
 }
 
+// A failure at our end is not the same as a mistyped address, and saying so
+// saves whoever is holding the phone from hunting for a typo that is not
+// there. The service log carries the reason; this page never does.
+function serverErrorPage({ lang }) {
+  const main = `<div class="done">
+<h1>${esc(t(UI.serverErrorHeading, lang))}</h1>
+<p class="lead">${esc(t(UI.serverErrorBody, lang))}</p>
+</div>`;
+  return page({ lang, title: UI.serverErrorHeading, main, path: '/' });
+}
+
 function notFoundPage({ lang }) {
   const main = `<div class="done">
 <h1>${esc(t(UI.notFoundHeading, lang))}</h1>
@@ -149,4 +160,7 @@ function notFoundPage({ lang }) {
   return page({ lang, title: UI.notFoundHeading, main, path: '/' });
 }
 
-module.exports = { consentPage, prePage, dailyPage, evalPage, donePage, closedPage, notFoundPage };
+module.exports = {
+  consentPage, prePage, dailyPage, evalPage, donePage, closedPage,
+  serverErrorPage, notFoundPage
+};
