@@ -75,7 +75,7 @@ function createApp() {
   app.use((err, req, res, next) => {
     console.error('[error] %s %s: %s', req.method, req.path, err.code || err.name || 'error');
     if (res.headersSent) return;
-    res.status(500).type('html').send(pages.notFoundPage({ lang: req.lang || 'en' }));
+    res.status(500).type('html').send(pages.serverErrorPage({ lang: req.lang || 'en' }));
   });
 
   return app;
