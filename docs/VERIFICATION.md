@@ -117,11 +117,43 @@ protocol needs a different mechanism, not a different implementation.
 
 ---
 
+## 2a. Verified against the live system, 23 August 2026
+
+Everything in section 2 was originally checked against a Postgres in a build
+container. It has now been repeated against the deployment that will collect
+the data: Render service `srv-da588crm8hqs73bpp49g`, region Oregon, commit
+`3b8c178`, against the Supabase project holding the `research` schema.
+
+| Checked | Result |
+|---|---|
+| Schema, on the live database | Nine of nine assertions in `db/checks/post_deploy_check.sql` pass: four tables present, no column able to hold a time, nothing defaulting to a clock reading, no column named for an identity or an address, no foreign key, row level security on, nothing in `public`, nothing named for FinPlay, tables empty |
+| Write path | One submission to each of the four instruments, made from a telephone, English and Arabic. Before this the application had only ever read from this database |
+| Stored rows | `db/checks/inspect_rows.sql` returned `pass` for every row. Each row held a random id, the cohort, a plain calendar date, the training day where it applies, and the answers. No time, no address, no user agent, nothing else |
+| Option codes, not labels | An Arabic response stored `manager`, `5_to_10`, `moderate`, `somewhat`. The row does not record which language was used |
+| Arabic text | Stored and returned intact, including free-text answers |
+| Likert scale | Stored as numbers 1 to 5 |
+| Consent | Stored as four columns and nothing else: random id, cohort, date, choice |
+| Day selector | A reflection submitted with Day 1 chosen stored `training_day` 1 and left R4 null |
+| Admin view, facilitator secret | Counts, participation rate, and the four QR codes. No response text anywhere on the page, and no control leading to any. The page states that export and deletion need the researcher's secret |
+| Admin view, researcher secret | Export and deletion sections appear |
+| Export | JSON downloaded and opened: row counts present and matching the counts on screen, answers present |
+| Deletion | `DELETE ALL RESEARCH DATA` accepted, before and after counts reported, tables emptied |
+| QR codes | Scanned from the admin page with a telephone camera; opens the consent screen |
+
+Two things this does **not** yet cover, and they are the same two as before:
+the Day 4 path, where R4 appears and is stored, has been exercised in testing
+and in a browser but not yet on the live service; and the real-device coverage
+below remains one telephone rather than three.
+
+---
+
 ## 3. Outstanding items
 
-**O1. Real-device testing.** Three physical devices including at least one
-Android phone and at least one iPhone, on the phones people will actually
-bring. What to check: the Arabic screens render right to left end to end;
+**O1. Real-device testing.** *Partly closed.* On 23 August the four instruments
+were completed on one real telephone against the live service, in Arabic and
+English, and a projected QR code was scanned successfully. What remains is
+breadth: three physical devices including at least one Android and at least one
+iPhone, on the phones people will actually bring. What to check: the Arabic screens render right to left end to end;
 Safari on iOS does not zoom the page when a text field is focused (all inputs
 are set to 16px or larger, which is what prevents it); the Likert grid is
 usable one-handed; the language toggle is reachable; and after using the
@@ -139,10 +171,17 @@ can appear in a Postgres log; only the Render service connects. Whatever the
 answers are, they belong in the data management plan as a disclosure, not in
 this codebase as a workaround.
 
-**O3. Restricted-network test.** Open all four URLs on the client's guest or
-corporate wi-fi before the first session, on a device that is not the
-researcher's. If the network blocks the host, the paper fallback in the run
-sheet is the answer, and the deviations log records it.
+**O3. Network test at the venue.** *Scope reduced.* The programme runs at a
+hotel on hotel wi-fi, not on the client's corporate network, so there is no
+firewall to negotiate and no IT exception to request. What remains is a test at
+the venue: open all four URLs on the hotel wi-fi, on a device that is not the
+researcher's, ideally the day before.
+
+Hotel wi-fi brings its own failure: the captive portal. A participant who scans
+the QR code before accepting the hotel's terms gets the hotel's page, not the
+instrument, and will reasonably conclude the link is broken. Everyone should
+connect and clear that portal during the Day 1 briefing, before the first link
+is displayed.
 
 ---
 
