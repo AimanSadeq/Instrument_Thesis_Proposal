@@ -76,6 +76,18 @@ To create the service by hand instead:
 5. A short URL is worth arranging: participants type it from a screen. Either a
    custom domain on Render or a short redirect the client's IT can host.
 
+## 2a. A blueprint overwrites the dashboard
+
+If the service is connected to a blueprint with auto sync on, every value in
+`render.yaml` is pushed over whatever the dashboard holds. On 23 August 2026 a
+sync pushed `DATABASE_SSL: verify` over a working `ca`, and every database call
+began failing. The cohort-1 service was therefore disconnected from its
+blueprint and is managed from the dashboard.
+
+So: use the blueprint to create a service, then either disconnect it or keep
+`render.yaml` correct. Do not leave a stale file connected to a live service in
+the middle of a collection period.
+
 ## 3. After deploying, before the first session
 
 ```bash
@@ -87,7 +99,10 @@ Then, by hand:
 
 - Open `/`, `/pre`, `/daily`, `/eval` in both languages on a phone.
 - Submit one test response to each instrument.
-- `DATABASE_URL='…' npm run verify:rows` and read the rows that come back.
+- `DATABASE_URL='…' npm run verify:rows` and read the rows that come back. If
+  Node is not to hand, paste `db/checks/inspect_rows.sql` into the Supabase SQL
+  editor instead: it prints every stored row with a verdict on whether anything
+  carries a time, an address or a user agent.
 - Delete the test data: `/admin` with the export secret, then the delete-all
   form. Confirm the counts return to zero before the first real session.
 - Print every instrument in both languages for the paper fallback.
