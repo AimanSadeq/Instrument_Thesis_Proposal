@@ -65,6 +65,7 @@ npm run verify:rows       # prints stored rows and asserts what is absent from t
 npm run verify:browser    # real browser: the Day 4 rule, an offline submission, both consent options
 npm run screenshots       # captures docs/screenshots and re-checks that the browser holds nothing
 npm run build:paper       # rebuilds the printed fallback in docs/paper, English and Arabic
+                          # Word versions: npm install docx && node scripts/build-paper-docx.js
 ```
 
 The tests need a Postgres database; set `TEST_DATABASE_URL` if it is not
