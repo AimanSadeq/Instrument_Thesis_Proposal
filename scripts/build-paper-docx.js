@@ -1,7 +1,9 @@
 'use strict';
 
 /**
- * Build the paper fallback as Word documents, one per language.
+ * Build the paper documents in Word: the fallback instruments, one file per
+ * language, and the take-away information page with both languages in one
+ * file for double-sided printing.
  *
  * The wording comes from src/content/instruments.js, the same module the
  * screens and the PDFs use, so `npm run verify:wording` covers these too and
@@ -286,6 +288,54 @@ function evalSheet(lang) {
   return [...sheetHead(POST_TRAINING.title, lang), ...body, ...sheetFoot(lang, true)];
 }
 
+/**
+ * The take-away information page required by Research Protocol v1.1 section 5.
+ * Briefing text only: nothing to choose, nothing to fill in, nothing to return.
+ */
+function informationSheet(lang) {
+  const prose = [];
+  for (const block of CONSENT.blocks) {
+    if (block.type === 'h2') prose.push(sectionHeading(t(block, lang), lang));
+    else if (block.type === 'strong') prose.push(para(t(block, lang), lang, { bold: true }));
+    else if (block.type === 'ul') {
+      for (const line of (block[lang] || block.en)) {
+        prose.push(new Paragraph({
+          bidirectional: isRtl(lang),
+          alignment: isRtl(lang) ? AlignmentType.RIGHT : AlignmentType.LEFT,
+          spacing: { after: 80 },
+          indent: { left: isRtl(lang) ? 0 : 340, right: isRtl(lang) ? 340 : 0 },
+          children: [run('— ' + line, lang)]
+        }));
+      }
+    } else prose.push(para(t(block, lang), lang));
+  }
+
+  return [
+    heading(t(CONSENT.title, lang), lang),
+    para(t(PAPER.keepThisPage, lang), lang, { bold: true, after: 0 }),
+    rule(),
+    ...prose
+  ];
+}
+
+/** One file, English then Arabic, for printing double sided. */
+function buildInformation() {
+  return new Document({
+    creator: 'Instrument platform',
+    title: t(PAPER.informationTitle, 'en'),
+    description: 'Participant information sheet, given out and not collected',
+    styles: { default: { document: { run: { font: 'Calibri', size: 21, color: INK } } } },
+    sections: [{
+      properties: { page: { margin: { top: 900, bottom: 800, left: 1000, right: 1000 } } },
+      children: [
+        ...informationSheet('en'),
+        new Paragraph({ children: [new PageBreak()] }),
+        ...informationSheet('ar')
+      ]
+    }]
+  });
+}
+
 function build(lang) {
   return new Document({
     creator: 'Instrument platform',
@@ -315,6 +365,10 @@ async function main() {
     fs.writeFileSync(file, await Packer.toBuffer(build(lang)));
     console.log('written', path.relative(process.cwd(), file), fs.statSync(file).size, 'bytes');
   }
+
+  const info = path.join(outDir, 'information-sheet.docx');
+  fs.writeFileSync(info, await Packer.toBuffer(buildInformation()));
+  console.log('written', path.relative(process.cwd(), info), fs.statSync(info).size, 'bytes');
 }
 
 main().catch((err) => {
