@@ -83,6 +83,17 @@ function createApp() {
 
 if (require.main === module) {
   if (config.env === 'production') requireProductionConfig();
+
+  // Resolve the TLS settings before accepting a single request. The pool
+  // connects lazily, so a certificate that cannot be read would otherwise
+  // stay hidden until somebody pressed a button, and would then look like a
+  // database fault rather than a configuration one.
+  try {
+    db.sslConfig();
+  } catch (err) {
+    console.error('[start] refusing to start: %s', err.message);
+    process.exit(1);
+  }
   const app = createApp();
   const server = app.listen(config.port, () => {
     console.log('[start] instrument platform listening on port %d, cohort %s, timezone %s, instruments %s',
