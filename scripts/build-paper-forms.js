@@ -13,7 +13,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { paperPack } = require('../src/render/paper');
+const { paperPack, informationPack } = require('../src/render/paper');
 
 const OUT = path.join(__dirname, '..', 'docs', 'paper');
 const EXECUTABLE = process.env.CHROMIUM_PATH || undefined;
@@ -28,6 +28,12 @@ async function main() {
     written.push(file);
   }
 
+  // The take-away information page, both languages on one sheet: print double
+  // sided, one per participant. Research Protocol v1.1 section 5.
+  const info = path.join(OUT, 'information-sheet.html');
+  fs.writeFileSync(info, informationPack(), 'utf8');
+  written.push(info);
+
   let chromium;
   try {
     ({ chromium } = require('playwright'));
@@ -40,9 +46,9 @@ async function main() {
   const browser = await chromium.launch(EXECUTABLE ? { executablePath: EXECUTABLE } : {});
   const page = await browser.newPage();
 
-  for (const lang of ['en', 'ar']) {
-    const source = path.join(OUT, `instruments-${lang}.html`);
-    const pdf = path.join(OUT, `instruments-${lang}.pdf`);
+  for (const name of ['instruments-en', 'instruments-ar', 'information-sheet']) {
+    const source = path.join(OUT, `${name}.html`);
+    const pdf = path.join(OUT, `${name}.pdf`);
     await page.goto('file://' + source, { waitUntil: 'networkidle' });
     await page.pdf({ path: pdf, format: 'A4', printBackground: true, preferCSSPageSize: true });
     written.push(pdf);

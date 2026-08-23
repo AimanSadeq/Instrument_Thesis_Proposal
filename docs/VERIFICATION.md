@@ -2,6 +2,7 @@
 
 **Build:** anonymous research instrument platform
 **Against:** *Build brief: anonymous research instrument platform*, section 7, and the hard requirements in section 3
+**Governing document:** Research Protocol and Data Management Plan v1.1. The section-by-section check against it, and the six items that need the candidate's decision, are in `PROTOCOL_CONFORMANCE.md`
 **Instrument content:** Research Instruments v2.0, English and Arabic
 **Date of this report:** 21 August 2026
 
@@ -208,7 +209,7 @@ first screen.
 ## 6. How to re-run every check
 
 ```bash
-npm test                  # 39 tests: instruments, privacy, admin, export, deletion
+npm test                  # 40 tests: instruments, privacy, admin, export, deletion
 npm run verify:wording    # all 248 instrument strings against Research Instruments v2.0
 npm run verify:privacy    # source scan and schema checks, against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them

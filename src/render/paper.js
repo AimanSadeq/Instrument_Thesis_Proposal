@@ -24,6 +24,59 @@ const { CONSENT, PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING } = require('../c
  * on purpose, and a paper form is exactly where they would creep back in.
  */
 
+const STYLE = `<style>
+@page { size: A4; margin: 16mm 15mm 14mm; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: #000;
+  background: #fff;
+  font-family: "Noto Sans", "Noto Sans Arabic", -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.5;
+}
+html[lang="ar"] body { line-height: 1.85; }
+.sheet { break-after: page; }
+.sheet:last-child { break-after: auto; }
+.sheet-head { border-block-end: 1.5pt solid #000; padding-block-end: 4mm; margin-block-end: 5mm; }
+h1 { font-size: 15pt; margin: 0 0 2mm; }
+h2 { font-size: 11.5pt; margin: 6mm 0 2mm; }
+p { margin: 0 0 2.5mm; }
+hr { border: none; border-block-start: 0.75pt solid #000; margin: 5mm 0; }
+.anon { font-weight: 700; margin: 0; }
+.lead { font-size: 11pt; }
+.muted { font-weight: 400; font-size: 9.5pt; }
+.reminder { font-style: italic; }
+.closing { font-weight: 700; margin-block-start: 5mm; }
+.prose-list { margin: 0 0 3mm; padding-inline-start: 6mm; }
+.prose-list li { margin-block-end: 1.5mm; }
+.q { break-inside: avoid; margin-block-end: 5mm; }
+.q-text { font-weight: 700; margin-block-end: 2mm; }
+ul.ticks { list-style: none; margin: 0 0 2mm; padding: 0; }
+ul.ticks li { display: flex; align-items: center; gap: 2.5mm; margin-block-end: 2mm; break-inside: avoid; }
+ul.ticks.inline { display: flex; flex-wrap: wrap; gap: 8mm; }
+ul.ticks.inline li { margin-block-end: 0; }
+ul.ticks.choices li { border: 0.75pt solid #000; padding: 3mm; }
+.tick {
+  display: inline-block;
+  inline-size: 5mm; block-size: 5mm;
+  border: 1pt solid #000;
+  flex: none;
+}
+.tick-label { flex: 1; }
+.write { margin-block-start: 2mm; }
+.write-line { border-block-end: 0.5pt solid #666; block-size: 8mm; }
+table.likert { inline-size: 100%; border-collapse: collapse; margin-block-end: 4mm; break-inside: avoid; }
+table.likert th, table.likert td { border: 0.75pt solid #000; padding: 2mm; text-align: center; vertical-align: middle; }
+table.likert th[scope="row"], table.likert th.statement { text-align: start; font-weight: 400; }
+table.likert thead th { font-weight: 700; }
+table.likert td { inline-size: 11mm; }
+table.likert td .tick { inline-size: 4.5mm; block-size: 4.5mm; }
+.item-code { font-weight: 700; }
+.day4-head { border-block-start: 0.75pt solid #000; padding-block-start: 3mm; }
+.sheet-foot { margin-block-start: 6mm; padding-block-start: 3mm; border-block-start: 0.5pt solid #000; font-size: 9.5pt; }
+</style>`;
+
 const PAPER = {
   anonymousNote: {
     en: 'This form is anonymous. Please do not write your name, your employee number, or anything else that would identify you.',
@@ -34,6 +87,14 @@ const PAPER = {
     ar: 'عند الانتهاء، ضع الورقة في صندوق الجمع دون طيّها ودون أي علامة عليها.'
   },
   tickOne: { en: 'Tick one', ar: 'ضع علامة على خيار واحد' },
+  keepThisPage: {
+    en: 'This page is yours to keep. Nothing is collected from it.',
+    ar: 'هذه الصفحة لك، احتفظ بها. ولا يُجمع منها أي شيء.'
+  },
+  informationTitle: {
+    en: 'Participant information sheet',
+    ar: 'صفحة معلومات المشارك'
+  },
   tickOnePerRow: { en: 'Tick one box in each row', ar: 'ضع علامة في مربع واحد في كل صف' },
   packTitle: { en: 'Paper fallback: research instruments', ar: 'النسخة الورقية البديلة: أدوات البحث' }
 };
@@ -158,6 +219,50 @@ ${open}
   return sheet(POST_TRAINING.title, lang, body);
 }
 
+/**
+ * The take-away information page required by Research Protocol v1.1 section 5:
+ * "Participants receive a printed information page to keep. This page is given
+ * to participants and nothing is collected from it."
+ *
+ * It is the briefing text and nothing else. No options to choose, no tick
+ * boxes, and no collection instruction, because nothing comes back. Choosing
+ * happens on the screen, where both options look identical.
+ */
+function informationSheet(lang) {
+  const prose = CONSENT.blocks.map((block) => {
+    if (block.type === 'h2') return `<h2>${esc(t(block, lang))}</h2>`;
+    if (block.type === 'strong') return `<p class="lead"><strong>${esc(t(block, lang))}</strong></p>`;
+    if (block.type === 'ul') {
+      return `<ul class="prose-list">${(block[lang] || block.en).map((line) => `<li>${esc(line)}</li>`).join('')}</ul>`;
+    }
+    return `<p>${esc(t(block, lang))}</p>`;
+  }).join('\n');
+
+  return `<section class="sheet">
+<header class="sheet-head">
+<h1>${esc(t(CONSENT.title, lang))}</h1>
+<p class="anon">${esc(t(PAPER.keepThisPage, lang))}</p>
+</header>
+${prose}
+</section>`;
+}
+
+/** English and Arabic on one sheet, printed double sided, one per participant. */
+function informationPack() {
+  return `<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>${esc(t(PAPER.informationTitle, 'en'))}</title>
+${STYLE}
+</head>
+<body>
+<div dir="ltr" lang="en">${informationSheet('en')}</div>
+<div dir="rtl" lang="ar">${informationSheet('ar')}</div>
+</body>
+</html>`;
+}
+
 /** One printable document per language, four instruments, one per sheet. */
 function paperPack(lang) {
   const dir = lang === 'ar' ? 'rtl' : 'ltr';
@@ -166,58 +271,7 @@ function paperPack(lang) {
 <head>
 <meta charset="utf-8">
 <title>${esc(t(PAPER.packTitle, lang))}</title>
-<style>
-@page { size: A4; margin: 16mm 15mm 14mm; }
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  color: #000;
-  background: #fff;
-  font-family: "Noto Sans", "Noto Sans Arabic", -apple-system, "Segoe UI", Arial, sans-serif;
-  font-size: 10.5pt;
-  line-height: 1.5;
-}
-html[lang="ar"] body { line-height: 1.85; }
-.sheet { break-after: page; }
-.sheet:last-child { break-after: auto; }
-.sheet-head { border-block-end: 1.5pt solid #000; padding-block-end: 4mm; margin-block-end: 5mm; }
-h1 { font-size: 15pt; margin: 0 0 2mm; }
-h2 { font-size: 11.5pt; margin: 6mm 0 2mm; }
-p { margin: 0 0 2.5mm; }
-hr { border: none; border-block-start: 0.75pt solid #000; margin: 5mm 0; }
-.anon { font-weight: 700; margin: 0; }
-.lead { font-size: 11pt; }
-.muted { font-weight: 400; font-size: 9.5pt; }
-.reminder { font-style: italic; }
-.closing { font-weight: 700; margin-block-start: 5mm; }
-.prose-list { margin: 0 0 3mm; padding-inline-start: 6mm; }
-.prose-list li { margin-block-end: 1.5mm; }
-.q { break-inside: avoid; margin-block-end: 5mm; }
-.q-text { font-weight: 700; margin-block-end: 2mm; }
-ul.ticks { list-style: none; margin: 0 0 2mm; padding: 0; }
-ul.ticks li { display: flex; align-items: center; gap: 2.5mm; margin-block-end: 2mm; break-inside: avoid; }
-ul.ticks.inline { display: flex; flex-wrap: wrap; gap: 8mm; }
-ul.ticks.inline li { margin-block-end: 0; }
-ul.ticks.choices li { border: 0.75pt solid #000; padding: 3mm; }
-.tick {
-  display: inline-block;
-  inline-size: 5mm; block-size: 5mm;
-  border: 1pt solid #000;
-  flex: none;
-}
-.tick-label { flex: 1; }
-.write { margin-block-start: 2mm; }
-.write-line { border-block-end: 0.5pt solid #666; block-size: 8mm; }
-table.likert { inline-size: 100%; border-collapse: collapse; margin-block-end: 4mm; break-inside: avoid; }
-table.likert th, table.likert td { border: 0.75pt solid #000; padding: 2mm; text-align: center; vertical-align: middle; }
-table.likert th[scope="row"], table.likert th.statement { text-align: start; font-weight: 400; }
-table.likert thead th { font-weight: 700; }
-table.likert td { inline-size: 11mm; }
-table.likert td .tick { inline-size: 4.5mm; block-size: 4.5mm; }
-.item-code { font-weight: 700; }
-.day4-head { border-block-start: 0.75pt solid #000; padding-block-start: 3mm; }
-.sheet-foot { margin-block-start: 6mm; padding-block-start: 3mm; border-block-start: 0.5pt solid #000; font-size: 9.5pt; }
-</style>
+${STYLE}
 </head>
 <body>
 ${consentSheet(lang)}
@@ -228,4 +282,4 @@ ${evalSheet(lang)}
 </html>`;
 }
 
-module.exports = { paperPack, PAPER };
+module.exports = { paperPack, informationPack, informationSheet, PAPER };

@@ -154,6 +154,23 @@ test('the printed fallback carries no name, date or signature field', async () =
   }
 });
 
+test('the information page is information only, and says it is yours to keep', async () => {
+  // Research Protocol v1.1 section 5: given to participants, nothing collected.
+  const { informationPack } = require('../src/render/paper');
+  const sheet = informationPack();
+  assert.ok(!/class="tick"/.test(sheet), 'the information page has nothing to fill in');
+  assert.ok(!/collection box|صندوق الجمع/.test(sheet), 'nothing comes back from it');
+  // The shared stylesheet defines the rule; what matters is that no element
+  // on this page uses it.
+  assert.ok(!/<div class="write-line">/.test(sheet), 'there is nowhere to write on it');
+  assert.ok(!/<div class="write">/.test(sheet), 'there is nowhere to write on it');
+  assert.match(sheet, /yours to keep/);
+  assert.match(sheet, /احتفظ بها/);
+  // Both languages on the one sheet, each in its own direction.
+  assert.match(sheet, /<div dir="ltr" lang="en">/);
+  assert.match(sheet, /<div dir="rtl" lang="ar">/);
+});
+
 test('the printed forms and the screens come from one source', async () => {
   const { paperPack } = require('../src/render/paper');
   const { POST_TRAINING, CONSENT } = require('../src/content/instruments');
