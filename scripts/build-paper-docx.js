@@ -247,7 +247,7 @@ function consentSheet(lang) {
 }
 
 function preSheet(lang) {
-  const body = [];
+  const body = [para(t(PRE_TRAINING.reminder, lang), lang, { italics: true })];
   for (const section of PRE_TRAINING.sections) {
     body.push(sectionHeading(t(section.title, lang), lang));
     for (const item of section.items) {

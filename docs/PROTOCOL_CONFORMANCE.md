@@ -14,7 +14,7 @@ the software cannot make true as written; the rest are small.
 
 | Protocol says | Status |
 |---|---|
-| Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.0 |
+| Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.1 |
 | Daily Reflection Cards, Days 1 to 4 | Built, but the programme is no longer always four days. See **Flag 7** |
 | Delivered as web forms, own or provided devices | Built, mobile first |
 | Access by short URL and QR code displayed in the room | Built. Each instrument has its own address and its own QR code on the admin page |
