@@ -2,7 +2,7 @@
 
 **Build:** anonymous research instrument platform
 **Against:** *Build brief: anonymous research instrument platform*, section 7, and the hard requirements in section 3
-**Governing document:** Research Protocol and Data Management Plan v1.1. The section-by-section check against it, and the six items that need the candidate's decision, are in `PROTOCOL_CONFORMANCE.md`
+**Governing document:** Research Protocol and Data Management Plan v1.2. The section-by-section check against it, and the six items that need the candidate's decision, are in `PROTOCOL_CONFORMANCE.md`
 **Instrument content:** Research Instruments v2.1, English and Arabic
 **Date of this report:** 21 August 2026
 

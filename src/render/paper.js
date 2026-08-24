@@ -222,7 +222,7 @@ ${open}
 }
 
 /**
- * The take-away information page required by Research Protocol v1.1 section 5:
+ * The take-away information page required by Research Protocol v1.2 section 5:
  * "Participants receive a printed information page to keep. This page is given
  * to participants and nothing is collected from it."
  *

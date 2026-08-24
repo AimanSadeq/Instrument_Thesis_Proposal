@@ -96,7 +96,7 @@ src/db.js                    one independent row per submission, no clock readin
 db/migrations/               the schema
 db/checks/                   SQL that must return zero rows, forever
 docs/VERIFICATION.md         the report against the build brief checklist
-docs/PROTOCOL_CONFORMANCE.md the check against Research Protocol and DMP v1.1
+docs/PROTOCOL_CONFORMANCE.md the check against Research Protocol and DMP v1.2
 docs/DEPLOYMENT.md           Supabase and Render, and how to take it down again
 docs/OPERATIONS.md           what the facilitator and the researcher do on the day
 docs/source/                 Research Instruments v2.1, the content this must match

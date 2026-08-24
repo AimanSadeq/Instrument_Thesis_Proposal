@@ -72,7 +72,7 @@ unmarked, box sealed in the room. Record it.
 Separately from the fallback, print `docs/paper/information-sheet.pdf`, or the
 Word version beside it — one double-sided sheet per participant, English on one side and Arabic on the
 other. It is the briefing text with nothing to fill in and nothing to return,
-handed out on Day 1 for people to keep. Research Protocol v1.1 section 5
+handed out on Day 1 for people to keep. Research Protocol v1.2 section 5
 requires it.
 
 The printed forms are `docs/paper/instruments-en.pdf` and

@@ -291,7 +291,7 @@ function evalSheet(lang) {
 }
 
 /**
- * The take-away information page required by Research Protocol v1.1 section 5.
+ * The take-away information page required by Research Protocol v1.2 section 5.
  * Briefing text only: nothing to choose, nothing to fill in, nothing to return.
  */
 function informationSheet(lang) {

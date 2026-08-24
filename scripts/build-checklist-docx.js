@@ -126,7 +126,7 @@ const doc = new Document({
       title('Pre-course checklist, Cohort 1'),
       meta('Programme', '6 to 9 September 2026, hotel venue, approximately 25 participants'),
       meta('Service', 'https://instrument-platform.onrender.com'),
-      meta('Export deadline', '11 September 2026 (Protocol v1.1 section 7, within 48 hours)'),
+      meta('Export deadline', '11 September 2026 (Protocol v1.2 section 7, within 48 hours)'),
       intro('Print this. Tick as you go. Anything not ticked by 5 September is a decision to make rather than a task to forget.'),
 
       section('A. This week'),
