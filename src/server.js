@@ -96,8 +96,8 @@ if (require.main === module) {
   }
   const app = createApp();
   const server = app.listen(config.port, () => {
-    console.log('[start] instrument platform listening on port %d, cohort %s, timezone %s, instruments %s',
-      config.port, config.cohort, config.timezone, config.instrumentsOpen ? 'open' : 'closed');
+    console.log('[start] instrument platform listening on port %d, cohort %s, %d-day programme, timezone %s, instruments %s',
+      config.port, config.cohort, config.programmeDays, config.timezone, config.instrumentsOpen ? 'open' : 'closed');
   });
   const shutdown = async () => {
     server.close();

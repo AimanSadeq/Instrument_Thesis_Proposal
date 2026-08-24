@@ -15,7 +15,7 @@ consented.
 | Day 1, before any content | `/` |
 | Day 1, after the briefing | `/pre` |
 | End of Days 1, 2, 3 and 4 | `/daily` |
-| End of Day 4, after the reflection | `/eval` |
+| End of the last day, after the reflection | `/eval` |
 
 QR codes for all four are on the admin page, ready to project. Display the one
 for the moment you are in, as the run sheet describes.
@@ -33,7 +33,10 @@ warns before it happens.
 
 The daily reflection asks the participant which day it is. It is not derived
 from the date, because a session can run late and a participant can complete
-on the way home. The Day 4 question appears only when Day 4 is chosen.
+on the way home. The cross-programme question appears only when the last day
+is chosen, and which day that is comes from `PROGRAMME_DAYS`. Check the admin
+page header before the programme starts: it says how many days this service is
+configured for and which day will carry R4.
 
 ## The admin page
 

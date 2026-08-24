@@ -108,7 +108,11 @@ const INSERTS = {
   },
   daily: {
     table: 'research.daily_reflections',
-    columns: ['training_day', 'r1', 'r2', 'r3', 'r4']
+    columns: ['training_day', 'r1', 'r2', 'r3', 'r4'],
+    // Stamped from configuration, not from the submitted body, in the same way
+    // the cohort is. A reflection count cannot be read correctly without
+    // knowing how many days the programme ran.
+    stamps: { programme_days: () => config.programmeDays }
   },
   eval: {
     table: 'research.post_training_evaluations',
@@ -130,8 +134,15 @@ async function insertSubmission(instrument, values) {
   const spec = INSERTS[instrument];
   if (!spec) throw new Error('Unknown instrument: ' + instrument);
 
-  const columns = ['cohort', 'submission_date', ...spec.columns];
-  const params = [config.cohort, todayInZone(), ...spec.columns.map((c) => (values[c] === undefined ? null : values[c]))];
+  const stamps = spec.stamps || {};
+  const stamped = Object.keys(stamps);
+  const columns = ['cohort', 'submission_date', ...stamped, ...spec.columns];
+  const params = [
+    config.cohort,
+    todayInZone(),
+    ...stamped.map((name) => stamps[name]()),
+    ...spec.columns.map((c) => (values[c] === undefined ? null : values[c]))
+  ];
   const placeholders = columns.map((_, i) => '$' + (i + 1)).join(', ');
 
   await query(
@@ -183,7 +194,7 @@ const EXPORT_QUERIES = {
                         from research.consent_responses order by id`,
   pre_training_responses: `select id, cohort, submission_date, a1, a2, b1, b2, b3, c1, c2, d1
                         from research.pre_training_responses order by id`,
-  daily_reflections: `select id, cohort, submission_date, training_day, r1, r2, r3, r4
+  daily_reflections: `select id, cohort, submission_date, programme_days, training_day, r1, r2, r3, r4
                         from research.daily_reflections order by id`,
   post_training_evaluations: `select id, cohort, submission_date,
                           a1, a2, a3, a4, a5, b1, b2, b3, b4, b5, c1, c2, c3, c4,

@@ -20,7 +20,7 @@ const TABLES = [
 const EXPECTED_COLUMNS = {
   consent_responses: ['choice', 'cohort', 'id', 'submission_date'],
   pre_training_responses: ['a1', 'a2', 'b1', 'b2', 'b3', 'c1', 'c2', 'cohort', 'd1', 'id', 'submission_date'],
-  daily_reflections: ['cohort', 'id', 'r1', 'r2', 'r3', 'r4', 'submission_date', 'training_day'],
+  daily_reflections: ['cohort', 'id', 'programme_days', 'r1', 'r2', 'r3', 'r4', 'submission_date', 'training_day'],
   post_training_evaluations: [
     'a1', 'a2', 'a3', 'a4', 'a5', 'b1', 'b2', 'b3', 'b4', 'b5',
     'c1', 'c2', 'c3', 'c4', 'cohort', 'd1', 'd2', 'd3', 'd4', 'id', 'submission_date'

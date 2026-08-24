@@ -3,6 +3,7 @@
 const { esc, t } = require('./html');
 const { UI } = require('../content/ui');
 const { page } = require('./layout');
+const { config } = require('../config');
 const c = require('./components');
 const { CONSENT, PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING } = require('../content/instruments');
 
@@ -59,12 +60,15 @@ ${c.form(PRE_TRAINING, lang, sections + '\n' + c.submitButton(lang))}`;
 }
 
 // --- Daily reflection ---------------------------------------------------------
-// R4 belongs to Day 4 only. With JavaScript it appears when Day 4 is chosen;
-// without JavaScript it is visible under its "Day 4 only" heading, exactly as
-// on the paper instrument. The server stores it only when Day 4 was chosen.
+// R4 belongs to the last training day only, whichever that is for this cohort.
+// With JavaScript it appears when the last day is chosen; without JavaScript it
+// is visible under its "Day N only" heading, exactly as on the paper
+// instrument. The server stores it only when the last day was chosen. The day
+// itself is written into the markup so that the client script does not have to
+// assume a programme length.
 function dailyPage({ lang, values = {}, errors = {}, error }) {
-  const day = String(values.training_day || '');
-  const showDay4 = day === '4';
+  const finalDay = String(config.programmeDays);
+  const showFinalDay = String(values.training_day || '') === finalDay;
 
   const inner = `<section class="section">
 ${c.radioGroup(DAILY_REFLECTION.daySelector, lang, values.training_day, {
@@ -77,9 +81,9 @@ ${c.radioGroup(DAILY_REFLECTION.daySelector, lang, values.training_day, {
 <section class="section">
 ${DAILY_REFLECTION.items.map((item) => c.field(item, lang, values, errors)).join('\n')}
 </section>
-<section class="section day4" id="day4" data-day4="1"${showDay4 ? '' : ' data-hidden-without-day4="1"'}>
-<h2>${esc(t(DAILY_REFLECTION.day4Heading, lang))}</h2>
-${c.textField(DAILY_REFLECTION.day4Item, lang, values.r4)}
+<section class="section final-day" id="final-day" data-final-day="${esc(finalDay)}"${showFinalDay ? '' : ' data-hidden-without-final-day="1"'}>
+<h2>${esc(t(DAILY_REFLECTION.finalDayHeading, lang))}</h2>
+${c.textField(DAILY_REFLECTION.finalDayItem, lang, values.r4)}
 </section>
 ${c.submitButton(lang)}`;
 

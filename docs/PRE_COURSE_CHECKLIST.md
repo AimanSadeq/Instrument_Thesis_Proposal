@@ -57,7 +57,10 @@ not code.
 
 ## D. Testing, by 3 September
 
-- [ ] **The Day 4 path on the live service.** Open `/daily`, choose Day 4,
+- [ ] **`PROGRAMME_DAYS` matches this cohort.** Three for a three-day
+      programme, four for a four-day one. The admin page header states it, and
+      the day selector should offer exactly that many days and no more.
+- [ ] **The last-day path on the live service.** Open `/daily`, choose the last day,
       confirm the R4 question appears, submit. This is the only route in the
       application never exercised against the deployment, and it only matters
       on the last day, when there is no second chance.
@@ -104,9 +107,9 @@ not code.
       have influenced responses.
 - [ ] Write the **reflexivity journal** entry the same evening.
 
-## H. Day 4
+## H. The last day
 
-- [ ] Daily reflection link as usual. R4 appears when Day 4 is chosen.
+- [ ] Daily reflection link as usual. R4 appears when the last day is chosen.
 - [ ] Then the post-training evaluation link. Ten minutes.
 - [ ] Once everyone has finished: **set `INSTRUMENTS_OPEN=false`.**
 

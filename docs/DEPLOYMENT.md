@@ -65,6 +65,7 @@ To create the service by hand instead:
    | `DATABASE_SSL` | `verify`, or `ca` with `DATABASE_CA_CERT` |
    | `COLLECTION_TIMEZONE` | `Asia/Riyadh`, or the zone the programme runs in |
    | `COHORT` | `cohort-1`, then `cohort-2` before the October programme |
+   | `PROGRAMME_DAYS` | Training days in this cohort's programme. Defaults to `4`. Set `3` for a three-day programme. Decides the day selector and which day carries R4. Two cohorts of different lengths running at once need two services. |
    | `ADMIN_SECRET` | facilitator secret, counts only |
    | `EXPORT_SECRET` | researcher secret, export and delete. **Must differ** |
    | `INSTRUMENTS_OPEN` | `true` during a programme, `false` between them |

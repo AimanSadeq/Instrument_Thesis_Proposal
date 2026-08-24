@@ -33,6 +33,14 @@ services:
         value: Asia/Riyadh
       - key: COHORT
         value: cohort-1
+      # Training days in this cohort's programme. Four is what Research
+      # Instruments v2.0 is written for; the September cohorts at the second
+      # client are three. It decides the day selector, the day named in the
+      # wording, and which day carries the cross-programme question R4. Two
+      # cohorts of different lengths running in the same week need two
+      # services, because this is read once at start-up.
+      - key: PROGRAMME_DAYS
+        value: "4"
       - key: INSTRUMENTS_OPEN
         value: "true"
       # Set these in the dashboard. They are never committed.

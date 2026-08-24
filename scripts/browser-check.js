@@ -1,8 +1,11 @@
 'use strict';
 
 /**
- * Behaviour checks that need a real browser: the Day 4 rule, and what a
+ * Behaviour checks that need a real browser: the final-day rule, and what a
  * participant sees when a submission fails on a bad connection.
+ *
+ * Which day is the final one comes from the page, not from this script, so
+ * the check is correct against a three-day cohort as well as a four-day one.
  *
  * Usage: BASE_URL=http://127.0.0.1:3000 node scripts/browser-check.js
  *        CHROMIUM_PATH=/path/to/chrome to use an already installed browser.
@@ -25,14 +28,19 @@ async function main() {
   const context = await browser.newContext({ ...devices['iPhone 13'], deviceScaleFactor: 2 });
   const page = await context.newPage();
 
-  // 1. R4 follows the day selector.
+  // 1. R4 follows the day selector, on whichever day is the last one.
   await page.goto(`${BASE}/daily?lang=ar`);
-  const r4 = page.locator('#day4');
+  const r4 = page.locator('#final-day');
+  const finalDay = await page.getAttribute('[data-final-day]', 'data-final-day');
+  const offered = await page.$$eval('input[name="training_day"]', (els) => els.map((e) => e.value));
+  check(offered.join(',') === Array.from({ length: Number(finalDay) }, (_, i) => String(i + 1)).join(','),
+    `the selector offers exactly days 1 to ${finalDay}, and offered ${offered.join(', ')}`);
   check(!(await r4.isVisible()), 'R4 is hidden until a day is chosen');
   await page.click('input[name="training_day"][value="2"]');
-  check(!(await r4.isVisible()), 'R4 stays hidden on Day 2');
-  await page.click('input[name="training_day"][value="4"]');
-  check(await r4.isVisible(), 'R4 appears on Day 4');
+  check(Number(finalDay) === 2 ? await r4.isVisible() : !(await r4.isVisible()),
+    'R4 follows Day 2 correctly for this programme length');
+  await page.click(`input[name="training_day"][value="${finalDay}"]`);
+  check(await r4.isVisible(), `R4 appears on Day ${finalDay}, the last day`);
 
   // 2. A failed submission says so, and keeps the answers on the page.
   await page.fill('textarea[name="r1"]', 'المحاكاة كانت مفيدة');

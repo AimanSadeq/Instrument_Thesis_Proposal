@@ -152,7 +152,7 @@ test('an unexpected extra field cannot become a hidden identifier', async () => 
   }));
   const row = (await db.query('select * from research.daily_reflections')).rows[0];
   assert.deepEqual(Object.keys(row).sort(),
-    ['cohort', 'id', 'r1', 'r2', 'r3', 'r4', 'submission_date', 'training_day']);
+    ['cohort', 'id', 'programme_days', 'r1', 'r2', 'r3', 'r4', 'submission_date', 'training_day']);
   assert.ok(!JSON.stringify(row).includes('44812'));
 });
 

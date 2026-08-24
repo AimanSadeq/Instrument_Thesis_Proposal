@@ -4,7 +4,7 @@ The build brief names this protocol as the governing document and says that
 where the two disagree, the protocol wins and the conflict is to be flagged.
 This is that check, section by section.
 
-Most of it is satisfied. Six things need a decision from the candidate, and
+Most of it is satisfied. Seven things need a decision from the candidate, and
 they are collected at the end. One of them is a sentence in the protocol that
 the software cannot make true as written; the rest are small.
 
@@ -15,6 +15,7 @@ the software cannot make true as written; the rest are small.
 | Protocol says | Status |
 |---|---|
 | Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.0 |
+| Daily Reflection Cards, Days 1 to 4 | Built, but the programme is no longer always four days. See **Flag 7** |
 | Delivered as web forms, own or provided devices | Built, mobile first |
 | Access by short URL and QR code displayed in the room | Built. Each instrument has its own address and its own QR code on the admin page |
 | No login, no account, no invitation by email or name, so no participant list or contact record is created at any stage | Satisfied. No authentication code and no contact field exists anywhere |
@@ -190,6 +191,41 @@ The printed forms follow the run sheet, since that is the operational
 document. The two sentences should be made to agree; the run sheet's version
 is the better procedure, because an envelope per participant reintroduces a
 per-person object.
+
+### Flag 7. The protocol says four days, and two cohorts are three
+
+Section 4 lists "Daily Reflection Cards, Days 1 to 4", and section 2 describes
+Cycle 1 as two cohorts. Both are now out of date. The September cohorts at the
+third client run three days each, delivered by a colleague rather than by the
+candidate, which makes four cohorts in Cycle 1 and two different programme
+lengths inside it.
+
+The build no longer assumes four. `PROGRAMME_DAYS` sets the length, the day
+selector offers exactly that many days, the wording names the right day in
+both languages, and the cross-programme question R4 attaches to the last day
+rather than to Day 4. Each stored reflection records how many days its
+programme had, and the schema ties R4 to the last of them, so the guarantee is
+stronger than it was: a Day 4 row in a three-day programme is now refused,
+where version 001 of the schema would have accepted it.
+
+Two things follow, and both are the candidate's call.
+
+1. **The protocol needs a version 1.2.** Section 2 for the cohort count and
+   who delivers each one, section 4 for the day count, section 6 because the
+   facilitator-researcher dual role does not apply where the candidate neither
+   delivers nor observes, and section 9 for the timeline.
+2. **Research Instruments v2.0 is written for four days.** The four-day text
+   remains canonical in the code and is still checked word for word. A shorter
+   programme is derived from it by substituting named day phrases and nothing
+   else, which the tests enforce in both languages. That substitution should be
+   recorded in the instruments document, as an appendix rather than a reissue,
+   so that what a three-day room reads is documented rather than inferred.
+
+One operational point that is not a decision: **two cohorts of different
+lengths cannot share one service.** The length is read once at start-up, in the
+same way the cohort label is. The 6 to 8 September cohort and the 6 to 9
+September cohort overlap, so they need two services with their own `COHORT`
+and `PROGRAMME_DAYS`, or the rows land under one label with the wrong length.
 
 ---
 

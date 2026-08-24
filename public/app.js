@@ -4,7 +4,8 @@
  *
  * Every instrument works with JavaScript switched off: the forms are ordinary
  * POSTs and the server renders the result. What this file adds is a clearer
- * failure path on a bad connection, and the Day 4 rule on the daily reflection.
+ * failure path on a bad connection, and the final-day rule on the daily
+ * reflection.
  *
  * It sets no cookie, writes nothing to web storage of either kind, reads no
  * device characteristic, and generates no identifier. There is nothing here
@@ -16,24 +17,27 @@
   if (!forms.length) return;
 
   Array.prototype.forEach.call(forms, function (form) {
-    setUpDayFour(form);
+    setUpFinalDay(form);
     setUpLeaveWarning(form);
     setUpSubmit(form);
   });
 
-  /* R4 belongs to Day 4. Without JavaScript it simply stays visible under its
-     "Day 4 only" heading, and the server ignores it on days 1 to 3. */
-  function setUpDayFour(form) {
-    var block = form.querySelector('[data-day4]');
+  /* R4 belongs to the last training day. Which day that is comes from the
+     markup, because the programme is not always four days. Without JavaScript
+     the block simply stays visible under its "Day N only" heading, and the
+     server ignores it on every earlier day. */
+  function setUpFinalDay(form) {
+    var block = form.querySelector('[data-final-day]');
     if (!block) return;
+    var finalDay = block.getAttribute('data-final-day');
     var radios = form.querySelectorAll('input[name="training_day"]');
     if (!radios.length) return;
 
     function apply() {
       var chosen = form.querySelector('input[name="training_day"]:checked');
-      var isDayFour = Boolean(chosen) && chosen.value === '4';
-      block.hidden = !isDayFour;
-      if (!isDayFour) {
+      var isFinalDay = Boolean(chosen) && chosen.value === finalDay;
+      block.hidden = !isFinalDay;
+      if (!isFinalDay) {
         var box = block.querySelector('textarea');
         if (box) box.value = '';
       }

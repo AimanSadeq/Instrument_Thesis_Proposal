@@ -109,7 +109,7 @@ ${['consent_responses', 'pre_training_responses', 'daily_reflections', 'post_tra
   const body = `<h1>Admin: counts</h1>
 ${message ? `<div class="banner banner-error" role="alert"><p>${esc(message)}</p></div>` : ''}
 ${deleteBlock}
-<p class="hint">Cohort <strong>${esc(counts.cohort)}</strong> · date today in ${esc(config.timezone)}: <strong>${esc(counts.generatedForDate)}</strong> · instruments ${config.instrumentsOpen ? 'open' : '<strong>closed</strong>'}</p>
+<p class="hint">Cohort <strong>${esc(counts.cohort)}</strong> · programme <strong>${esc(config.programmeDays)} days</strong>, so R4 appears on Day ${esc(config.programmeDays)} · date today in ${esc(config.timezone)}: <strong>${esc(counts.generatedForDate)}</strong> · instruments ${config.instrumentsOpen ? 'open' : '<strong>closed</strong>'}</p>
 
 ${table('Totals', ['Instrument', 'Submissions'], [
     ['Consent, total', totals.consent],
