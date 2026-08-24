@@ -229,3 +229,36 @@ test('an unknown page is a plain not-found, in the chosen language', async () =>
   assert.equal(response.status, 404);
   assert.match(await response.text(), /الصفحة غير موجودة/);
 });
+
+// Research Protocol section 5: each instrument completed after the Day 1
+// briefing opens with a one-line reminder that participation remains
+// voluntary. Instruments v2.0 omitted it from the pre-training questionnaire,
+// so the protocol and the instruments disagreed and the protocol won. This is
+// that commitment as a check rather than an intention.
+test('every instrument after the briefing opens with the voluntariness reminder', async () => {
+  const { PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING } = require('../src/content/instruments');
+  const { paperPack } = require('../src/render/paper');
+
+  for (const instrument of [PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING]) {
+    for (const lang of ['en', 'ar']) {
+      assert.ok(instrument.reminder && instrument.reminder[lang],
+        `${instrument.id}: no reminder in ${lang}`);
+    }
+  }
+
+  // The same words, so a participant cannot read a weaker promise on one form.
+  const wording = PRE_TRAINING.reminder;
+  assert.deepEqual(DAILY_REFLECTION.reminder, wording);
+  assert.deepEqual(POST_TRAINING.reminder, wording);
+
+  // On screen, and on the printed fallback.
+  for (const lang of ['en', 'ar']) {
+    const paper = paperPack(lang);
+    for (const path of ['/pre', '/daily', '/eval']) {
+      const html = await (await fetch(`${base}${path}?lang=${lang}`)).text();
+      assert.ok(html.includes(wording[lang]), `${path} (${lang}) is missing the reminder on screen`);
+    }
+    assert.equal(paper.split(wording[lang]).length - 1, 3,
+      `the printed pack (${lang}) should carry the reminder on all three instruments`);
+  }
+});

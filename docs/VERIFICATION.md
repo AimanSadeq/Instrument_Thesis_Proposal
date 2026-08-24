@@ -2,8 +2,8 @@
 
 **Build:** anonymous research instrument platform
 **Against:** *Build brief: anonymous research instrument platform*, section 7, and the hard requirements in section 3
-**Governing document:** Research Protocol and Data Management Plan v1.1. The section-by-section check against it, and the six items that need the candidate's decision, are in `PROTOCOL_CONFORMANCE.md`
-**Instrument content:** Research Instruments v2.0, English and Arabic
+**Governing document:** Research Protocol and Data Management Plan v1.2. The section-by-section check against it, and the six items that need the candidate's decision, are in `PROTOCOL_CONFORMANCE.md`
+**Instrument content:** Research Instruments v2.1, English and Arabic
 **Date of this report:** 21 August 2026
 
 Every line of the section 7 checklist is answered below, with what was
@@ -42,7 +42,7 @@ never prompts anyone, at any point, for any instrument.
   and no navigation.
 - Each instrument has its own short URL and its own QR code. The facilitator
   displays the right one at the right moment, exactly as the run sheet in
-  Research Instruments v2.0 part 3 already describes. A participant who
+  Research Instruments v2.1 part 3 already describes. A participant who
   declined simply does not open it, and nothing on their screen ever suggests
   that they should.
 
@@ -103,7 +103,7 @@ protocol needs a different mechanism, not a different implementation.
 
 | Line | Result |
 |---|---|
-| Implemented verbatim: nothing reworded, reordered, added or dropped | **Pass.** `npm run verify:wording` takes all 248 participant-facing strings out of `src/content/instruments.js`, English and Arabic, and checks each one appears verbatim in `docs/source/Research_Instruments_v2.0.md`, which is committed alongside the code. All 248 are found. It also counts items against section 4 of the brief: 8 pre-training items, 4 daily reflection items including R4, 4 day options (the wording check always reads the canonical four-day content, whatever `PROGRAMME_DAYS` is set to), 14 Likert items, 4 open evaluation items, 2 consent options. Run it after any edit to the instrument content. |
+| Implemented verbatim: nothing reworded, reordered, added or dropped | **Pass.** `npm run verify:wording` takes all 250 participant-facing strings out of `src/content/instruments.js`, English and Arabic, and checks each one appears verbatim in `docs/source/Research_Instruments_v2.0.md`, which is committed alongside the code. All 250 are found. It also counts items against section 4 of the brief: 8 pre-training items, 4 daily reflection items including R4, 4 day options (the wording check always reads the canonical four-day content, whatever `PROGRAMME_DAYS` is set to), 14 Likert items, 4 open evaluation items, 2 consent options. Run it after any edit to the instrument content. |
 | R4 appears only when the last day is selected | **Pass.** In the browser, R4 is hidden until a day is chosen, stays hidden on every earlier day, and appears on the last one, whichever it is for this cohort (`npm run verify:browser` reads the day from the page rather than assuming four). Without JavaScript it stays visible under its "Day N only" heading, as on paper. The server stores it only when the last day was chosen, and the database refuses the combination independently through a check constraint (tests *R4 is stored on day 4 and dropped on every other day* and *the schema refuses R4 on any day but the last, whatever the application does*). |
 | The programme is not always four days | **Pass.** `PROGRAMME_DAYS` sets the length, from 2 to 6, and a value outside that range stops the service at start-up rather than serving a day selector with no options. The four-day text of Research Instruments v2.0 stays canonical in `src/content/instruments.js` and `verify:wording` still checks it word for word; a shorter programme is derived from it by substituting named day phrases, each of which the code asserts is present before replacing it. `tests/programme-length.test.js` runs the whole application at three days and requires that the shorter wording differs from the canonical wording in the day words and nothing else, in both languages. Each reflection row records `programme_days`, and the schema ties R4 to the last of them, so a Day 4 row in a three-day programme is now rejected where before it would have been accepted. |
 | Paper fallback carries the same wording | **Pass.** `npm run build:paper` renders `docs/paper/instruments-{en,ar}.pdf` from `src/content/instruments.js`, the same module the screens use, so printed and on-screen wording cannot diverge and `verify:wording` covers both at once. A shorter programme is rendered to `docs/paper/<n>-day/` and names its own length on the sheet, so two cohorts running in the same week cannot be handed each other's packs. The printed sheets carry no name, date or signature field, asserted in test *the printed fallback carries no name, date or signature field*; v2.0 removed those on purpose and a paper form is where they would creep back. Two lines appear on paper that are not on screen, both administration rather than instrument content: a request not to write anything identifying, and the collection instruction from the run sheet. |
@@ -251,7 +251,7 @@ first screen.
 
 ```bash
 npm test                  # 40 tests: instruments, privacy, admin, export, deletion
-npm run verify:wording    # all 248 instrument strings against Research Instruments v2.0
+npm run verify:wording    # all 250 instrument strings against Research Instruments v2.1
 npm run verify:privacy    # source scan and schema checks, against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them
 npm run verify:browser    # real browser: the final-day rule, an offline submission, both consent options

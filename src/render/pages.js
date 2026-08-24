@@ -8,7 +8,7 @@ const c = require('./components');
 const { CONSENT, PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING } = require('../content/instruments');
 
 /**
- * Note on the italic lines in Research Instruments v2.0: the timing notes
+ * Note on the italic lines in Research Instruments v2.1: the timing notes
  * ("Day 1, before training content begins. About five minutes.") are
  * instructions to whoever administers the instrument, so they are not shown
  * to participants. The voluntariness reminder is participant-facing (part 4,
@@ -53,6 +53,7 @@ ${section.items.map((item) => c.field(item, lang, values, errors)).join('\n')}
 
   const main = `<h1>${esc(t(PRE_TRAINING.title, lang))}</h1>
 ${c.errorBanner(error, lang)}
+<p class="reminder">${esc(t(PRE_TRAINING.reminder, lang))}</p>
 <p class="intro">${esc(t(PRE_TRAINING.intro, lang))}</p>
 ${c.form(PRE_TRAINING, lang, sections + '\n' + c.submitButton(lang))}`;
 

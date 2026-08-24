@@ -4,7 +4,7 @@ const { config } = require('../config');
 
 /**
  * Instrument content, English and Arabic, transcribed verbatim from
- * "Research Instruments, version 2.0" (August 2026).
+ * "Research Instruments, version 2.1" (August 2026).
  *
  * Nothing here may be reworded, reordered, added to or dropped without a
  * corresponding change to that document.
@@ -84,6 +84,12 @@ const PRE_TRAINING = {
   note: {
     en: 'Day 1, before training content begins. About five minutes.',
     ar: 'اليوم الأول، قبل بدء المحتوى التدريبي. نحو خمس دقائق.'
+  },
+  // Protocol section 5 requires this on each instrument that follows the Day 1
+  // briefing. Version 2.0 of the instruments omitted it here; 2.1 adds it.
+  reminder: {
+    en: 'A reminder: taking part remains voluntary, and your responses are anonymous.',
+    ar: 'تذكير: المشاركة تبقى طوعية، واستجاباتك مجهولة الهوية.'
   },
   intro: {
     en: 'Your responses are anonymous. This helps the researcher understand the range of backgrounds and expectations in the group.',

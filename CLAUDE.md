@@ -32,7 +32,7 @@ a way. That is the expected answer, not a failure.
 ## Where things are
 
 - `src/content/instruments.js` — instrument text, English and Arabic,
-  transcribed verbatim from `docs/source/Research_Instruments_v2.0.md`. Do not
+  transcribed verbatim from `docs/source/Research_Instruments_v2.1.md`. Do not
   reword, reorder, add or drop items. `npm run verify:wording` enforces this
   for the screens and the printed forms at once.
 - `src/content/ui.js` — everything else a participant can read.
@@ -45,7 +45,7 @@ a way. That is the expected answer, not a failure.
 - `docs/VERIFICATION.md` — the report against the build brief, including the
   one requirement that cannot be met as written and the items still open.
 - `docs/PROTOCOL_CONFORMANCE.md` — the check against Research Protocol and DMP
-  v1.1, which is the governing document. Where it and the build brief
+  v1.2, which is the governing document. Where it and the build brief
   disagree, the protocol wins and the conflict is flagged rather than resolved
   in code.
 

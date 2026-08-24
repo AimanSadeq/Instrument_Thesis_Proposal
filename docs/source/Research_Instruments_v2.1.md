@@ -1,9 +1,9 @@
-# Research Instruments, version 2.0
+# Research Instruments, version 2.1
 
 **Study:** Leveraging Artificial Intelligence for Financial Competence Development
 **Candidate:** Aiman S. Sadeq · **Supervisor:** Professor Emanuele Borgonovo · SDA Bocconi School of Management
-**Version 2.0 · August 2026 · Aligned to Research Protocol and Data Management Plan v1.1**
-**Supersedes version 1.0. Changes are listed in Part 4.**
+**Version 2.1 · August 2026 · Aligned to Research Protocol and Data Management Plan v1.2**
+**Supersedes version 2.0. Changes from 2.0 are listed in Part 5; changes from 1.0 remain in Part 4.**
 
 ---
 
@@ -60,6 +60,8 @@ Contact the researcher, Aiman S. Sadeq, or the institutional ethics contact at e
 ## 1.2 Pre-Training Questionnaire
 
 *Day 1, before training content begins. About five minutes.*
+
+*A reminder: taking part remains voluntary, and your responses are anonymous.*
 
 Your responses are anonymous. This helps the researcher understand the range of backgrounds and expectations in the group.
 
@@ -247,6 +249,8 @@ Please rate each statement from 1 (strongly disagree) to 5 (strongly agree).
 ## 2.2 استبيان ما قبل التدريب
 
 *اليوم الأول، قبل بدء المحتوى التدريبي. نحو خمس دقائق.*
+
+*تذكير: المشاركة تبقى طوعية، واستجاباتك مجهولة الهوية.*
 
 استجاباتك مجهولة الهوية. تساعد هذه المعلومات الباحث على فهم تنوع الخلفيات والتوقعات في المجموعة.
 
@@ -442,3 +446,40 @@ Printed copies of every instrument travel to each session. If the network fails,
 | 9 | **Voluntariness reminder added to the head of each later instrument** | Withdrawal by non-completion only works if people are reminded it remains available |
 | 10 | **Paper fallback procedure added to the run sheet** | Removes single-point-of-failure risk from a collection that cannot be repeated |
 | 11 | **Sealed-envelope return retained for the paper fallback only** | Correct procedure when paper is actually used |
+
+---
+
+# PART 5: CHANGES FROM VERSION 2.0
+
+**1. The voluntariness reminder now opens the pre-training questionnaire.**
+Version 2.0 placed it at the head of the daily reflection and the post-training
+evaluation but not the pre-training questionnaire, whose opening line was about
+anonymity only. Research Protocol section 5 requires it on each instrument that
+follows the Day 1 briefing. The protocol is the governing document, so the line
+is added rather than the promise weakened. The wording is identical to the other
+two instruments in both languages, and it sits above the existing anonymity
+sentence rather than replacing it.
+
+**2. The programme is not always four days.**
+Everything in Parts 1 and 2 is written for a four-day programme, and that text
+remains canonical. Where a cohort runs a different number of days, the
+instruments are served with the day count substituted and nothing else changed.
+The substitution is mechanical and limited to these five places:
+
+- Consent and briefing, "What you are being asked to do": the programme length
+  and the day of the final evaluation. The count of activities is four in every
+  case, because it counts instruments and not days.
+- The daily reflection title, "Days 1 to N".
+- The day selector, which offers one option per training day.
+- The heading above R4, "Day N only", which always names the last day.
+- The administrative timing note on the post-training evaluation.
+
+The English cardinal and ordinal, and the Arabic cardinal, ordinal and
+Arabic-Indic digit, are substituted together. No item wording, no response
+option and no ordering changes. The application asserts that each phrase is
+present before replacing it, and refuses to start if the text above is ever
+edited in a way that moves one, so this document and the running instruments
+cannot drift apart silently.
+
+**3. Alignment.** Version 2.0 was aligned to Research Protocol and Data
+Management Plan v1.1. This version is aligned to v1.2.

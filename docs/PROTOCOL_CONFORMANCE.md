@@ -1,11 +1,13 @@
-# The platform against Research Protocol and DMP v1.1
+# The platform against Research Protocol and DMP v1.2
 
 The build brief names this protocol as the governing document and says that
 where the two disagree, the protocol wins and the conflict is to be flagged.
 This is that check, section by section.
 
-Most of it is satisfied. Seven things need a decision from the candidate, and
-they are collected at the end. One of them is a sentence in the protocol that
+Most of it is satisfied. Seven things needed a decision from the candidate.
+**Six are now closed**, and how each was resolved is recorded with it. One
+remains open, Flag 3, and it needs a fact from the Render dashboard rather than
+a decision. One of them is a sentence in the protocol that
 the software cannot make true as written; the rest are small.
 
 ---
@@ -14,8 +16,8 @@ the software cannot make true as written; the rest are small.
 
 | Protocol says | Status |
 |---|---|
-| Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.0 |
-| Daily Reflection Cards, Days 1 to 4 | Built, but the programme is no longer always four days. See **Flag 7** |
+| Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.1 |
+| Daily Reflection Cards, one per training day | Built, and the programme length is configurable. See **Flag 7**, closed |
 | Delivered as web forms, own or provided devices | Built, mobile first |
 | Access by short URL and QR code displayed in the room | Built. Each instrument has its own address and its own QR code on the admin page |
 | No login, no account, no invitation by email or name, so no participant list or contact record is created at any stage | Satisfied. No authentication code and no contact field exists anywhere |
@@ -92,8 +94,9 @@ reached only by the link the facilitator displays to the whole room. A person
 who declines is never prompted again by this software. What the software
 cannot do is prevent them opening a link that is on the wall.
 
-**Suggested amendment**, so that the sentence cannot be read as a technical
-control that does not exist:
+**CLOSED in v1.2.** The amendment below was adopted, with the reasoning added
+inline so the sentence cannot be read as a technical control that does not
+exist:
 
 > Those who decline are not prompted again: the confirmation screen is
 > terminal and identical for both choices, and no instrument links to another.
@@ -113,12 +116,13 @@ gap comes from.
 The build follows the instruments document, verbatim, as instructed. So the
 two documents disagree, and the protocol is the one that wins.
 
-Two ways to close it, and it is your call because it changes instrument text:
-
-1. Add the reminder line to the pre-training questionnaire, which means
-   Research Instruments v2.1 and a one-line change here.
-2. Amend the protocol to say the reminder appears at the head of each
-   instrument completed after Day 1's briefing.
+**CLOSED by Research Instruments v2.1.** The line was added to the
+pre-training questionnaire rather than the protocol weakened, in identical
+wording to the other two instruments, in both languages, on screen and on
+paper. Weakening a participant safeguard to match the build is the wrong
+direction when the fix is one sentence, and nothing had been printed yet. A
+test in `tests/instruments.test.js` now asserts it on all three instruments and
+fails if the line is removed.
 
 Option 1 is the stronger position ethically: the questionnaire is the first
 thing a participant completes after consenting, and it is the moment the
@@ -141,8 +145,13 @@ What is not yet established is what Render's edge retains, and for how long.
 Until you have checked that in the dashboard, "not logged, not retained" is a
 claim about a third party that the study cannot evidence.
 
-**Suggested amendment** if Render turns out to retain edge logs, which is
-common:
+**PARTLY CLOSED in v1.2, and the only flag still open.** The amendment below
+was adopted, because it is defensible whatever the dashboard says, and the
+protocol now also states the stronger true fact that participants never connect
+to the database at all. What remains outstanding is not a decision but a fact:
+**check what Render's edge retains, and for how long, and record the answer in
+the audit trail.** Until that is done the study has adopted safe wording
+without having verified the underlying behaviour.
 
 > Connection metadata, principally IP addresses, is processed transiently at
 > the network layer by the hosting infrastructure, as it is for any online
@@ -161,11 +170,12 @@ export. It carries no meaning outside the dataset, which is the property the
 protocol is protecting, and it is deliberately random rather than sequential
 so that it reveals nothing about submission order.
 
-So the substance holds and the mechanism differs. If you would rather the
-exports match the protocol exactly, exports can carry a second, short,
-export-time identifier — `consent-001`, `daily-014` — assigned in random-key
-order, which would also be easier to quote in analysis memos than a UUID. Say
-the word and it is a small change.
+**CLOSED in v1.2 by amending the protocol rather than the code.** The substance
+holds and only the mechanism differed, so section 7 now describes the
+identifier as generated when the record is written. Changing working code two
+weeks before a session, for a cosmetic match, would have been the worse trade.
+The alternative remains available later if analysis memos would read better
+with short export-time identifiers such as `consent-001`.
 
 ### Flag 5. "No participant responses are entered into generative AI systems" (section 7)
 
@@ -187,10 +197,10 @@ return. The run sheet in Research Instruments v2.0 describes something
 slightly different: completed sheets go into a collection box unfolded and
 unmarked, and the box is sealed in the room.
 
-The printed forms follow the run sheet, since that is the operational
-document. The two sentences should be made to agree; the run sheet's version
-is the better procedure, because an envelope per participant reintroduces a
-per-person object.
+**CLOSED in v1.2.** The two sentences now agree, on the run sheet's version:
+sheets go unfolded and unmarked into a collection box, sealed in the room
+before it leaves. An envelope per participant reintroduces exactly the
+per-person object the design exists to avoid.
 
 ### Flag 7. The protocol says four days, and two cohorts are three
 
@@ -208,18 +218,18 @@ programme had, and the schema ties R4 to the last of them, so the guarantee is
 stronger than it was: a Day 4 row in a three-day programme is now refused,
 where version 001 of the schema would have accepted it.
 
-Two things follow, and both are the candidate's call.
+**CLOSED.** Both halves are done.
 
-1. **The protocol needs a version 1.2.** Section 2 for the cohort count and
-   who delivers each one, section 4 for the day count, section 6 because the
-   facilitator-researcher dual role does not apply where the candidate neither
-   delivers nor observes, and section 9 for the timeline.
-2. **Research Instruments v2.0 is written for four days.** The four-day text
-   remains canonical in the code and is still checked word for word. A shorter
-   programme is derived from it by substituting named day phrases and nothing
-   else, which the tests enforce in both languages. That substitution should be
-   recorded in the instruments document, as an appendix rather than a reissue,
-   so that what a three-day room reads is documented rather than inferred.
+1. **Protocol v1.2** rewrites section 2 for the cohort count, the two programme
+   lengths and who delivers each, section 4 for the day count and the paper
+   procedure, section 6 to scope the dual role to the cohort the candidate
+   delivers and to name its absence elsewhere as a comparison, and sections 8
+   and 9 for the overlapping-cohort risks and the timeline.
+2. **Research Instruments v2.1** records the day-count substitution in Part 5:
+   the five places it touches, what is substituted in each language, and the
+   fact that the application refuses to start if an edit ever moves one of
+   those phrases. What a three-day room reads is now written down rather than
+   inferred.
 
 One operational point that is not a decision: **two cohorts of different
 lengths cannot share one service.** The length is read once at start-up, in the

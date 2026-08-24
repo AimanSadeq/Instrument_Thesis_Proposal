@@ -41,7 +41,7 @@ async function main() {
   }
 
   // The take-away information page, both languages on one sheet: print double
-  // sided, one per participant. Research Protocol v1.1 section 5.
+  // sided, one per participant. Research Protocol v1.2 section 5.
   const info = path.join(OUT, 'information-sheet.html');
   fs.writeFileSync(info, informationPack(), 'utf8');
   written.push(info);
