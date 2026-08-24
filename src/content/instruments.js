@@ -1,11 +1,21 @@
 'use strict';
 
+const { config } = require('../config');
+
 /**
  * Instrument content, English and Arabic, transcribed verbatim from
  * "Research Instruments, version 2.0" (August 2026).
  *
  * Nothing here may be reworded, reordered, added to or dropped without a
- * corresponding change to that document. Option `value` codes are stored in
+ * corresponding change to that document.
+ *
+ * One thing does vary: version 2.0 is written for a four-day programme, and
+ * not every cohort runs four days. `withProgrammeDays` at the foot of this file
+ * changes the day count and nothing else, by substituting named phrases whose
+ * presence it asserts. Everything below stays the canonical four-day text, so
+ * `npm run verify:wording` still checks it word for word against the source
+ * document, and `npm test` checks that a shorter programme differs from it
+ * only in those day words. Option `value` codes are stored in
  * the database instead of the localised label, so that an English response
  * and an Arabic response to the same item are comparable and so that the
  * stored row does not record which language the participant used.
@@ -220,8 +230,8 @@ const DAILY_REFLECTION = {
       hint: { en: '[Open text]', ar: '[نص مفتوح]' }
     }
   ],
-  day4Heading: { en: 'Day 4 only:', ar: 'اليوم الرابع فقط:' },
-  day4Item: {
+  finalDayHeading: { en: 'Day 4 only:', ar: 'اليوم الرابع فقط:' },
+  finalDayItem: {
     id: 'r4', type: 'text',
     label: {
       en: 'R4. Looking back across the whole programme, what stands out most, and what would you change before the next group goes through it?',
@@ -301,4 +311,90 @@ const POST_TRAINING = {
   }
 };
 
-module.exports = { CONSENT, PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING };
+// --- Programme length ---------------------------------------------------------
+//
+// Version 2.0 of the instruments is written for four days, and not every
+// cohort is four days. Rather than keep a second copy of the wording, the
+// four-day text above is treated as canonical and the day count is
+// substituted here.
+//
+// Every substitution asserts that its phrase is present. If the wording of the
+// source document changes in a way that moves one of these phrases, the
+// application refuses to start rather than quietly serving a form that says
+// Day 4 to a room on its last day of three.
+
+const CANONICAL_DAYS = 4;
+
+// Arabic needs the cardinal ("four days"), the ordinal ("the fourth"), and the
+// Arabic-Indic digit, and they are not derivable from each other.
+const DAY_WORDS = {
+  2: { enCardinal: 'two',   arCardinal: 'يومين',      arOrdinal: 'الثاني', arDigit: '٢' },
+  3: { enCardinal: 'three', arCardinal: 'ثلاثة أيام', arOrdinal: 'الثالث', arDigit: '٣' },
+  4: { enCardinal: 'four',  arCardinal: 'أربعة أيام', arOrdinal: 'الرابع', arDigit: '٤' },
+  5: { enCardinal: 'five',  arCardinal: 'خمسة أيام',  arOrdinal: 'الخامس', arDigit: '٥' },
+  6: { enCardinal: 'six',   arCardinal: 'ستة أيام',   arOrdinal: 'السادس', arDigit: '٦' }
+};
+
+const clone = (value) => JSON.parse(JSON.stringify(value));
+
+/** Replace `from` with `to` exactly once, or throw naming the field. */
+function substitute(target, lang, where, from, to) {
+  const before = target[lang];
+  if (typeof before !== 'string' || before.indexOf(from) === -1) {
+    throw new Error(`programme length: ${where}.${lang} no longer contains ${JSON.stringify(from)}`);
+  }
+  target[lang] = before.replace(from, to);
+}
+
+/**
+ * The canonical four-day content, with the day count changed to `days`.
+ * Returns a fresh object; the canonical constants are never mutated.
+ */
+function withProgrammeDays(days) {
+  const words = DAY_WORDS[days];
+  if (!words) throw new Error('programme length: unsupported day count ' + days);
+
+  const content = clone({ CONSENT, PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING });
+  const canonical = DAY_WORDS[CANONICAL_DAYS];
+
+  // 1. Consent, "What you are being asked to do". "four short activities" is
+  //    the number of instruments, not days, and is deliberately left alone.
+  const asked = content.CONSENT.blocks.find(
+    (block) => typeof block.en === 'string' && block.en.indexOf('-day programme you may complete') !== -1
+  );
+  if (!asked) throw new Error('programme length: consent no longer describes the programme length');
+  substitute(asked, 'en', 'consent.asked', `${canonical.enCardinal}-day`, `${words.enCardinal}-day`);
+  substitute(asked, 'en', 'consent.asked', `Day ${CANONICAL_DAYS}`, `Day ${days}`);
+  substitute(asked, 'ar', 'consent.asked', canonical.arCardinal, words.arCardinal);
+  substitute(asked, 'ar', 'consent.asked', `اليوم ${canonical.arOrdinal}`, `اليوم ${words.arOrdinal}`);
+
+  // 2. Daily reflection title.
+  substitute(content.DAILY_REFLECTION.title, 'en', 'daily.title', `Days 1 to ${CANONICAL_DAYS}`, `Days 1 to ${days}`);
+  substitute(content.DAILY_REFLECTION.title, 'ar', 'daily.title', `إلى ${canonical.arDigit}`, `إلى ${words.arDigit}`);
+
+  // 3. The day selector: one option per training day.
+  content.DAILY_REFLECTION.daySelector.options = Array.from({ length: days }, (_, i) => ({
+    value: String(i + 1),
+    en: `Day ${i + 1}`,
+    ar: `اليوم ${DAY_WORDS[i + 1] ? DAY_WORDS[i + 1].arDigit : '١'}`
+  }));
+  // Day 1 has no entry in DAY_WORDS, because a one-day programme has no
+  // "each day" to reflect on, but it still needs its digit in the selector.
+  content.DAILY_REFLECTION.daySelector.options[0].ar = 'اليوم ١';
+
+  // 4. The cross-programme question belongs to the last day.
+  substitute(content.DAILY_REFLECTION.finalDayHeading, 'en', 'daily.finalDayHeading', `Day ${CANONICAL_DAYS}`, `Day ${days}`);
+  substitute(content.DAILY_REFLECTION.finalDayHeading, 'ar', 'daily.finalDayHeading', canonical.arOrdinal, words.arOrdinal);
+
+  // 5. The post-training evaluation happens at the end of the last day.
+  substitute(content.POST_TRAINING.note, 'en', 'eval.note', `Day ${CANONICAL_DAYS}`, `Day ${days}`);
+  substitute(content.POST_TRAINING.note, 'ar', 'eval.note', canonical.arOrdinal, words.arOrdinal);
+
+  content.programmeDays = days;
+  return content;
+}
+
+module.exports = withProgrammeDays(config.programmeDays);
+// The canonical text and the builder, for the wording check and the tests.
+module.exports.withProgrammeDays = withProgrammeDays;
+module.exports.CANONICAL_DAYS = CANONICAL_DAYS;

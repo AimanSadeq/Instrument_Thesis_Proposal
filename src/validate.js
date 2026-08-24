@@ -90,10 +90,11 @@ function validateDaily(body, lang) {
     values[item.id] = text(body[item.id], lang, errors, item.id);
   }
 
-  // R4 exists only on Day 4. If it arrives on any other day it is dropped,
-  // which the database also enforces with a check constraint.
+  // R4 is the cross-programme question and exists only on the last training
+  // day, whichever that is for this cohort. If it arrives on any other day it
+  // is dropped, which the database also enforces with a check constraint.
   const r4 = text(body.r4, lang, errors, 'r4');
-  values.r4 = values.training_day === 4 ? r4 : null;
+  values.r4 = values.training_day === config.programmeDays ? r4 : null;
 
   if (!values.training_day) {
     return { ok: false, errors, values, message: t(UI.errorValidation, lang) };

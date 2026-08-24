@@ -4,6 +4,11 @@
  * Check that every word a participant reads appears verbatim in
  * docs/source/Research_Instruments_v2.0.md.
  *
+ * This always checks the canonical four-day content, whatever PROGRAMME_DAYS
+ * is set to, because that document is written for four days. A shorter
+ * programme is checked separately, in tests/instruments.test.js, by requiring
+ * that it differs from the canonical text only in the day words.
+ *
  * The build brief says: implement it verbatim, do not reword, reorder, add or
  * drop items. This is that instruction as a check rather than an intention.
  * Interface chrome in src/content/ui.js is not covered, because it is not part
@@ -14,7 +19,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const instruments = require('../src/content/instruments');
+const canonical = require('../src/content/instruments');
+const instruments = canonical.withProgrammeDays(canonical.CANONICAL_DAYS);
 
 const DOC = path.join(__dirname, '..', 'docs', 'source', 'Research_Instruments_v2.0.md');
 
@@ -66,10 +72,10 @@ for (const instrument of [PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING]) {
   collectPair(instrument.reminder, `${id}.reminder`);
   collectPair(instrument.likertIntro, `${id}.likertIntro`);
   collectPair(instrument.statementHeader, `${id}.statementHeader`);
-  collectPair(instrument.day4Heading, `${id}.day4Heading`);
+  collectPair(instrument.finalDayHeading, `${id}.finalDayHeading`);
   collectPair(instrument.closing, `${id}.closing`);
   if (instrument.daySelector) collectItem(instrument.daySelector, `${id}.daySelector`);
-  if (instrument.day4Item) collectItem(instrument.day4Item, `${id}.r4`);
+  if (instrument.finalDayItem) collectItem(instrument.finalDayItem, `${id}.r4`);
   (instrument.items || []).forEach((item) => collectItem(item, `${id}.${item.id}`));
   (instrument.sections || []).forEach((section, i) => {
     collectPair(section.title, `${id}.section[${i}].title`);

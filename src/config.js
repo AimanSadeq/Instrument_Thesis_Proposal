@@ -43,6 +43,14 @@ const config = {
   // A cohort label is shared by ~25 people and is not an identifier.
   cohort: process.env.COHORT || 'cohort-1',
 
+  // How many training days this cohort runs. The programme is not always four
+  // days: two of the September cohorts run three. Everything
+  // that used to say "Day 4" now says "the final day" and derives it from
+  // here, including which day carries the cross-programme question R4.
+  // Stamped on every daily reflection row, because a reflection count cannot
+  // be read correctly without knowing how many days the programme had.
+  programmeDays: Number(process.env.PROGRAMME_DAYS || 4),
+
   // Facilitator secret: counts only.
   adminSecret: process.env.ADMIN_SECRET || '',
   // Researcher secret: export and delete. Deliberately a different secret,
@@ -58,6 +66,12 @@ const config = {
 
   maxTextLength: Number(process.env.MAX_TEXT_LENGTH || 5000)
 };
+
+// Checked at load, not only in production: a bad value would otherwise render
+// a day selector with no options and be discovered in the room.
+if (!Number.isInteger(config.programmeDays) || config.programmeDays < 2 || config.programmeDays > 6) {
+  throw new Error('PROGRAMME_DAYS must be a whole number from 2 to 6, got: ' + String(process.env.PROGRAMME_DAYS));
+}
 
 function requireProductionConfig() {
   const missing = [];

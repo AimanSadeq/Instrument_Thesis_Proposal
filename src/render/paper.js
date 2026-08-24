@@ -73,7 +73,7 @@ table.likert thead th { font-weight: 700; }
 table.likert td { inline-size: 11mm; }
 table.likert td .tick { inline-size: 4.5mm; block-size: 4.5mm; }
 .item-code { font-weight: 700; }
-.day4-head { border-block-start: 0.75pt solid #000; padding-block-start: 3mm; }
+.final-day-head { border-block-start: 0.75pt solid #000; padding-block-start: 3mm; }
 .sheet-foot { margin-block-start: 6mm; padding-block-start: 3mm; border-block-start: 0.5pt solid #000; font-size: 9.5pt; }
 </style>`;
 
@@ -181,8 +181,8 @@ function dailySheet(lang) {
 <ul class="ticks inline">${days}</ul>
 </div>
 ${DAILY_REFLECTION.items.map((item) => paperItem(item, lang)).join('\n')}
-<h2 class="day4-head">${esc(t(DAILY_REFLECTION.day4Heading, lang))}</h2>
-${paperItem(DAILY_REFLECTION.day4Item, lang)}`;
+<h2 class="final-day-head">${esc(t(DAILY_REFLECTION.finalDayHeading, lang))}</h2>
+${paperItem(DAILY_REFLECTION.finalDayItem, lang)}`;
 
   return sheet(DAILY_REFLECTION.title, lang, body);
 }

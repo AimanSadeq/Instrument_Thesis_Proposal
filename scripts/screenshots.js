@@ -30,7 +30,7 @@ const SCREENS = [
   { name: 'consent', path: '/', full: true },
   { name: 'pre', path: '/pre', full: true },
   { name: 'daily', path: '/daily', full: true },
-  { name: 'daily-day4', path: '/daily', full: true, day4: true },
+  { name: 'daily-final-day', path: '/daily', full: true, finalDay: true },
   { name: 'eval', path: '/eval', full: true }
 ];
 
@@ -47,7 +47,10 @@ async function main() {
 
       for (const screen of SCREENS) {
         await page.goto(`${BASE}${screen.path}?lang=${lang}`, { waitUntil: 'networkidle' });
-        if (screen.day4) await page.click('input[name="training_day"][value="4"]');
+        if (screen.finalDay) {
+          const block = await page.getAttribute('[data-final-day]', 'data-final-day');
+          await page.click(`input[name="training_day"][value="${block}"]`);
+        }
         await page.screenshot({
           path: path.join(OUT, `${profile.name}-${lang}-${screen.name}.png`),
           fullPage: screen.full

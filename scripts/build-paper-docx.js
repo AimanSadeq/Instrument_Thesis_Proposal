@@ -25,6 +25,8 @@ const {
 
 const { PAPER, LINES } = require('../src/render/paper');
 const { CONSENT, PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING } = require('../src/content/instruments');
+const { CANONICAL_DAYS } = require('../src/content/instruments');
+const { config } = require('../src/config');
 
 const INK = '000000';
 const RULE = '000000';
@@ -262,8 +264,8 @@ function dailySheet(lang) {
     ...DAILY_REFLECTION.daySelector.options.map((o) => option(t(o, lang), lang))
   ];
   for (const item of DAILY_REFLECTION.items) body.push(...textItem(item, lang));
-  body.push(sectionHeading(t(DAILY_REFLECTION.day4Heading, lang), lang));
-  body.push(...textItem(DAILY_REFLECTION.day4Item, lang));
+  body.push(sectionHeading(t(DAILY_REFLECTION.finalDayHeading, lang), lang));
+  body.push(...textItem(DAILY_REFLECTION.finalDayItem, lang));
   return [...sheetHead(DAILY_REFLECTION.title, lang), ...body, ...sheetFoot(lang, false)];
 }
 
@@ -358,7 +360,12 @@ function build(lang) {
 }
 
 async function main() {
-  const outDir = process.argv[2] || path.join(__dirname, '..', 'docs', 'paper');
+  // Same rule as build-paper-forms.js: the canonical four-day pack sits in
+  // docs/paper, a shorter programme in docs/paper/<n>-day.
+  const paperDir = path.join(__dirname, '..', 'docs', 'paper');
+  const outDir = process.argv[2] || (config.programmeDays === CANONICAL_DAYS
+    ? paperDir
+    : path.join(paperDir, `${config.programmeDays}-day`));
   fs.mkdirSync(outDir, { recursive: true });
   for (const lang of ['en', 'ar']) {
     const file = path.join(outDir, `instruments-${lang}.docx`);

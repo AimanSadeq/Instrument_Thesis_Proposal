@@ -4,18 +4,30 @@
  * Build the printable paper fallback, English and Arabic, from the same
  * content module the screens use.
  *
- * Writes HTML and PDF into docs/paper/. Print single sided, and print four
- * copies of the daily reflection per participant: one for each day.
+ * Writes HTML and PDF into docs/paper/. Print single sided, and print one
+ * copy of the daily reflection per participant per training day.
+ *
+ * The canonical four-day pack is written to docs/paper/ itself. A shorter
+ * programme is written to docs/paper/<n>-day/, so that a three-day cohort and
+ * a four-day cohort running in the same week cannot be handed each other's
+ * sheets. The sheets say which they are: the daily reflection is titled
+ * "Days 1 to 3" or "Days 1 to 4".
  *
  * Usage: node scripts/build-paper-forms.js
+ *        PROGRAMME_DAYS=3 node scripts/build-paper-forms.js
  *        CHROMIUM_PATH=/path/to/chrome to use an already installed browser.
  */
 
 const fs = require('fs');
 const path = require('path');
 const { paperPack, informationPack } = require('../src/render/paper');
+const { config } = require('../src/config');
+const { CANONICAL_DAYS } = require('../src/content/instruments');
 
-const OUT = path.join(__dirname, '..', 'docs', 'paper');
+const PAPER = path.join(__dirname, '..', 'docs', 'paper');
+const OUT = config.programmeDays === CANONICAL_DAYS
+  ? PAPER
+  : path.join(PAPER, `${config.programmeDays}-day`);
 const EXECUTABLE = process.env.CHROMIUM_PATH || undefined;
 
 async function main() {

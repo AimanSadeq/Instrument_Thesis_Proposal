@@ -57,7 +57,10 @@ not code.
 
 ## D. Testing, by 3 September
 
-- [ ] **The Day 4 path on the live service.** Open `/daily`, choose Day 4,
+- [ ] **`PROGRAMME_DAYS` matches this cohort.** Three for a three-day
+      programme, four for a four-day one. The admin page header states it, and
+      the day selector should offer exactly that many days and no more.
+- [ ] **The last-day path on the live service.** Open `/daily`, choose the last day,
       confirm the R4 question appears, submit. This is the only route in the
       application never exercised against the deployment, and it only matters
       on the last day, when there is no second chance.
@@ -65,8 +68,12 @@ not code.
       Check: Arabic reads right to left throughout; the page does not zoom when
       you tap a text box; the Likert grid is usable one-handed.
 - [ ] **Delete anything those tests created.** `/admin` with the export secret,
-      `DELETE ALL RESEARCH DATA`.
-- [ ] **Confirm the tables are empty**: run `db/checks/post_deploy_check.sql` in
+      `DELETE ` followed by this service's cohort label.
+- [ ] **If a second cohort runs the same week**, confirm you are looking at the
+      right service: the admin header names the cohort and the programme
+      length, the QR codes come from that service's own admin page, and the
+      admin secret is that service's own. Do not reuse the other's.
+- [ ] **Confirm this cohort has no rows yet**: run `db/checks/post_deploy_check.sql` in
       the Supabase SQL editor. Nine rows, all `pass`.
 
 ## E. At the venue, 5 September
@@ -104,9 +111,9 @@ not code.
       have influenced responses.
 - [ ] Write the **reflexivity journal** entry the same evening.
 
-## H. Day 4
+## H. The last day
 
-- [ ] Daily reflection link as usual. R4 appears when Day 4 is chosen.
+- [ ] Daily reflection link as usual. R4 appears when the last day is chosen.
 - [ ] Then the post-training evaluation link. Ten minutes.
 - [ ] Once everyone has finished: **set `INSTRUMENTS_OPEN=false`.**
 
@@ -119,9 +126,9 @@ not code.
 - [ ] **Check the row counts** in the files against the counts on screen. This
       is what "verifiable as complete" means in section 7.
 - [ ] **Store the exports encrypted**, access restricted to you.
-- [ ] **Delete all source records**: type `DELETE ALL RESEARCH DATA`. Keep the
+- [ ] **Delete this cohort's source records**: type `DELETE ` and the cohort label. Keep the
       before-and-after table for the audit trail.
-- [ ] **Re-run `post_deploy_check.sql`.** Nine `pass`, tables empty.
+- [ ] **Re-run `post_deploy_check.sql`.** Nine `pass`. Check 9's detail lists every cohort still holding rows; yours should not be among them.
 
 ## J. Before Cohort 2, October
 

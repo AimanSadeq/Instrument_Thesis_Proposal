@@ -1,7 +1,15 @@
 -- One paste, run in the Supabase SQL editor after the migration.
 -- Every row must read 'pass'. Anything else is a finding, not a warning.
+--
+-- EDIT THE COHORT BELOW to the one you are about to open. Check 9 asks whether
+-- that cohort has any rows yet, not whether the tables are empty: another
+-- cohort may be running in the same week, or may be exported but not yet
+-- deleted, and its rows are none of this service's business. The detail column
+-- names every cohort present, so you can see what else is in the database.
 
-with checks as (
+with target as (select 'cohort-1'::text as cohort),
+
+checks as (
 
   select 1 as ord, 'four tables exist in the research schema' as check_name,
          count(*)::text as detail,
@@ -67,15 +75,20 @@ with checks as (
    where table_name ilike '%finplay%'
 
   union all
-  select 9, 'all four tables are empty and ready for the cohort',
-         (select (select count(*) from research.consent_responses)
-               + (select count(*) from research.pre_training_responses)
-               + (select count(*) from research.daily_reflections)
-               + (select count(*) from research.post_training_evaluations))::text,
-         (select (select count(*) from research.consent_responses)
-               + (select count(*) from research.pre_training_responses)
-               + (select count(*) from research.daily_reflections)
-               + (select count(*) from research.post_training_evaluations)) = 0
+  select 9, 'no rows exist yet for the cohort about to start',
+         (select coalesce(string_agg(cohort || ': ' || n, ', ' order by cohort),
+                          'no rows in any cohort')
+            from (select cohort, count(*)::text as n from research.consent_responses group by 1
+                  union all
+                  select cohort, count(*)::text from research.pre_training_responses group by 1
+                  union all
+                  select cohort, count(*)::text from research.daily_reflections group by 1
+                  union all
+                  select cohort, count(*)::text from research.post_training_evaluations group by 1) per),
+         (select (select count(*) from research.consent_responses where cohort = (select cohort from target))
+               + (select count(*) from research.pre_training_responses where cohort = (select cohort from target))
+               + (select count(*) from research.daily_reflections where cohort = (select cohort from target))
+               + (select count(*) from research.post_training_evaluations where cohort = (select cohort from target))) = 0
 )
 select case when ok then 'pass' else 'FAIL' end as result,
        check_name,

@@ -15,7 +15,7 @@ outstanding.
 - No login, no account, no email, no name, no employee number.
 - No cookie, no web storage, no device identifier, no fingerprint.
 - No link between one submission and another, ever, including between a
-  participant's Day 1 and Day 4 responses.
+  participant's first-day and last-day responses.
 - No IP address, no user agent, no referrer.
 - No time component anywhere. Training day and calendar date only.
 - No connection of any kind to the FinPlay training platform.
@@ -29,7 +29,7 @@ here is a false statement in a doctoral thesis.
 |---|---|---|
 | Consent and briefing | `/` | Information text, then two options that both submit |
 | Pre-training questionnaire | `/pre` | A1, A2, B1–B3, C1, C2, D1 |
-| Daily reflection | `/daily` | Day selector, R1–R3, and R4 on Day 4 only |
+| Daily reflection | `/daily` | Day selector, R1–R3, and R4 on the last day only |
 | Post-training evaluation | `/eval` | A1–A5, B1–B5, C1–C4 on a 1–5 scale, D1–D4 |
 | Admin | `/admin` | Counts only for the facilitator; export and deletion for the researcher |
 
@@ -62,10 +62,23 @@ npm test                  # 40 tests across instruments, privacy, admin, export,
 npm run verify:wording    # every instrument string against docs/source/Research_Instruments_v2.0.md
 npm run verify:privacy    # source scan and schema checks against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them
-npm run verify:browser    # real browser: the Day 4 rule, an offline submission, both consent options
+npm run verify:browser    # real browser: the final-day rule, an offline submission, both consent options
 npm run screenshots       # captures docs/screenshots and re-checks that the browser holds nothing
 npm run build:paper       # rebuilds the printed fallback in docs/paper, English and Arabic
-                          # Word versions: npm install docx && node scripts/build-paper-docx.js
+npm run build:paper:docx  # the same pack as Word documents
+
+Both honour `PROGRAMME_DAYS`. The four-day pack is written to `docs/paper`;
+a shorter programme goes to `docs/paper/<n>-day`, so that two cohorts running
+in the same week cannot be handed each other's sheets.
+
+## Programme length
+
+`PROGRAMME_DAYS` sets how many training days this cohort runs. It defaults to
+four, which is what Research Instruments v2.0 is written for; the September
+cohorts at the second client are three. It decides the day selector, the day
+named in the wording, and which day carries the cross-programme question R4.
+Two concurrent cohorts of different lengths need two services, because this is
+read once at start-up, in the same way `COHORT` is.
 ```
 
 The tests need a Postgres database; set `TEST_DATABASE_URL` if it is not

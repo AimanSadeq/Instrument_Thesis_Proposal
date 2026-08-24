@@ -17,7 +17,8 @@
     "verify:privacy": "node scripts/verify-privacy.js",
     "verify:rows": "node scripts/verify-stored-rows.js",
     "verify:browser": "node scripts/browser-check.js",
-    "screenshots": "node scripts/screenshots.js"
+    "screenshots": "node scripts/screenshots.js",
+    "build:paper:docx": "node scripts/build-paper-docx.js"
   },
   "dependencies": {
     "express": "^4.21.2",
@@ -25,6 +26,7 @@
     "qrcode": "^1.5.4"
   },
   "devDependencies": {
+    "docx": "^9.7.1",
     "playwright": "^1.49.1"
   }
 }

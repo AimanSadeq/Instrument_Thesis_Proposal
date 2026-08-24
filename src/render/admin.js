@@ -83,15 +83,15 @@ ${['consent_responses', 'pre_training_responses', 'daily_reflections', 'post_tra
 </section>
 
 <section class="section danger">
-<h2>Delete all source records</h2>
-<p>Irreversible. Run only after an export has been downloaded and its row counts checked.</p>
+<h2>Delete this cohort's source records</h2>
+<p>Irreversible. Run only after an export has been downloaded and its row counts checked. It removes the records of cohort <strong>${esc(config.cohort)}</strong> and no other cohort's.</p>
 <form method="post" action="/admin/delete" class="instrument">
 <input type="hidden" name="secret" value="${esc(secret)}">
 <div class="field">
-<label class="field-label" for="confirm">Type <code>DELETE ALL RESEARCH DATA</code> to confirm</label>
+<label class="field-label" for="confirm">Type <code>DELETE ${esc(config.cohort)}</code> to confirm</label>
 <input type="text" id="confirm" name="confirm" autocomplete="off" spellcheck="false">
 </div>
-<div class="actions"><button type="submit" class="btn btn-danger">Delete all records</button></div>
+<div class="actions"><button type="submit" class="btn btn-danger">Delete this cohort's records</button></div>
 </form>
 </section>` : `<section class="section">
 <h2>Export</h2>
@@ -109,7 +109,7 @@ ${['consent_responses', 'pre_training_responses', 'daily_reflections', 'post_tra
   const body = `<h1>Admin: counts</h1>
 ${message ? `<div class="banner banner-error" role="alert"><p>${esc(message)}</p></div>` : ''}
 ${deleteBlock}
-<p class="hint">Cohort <strong>${esc(counts.cohort)}</strong> · date today in ${esc(config.timezone)}: <strong>${esc(counts.generatedForDate)}</strong> · instruments ${config.instrumentsOpen ? 'open' : '<strong>closed</strong>'}</p>
+<p class="hint">Cohort <strong>${esc(counts.cohort)}</strong> · programme <strong>${esc(config.programmeDays)} days</strong>, so R4 appears on Day ${esc(config.programmeDays)} · date today in ${esc(config.timezone)}: <strong>${esc(counts.generatedForDate)}</strong> · instruments ${config.instrumentsOpen ? 'open' : '<strong>closed</strong>'}</p>
 
 ${table('Totals', ['Instrument', 'Submissions'], [
     ['Consent, total', totals.consent],
