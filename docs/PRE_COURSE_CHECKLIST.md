@@ -68,8 +68,12 @@ not code.
       Check: Arabic reads right to left throughout; the page does not zoom when
       you tap a text box; the Likert grid is usable one-handed.
 - [ ] **Delete anything those tests created.** `/admin` with the export secret,
-      `DELETE ALL RESEARCH DATA`.
-- [ ] **Confirm the tables are empty**: run `db/checks/post_deploy_check.sql` in
+      `DELETE ` followed by this service's cohort label.
+- [ ] **If a second cohort runs the same week**, confirm you are looking at the
+      right service: the admin header names the cohort and the programme
+      length, the QR codes come from that service's own admin page, and the
+      admin secret is that service's own. Do not reuse the other's.
+- [ ] **Confirm this cohort has no rows yet**: run `db/checks/post_deploy_check.sql` in
       the Supabase SQL editor. Nine rows, all `pass`.
 
 ## E. At the venue, 5 September
@@ -122,9 +126,9 @@ not code.
 - [ ] **Check the row counts** in the files against the counts on screen. This
       is what "verifiable as complete" means in section 7.
 - [ ] **Store the exports encrypted**, access restricted to you.
-- [ ] **Delete all source records**: type `DELETE ALL RESEARCH DATA`. Keep the
+- [ ] **Delete this cohort's source records**: type `DELETE ` and the cohort label. Keep the
       before-and-after table for the audit trail.
-- [ ] **Re-run `post_deploy_check.sql`.** Nine `pass`, tables empty.
+- [ ] **Re-run `post_deploy_check.sql`.** Nine `pass`. Check 9's detail lists every cohort still holding rows; yours should not be among them.
 
 ## J. Before Cohort 2, October
 

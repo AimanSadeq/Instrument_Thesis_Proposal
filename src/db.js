@@ -154,17 +154,22 @@ async function insertSubmission(instrument, values) {
 /**
  * Counts only. This is everything the admin view is allowed to see while the
  * programme is running.
+ *
+ * Scoped to this service's cohort. Two cohorts can run at the same time on one
+ * database, each served by its own instance, and neither facilitator should see
+ * the other's room. See the note above EXPORT_QUERIES.
  */
 async function counts() {
+  const only = [config.cohort];
   const [consent, pre, daily, evaluation] = await Promise.all([
     query(`select choice, submission_date, count(*)::int as n
-             from research.consent_responses group by 1, 2 order by 2, 1`),
+             from research.consent_responses where cohort = $1 group by 1, 2 order by 2, 1`, only),
     query(`select submission_date, count(*)::int as n
-             from research.pre_training_responses group by 1 order by 1`),
+             from research.pre_training_responses where cohort = $1 group by 1 order by 1`, only),
     query(`select training_day, submission_date, count(*)::int as n
-             from research.daily_reflections group by 1, 2 order by 2, 1`),
+             from research.daily_reflections where cohort = $1 group by 1, 2 order by 2, 1`, only),
     query(`select submission_date, count(*)::int as n
-             from research.post_training_evaluations group by 1 order by 1`)
+             from research.post_training_evaluations where cohort = $1 group by 1 order by 1`, only)
   ]);
 
   const sum = (rows) => rows.reduce((t, r) => t + r.n, 0);
@@ -189,17 +194,30 @@ async function counts() {
   };
 }
 
+/**
+ * Export and deletion, both scoped to this service's cohort by `where cohort =
+ * $1`.
+ *
+ * The scoping is the whole safety property here. Cohorts can share a database:
+ * the September cohorts overlap and are served by two instances, and the
+ * October cohort follows on the same infrastructure. Unscoped, one researcher
+ * verifying an export and pressing delete would destroy another cohort's
+ * source records, and there is no second chance at a day of collection.
+ *
+ * Every query in this object must carry the cohort predicate. A test asserts
+ * it, on the text of the queries as well as on their behaviour.
+ */
 const EXPORT_QUERIES = {
   consent_responses: `select id, cohort, submission_date, choice
-                        from research.consent_responses order by id`,
+                        from research.consent_responses where cohort = $1 order by id`,
   pre_training_responses: `select id, cohort, submission_date, a1, a2, b1, b2, b3, c1, c2, d1
-                        from research.pre_training_responses order by id`,
+                        from research.pre_training_responses where cohort = $1 order by id`,
   daily_reflections: `select id, cohort, submission_date, programme_days, training_day, r1, r2, r3, r4
-                        from research.daily_reflections order by id`,
+                        from research.daily_reflections where cohort = $1 order by id`,
   post_training_evaluations: `select id, cohort, submission_date,
                           a1, a2, a3, a4, a5, b1, b2, b3, b4, b5, c1, c2, c3, c4,
                           d1, d2, d3, d4
-                        from research.post_training_evaluations order by id`
+                        from research.post_training_evaluations where cohort = $1 order by id`
 };
 
 /**
@@ -209,7 +227,7 @@ const EXPORT_QUERIES = {
 async function exportTable(table) {
   const sql = EXPORT_QUERIES[table];
   if (!sql) throw new Error('Unknown table: ' + table);
-  const result = await query(sql);
+  const result = await query(sql, [config.cohort]);
   return { table, rowCount: result.rowCount, fields: result.fields.map((f) => f.name), rows: result.rows };
 }
 
@@ -222,22 +240,28 @@ async function exportAll() {
 }
 
 /**
- * Delete every source record. Run only after an export has been taken and
- * its row counts checked against the admin counts view.
+ * Delete this cohort's source records. Run only after an export has been taken
+ * and its row counts checked against the admin counts view.
+ *
+ * Scoped to this service's cohort, and deliberately so: another cohort's rows
+ * may be in the same tables, either because it is running in the same week or
+ * because it has not been exported yet. A researcher deleting their own data
+ * must not be able to delete anybody else's.
  */
 async function deleteAll() {
   const before = {};
   const after = {};
+  const only = [config.cohort];
   for (const table of Object.keys(EXPORT_QUERIES)) {
     const name = table;
     const qualified = 'research.' + name;
-    const b = await query(`select count(*)::int as n from ${qualified}`);
+    const b = await query(`select count(*)::int as n from ${qualified} where cohort = $1`, only);
     before[name] = b.rows[0].n;
-    await query(`delete from ${qualified}`);
-    const a = await query(`select count(*)::int as n from ${qualified}`);
+    await query(`delete from ${qualified} where cohort = $1`, only);
+    const a = await query(`select count(*)::int as n from ${qualified} where cohort = $1`, only);
     after[name] = a.rows[0].n;
   }
-  return { before, after };
+  return { cohort: config.cohort, before, after };
 }
 
 async function close() {

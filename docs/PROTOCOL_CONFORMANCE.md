@@ -224,8 +224,18 @@ Two things follow, and both are the candidate's call.
 One operational point that is not a decision: **two cohorts of different
 lengths cannot share one service.** The length is read once at start-up, in the
 same way the cohort label is. The 6 to 8 September cohort and the 6 to 9
-September cohort overlap, so they need two services with their own `COHORT`
-and `PROGRAMME_DAYS`, or the rows land under one label with the wrong length.
+September cohort overlap, so they need two services with their own `COHORT` and
+`PROGRAMME_DAYS`, or the rows land under one label with the wrong length.
+
+They may share the database. Everything a service reads or deletes is now
+scoped to its own cohort: the admin counts, both export formats and the delete.
+Before this, none of the three was. Unscoped, a researcher exporting one cohort
+and then deleting would have destroyed the other cohort's source records, which
+is not recoverable and would have ended that cohort's contribution to the
+study. It would also have shown each facilitator the other's participation
+counts. `tests/cohort-isolation.test.js` covers each path. The delete
+confirmation phrase now names the cohort rather than reading
+"DELETE ALL RESEARCH DATA" identically on every service.
 
 ---
 

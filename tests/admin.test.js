@@ -3,6 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { db, migrate, truncate, listen, form } = require('./helpers');
+const { CONFIRM_PHRASE } = require('../src/routes/admin');
 
 let base;
 let server;
@@ -64,7 +65,7 @@ test('the facilitator secret cannot export or delete', async () => {
   assert.ok(!(await exported.text()).includes(SECRET_CONTENT.r1));
 
   const deleted = await fetch(base + '/admin/delete',
-    form({ secret: COUNTS_SECRET, confirm: 'DELETE ALL RESEARCH DATA' }));
+    form({ secret: COUNTS_SECRET, confirm: CONFIRM_PHRASE }));
   assert.equal(deleted.status, 403);
   assert.equal((await db.query('select count(*)::int as n from research.daily_reflections')).rows[0].n, 1);
 });
@@ -125,7 +126,7 @@ test('deletion needs the exact confirmation phrase', async () => {
 
 test('deletion empties every table and reports the counts before and after', async () => {
   const response = await fetch(base + '/admin/delete',
-    form({ secret: EXPORT_SECRET, confirm: 'DELETE ALL RESEARCH DATA' }));
+    form({ secret: EXPORT_SECRET, confirm: CONFIRM_PHRASE }));
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Deletion complete/);

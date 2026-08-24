@@ -108,18 +108,62 @@ Then, by hand:
   form. Confirm the counts return to zero before the first real session.
 - Print every instrument in both languages for the paper fallback.
 
+## 3a. Two cohorts at once
+
+Two cohorts start on 6 September: a four-day programme and a three-day one, in
+different organizations, with different facilitators. `COHORT` and
+`PROGRAMME_DAYS` are read once at start-up, so one service cannot serve both.
+Stand up a second service.
+
+They can share the Supabase database. Everything a service reads or deletes is
+scoped to its own `COHORT`: the admin counts, both export formats, and the
+delete. A researcher exporting one cohort and then deleting cannot touch the
+other's rows, and neither facilitator sees the other's room. That is enforced in
+`src/db.js` and asserted in `tests/cohort-isolation.test.js`, including a test
+that the delete endpoint reaches no further than the library function does.
+
+**Creating the second service, in the Render dashboard rather than the
+blueprint.** Reconnecting a blueprint overwrites dashboard values, which is how
+`DATABASE_SSL` was broken once already (section 2a). So do this by hand:
+
+1. New web service from the same repository, same United States region, same
+   build and start commands, `autoDeploy` off.
+2. Copy `DATABASE_URL`, `DATABASE_SSL` and `DATABASE_CA_CERT` from the first
+   service. Same database, deliberately.
+3. Set `COHORT` to something that names the client and cannot be confused with
+   the other, and `PROGRAMME_DAYS` to that programme's length.
+4. Generate **new** `ADMIN_SECRET` and `EXPORT_SECRET`. Do not copy them. The
+   facilitator of one cohort has no business holding the other's secret, and the
+   delete confirmation phrase is now `DELETE <cohort>`, which is only a
+   safeguard if the two labels differ.
+5. Set `PUBLIC_URL` to this service's own hostname, or the QR codes will send a
+   room to the other cohort's forms.
+6. Before opening it: run `db/checks/post_deploy_check.sql` with the cohort at
+   the top edited to this cohort. Check 9 asks whether *this* cohort has rows
+   yet, and its detail column lists every cohort in the database, so a live
+   cohort next door reads as information rather than as a failure.
+
+**On the day**, keep them apart: two admin pages, two sets of QR codes, and the
+admin header on each states its cohort, its programme length, and which day
+will carry R4. Read that header before displaying anything.
+
 ## 4. Between cohorts
 
 1. Export both formats and check the row counts against the admin counts.
 2. Store the export where the data management plan says it goes.
-3. Delete all source records through the admin page.
-4. Change `COHORT` to `cohort-2` and redeploy.
+3. Delete this cohort's source records through the admin page. The confirmation
+   phrase is `DELETE ` followed by the cohort label.
+4. For a cohort that follows on the same service, change `COHORT` and, if the
+   length differs, `PROGRAMME_DAYS`, then redeploy.
 
 ## 5. After the second cohort
 
 1. Final export, counts checked.
 2. Delete all source records.
-3. Confirm the tables are empty, then delete the Supabase project and the
-   Render service. The protocol commits to no research data remaining on third
-   party infrastructure beyond the collection period, and an empty table in a
-   live project is not the same as no project.
+3. Confirm the tables are empty **across every cohort**, not only the one you
+   just exported. With more than one service on one database, an empty count on
+   your own admin page says nothing about the others.
+4. Then delete the Supabase project and every Render service. The protocol
+   commits to no research data remaining on third party infrastructure beyond
+   the collection period, and an empty table in a live project is not the same
+   as no project.

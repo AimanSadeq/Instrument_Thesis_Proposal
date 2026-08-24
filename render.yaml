@@ -14,6 +14,14 @@
 # hosting is in the United States; moving the service elsewhere would make a
 # statement in the protocol untrue, so change this only if the protocol and the
 # data management plan change with it.
+#
+# ONE SERVICE PER COHORT. `COHORT` and `PROGRAMME_DAYS` are read once at
+# start-up, so a service serves one cohort of one length. Two cohorts start on
+# 6 September, so there are two services. Do not add the second one here: a
+# blueprint with two services, reconnected, is a second chance to overwrite the
+# running one. Create it in the dashboard, following section 3a of
+# docs/DEPLOYMENT.md. They may share the database; everything each service
+# reads and deletes is scoped to its own cohort.
 services:
   - type: web
     name: instrument-platform

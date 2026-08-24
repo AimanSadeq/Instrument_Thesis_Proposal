@@ -52,6 +52,12 @@ secret has no route to response contents, and it cannot export or delete.
 **Counts only, never contents, during the programme.** Read the counts after
 each session, record them, and note anything unusual in the deviations log.
 
+The counts are this cohort's only. Where two cohorts run in the same week they
+have their own service, their own admin secret and their own admin page, and
+neither page shows the other's room even when both write to the same database.
+Check the header before you trust a number: it names the cohort and the
+programme length.
+
 ## If something goes wrong
 
 **A participant says the form would not send.** They will have seen a message
@@ -93,7 +99,8 @@ The researcher, with the export secret:
    file and in every CSV filename. Check them against the counts on screen.
 3. Store the files where the data management plan says.
 4. Delete all source records with the delete-all form, which asks for the
-   phrase `DELETE ALL RESEARCH DATA` and then reports rows before and after.
+   phrase `DELETE ` followed by this service's cohort label, and then reports
+   rows before and after for that cohort.
 
 Between the two cohorts, do all four steps before changing `COHORT` to
 `cohort-2`, so the September data is exported and removed before the October

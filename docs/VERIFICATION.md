@@ -114,7 +114,8 @@ protocol needs a different mechanism, not a different implementation.
 | Line | Result |
 |---|---|
 | Export verifiable as complete before deletion | **Pass.** Counts per instrument on the admin page, the same counts inside the export file, and the row count in each CSV filename. |
-| Delete-all for source records | **Pass.** Behind the researcher secret, and behind typing `DELETE ALL RESEARCH DATA` exactly. It reports rows before and rows after for each of the four tables. Test *deletion empties every table and reports the counts before and after*. |
+| Delete for source records | **Pass.** Behind the researcher secret, and behind typing `DELETE ` followed by this service's cohort label exactly. It removes that cohort's rows and reports before and after for each of the four tables. Tests *deletion empties every table and reports the counts before and after* and *deleting after an export destroys this cohort only, and leaves the other intact*. |
+| One database, more than one cohort | **Pass.** The admin counts, both export formats and the delete are all scoped to the service's own `COHORT`, so two cohorts running in the same week on one database cannot see, export or destroy each other's records. `tests/cohort-isolation.test.js` plants a second cohort's rows and checks each path separately, including that the HTTP delete endpoint reaches no further than the library function does; removing the predicate from either the delete or the counts makes exactly the corresponding test fail. The delete confirmation phrase names the cohort, so the same words no longer fire on every service. |
 
 ---
 
@@ -127,7 +128,7 @@ the data: Render service `srv-da588crm8hqs73bpp49g`, region Oregon, commit
 
 | Checked | Result |
 |---|---|
-| Schema, on the live database | Nine of nine assertions in `db/checks/post_deploy_check.sql` pass: four tables present, no column able to hold a time, nothing defaulting to a clock reading, no column named for an identity or an address, no foreign key, row level security on, nothing in `public`, nothing named for FinPlay, tables empty |
+| Schema, on the live database | Nine of nine assertions in `db/checks/post_deploy_check.sql` pass: four tables present, no column able to hold a time, nothing defaulting to a clock reading, no column named for an identity or an address, no foreign key, row level security on, nothing in `public`, nothing named for FinPlay, and no rows yet for the cohort about to start. Edit the cohort at the top of the script before running it; another cohort's rows are listed as information, not counted as a failure |
 | Write path | One submission to each of the four instruments, made from a telephone, English and Arabic. Before this the application had only ever read from this database |
 | Stored rows | `db/checks/inspect_rows.sql` returned `pass` for every row. Each row held a random id, the cohort, a plain calendar date, the training day where it applies, and the answers. No time, no address, no user agent, nothing else |
 | Option codes, not labels | An Arabic response stored `manager`, `5_to_10`, `moderate`, `somewhat`. The row does not record which language was used |
@@ -138,7 +139,7 @@ the data: Render service `srv-da588crm8hqs73bpp49g`, region Oregon, commit
 | Admin view, facilitator secret | Counts, participation rate, and the four QR codes. No response text anywhere on the page, and no control leading to any. The page states that export and deletion need the researcher's secret |
 | Admin view, researcher secret | Export and deletion sections appear |
 | Export | JSON downloaded and opened: row counts present and matching the counts on screen, answers present |
-| Deletion | `DELETE ALL RESEARCH DATA` accepted, before and after counts reported, tables emptied |
+| Deletion | `DELETE <cohort>` accepted, before and after counts reported, this cohort's rows removed and no other's |
 | QR codes | Scanned from the admin page with a telephone camera; opens the consent screen |
 
 Two things this does **not** yet cover, and they are the same two as before:

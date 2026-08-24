@@ -9,7 +9,11 @@ const view = require('../render/admin');
 
 const router = express.Router();
 
-const CONFIRM_PHRASE = 'DELETE ALL RESEARCH DATA';
+// The phrase names the cohort, because the delete now removes one cohort and
+// because more than one instance can be open in a browser at the same time.
+// "DELETE ALL RESEARCH DATA" was both an overstatement and the same words on
+// every service, which is exactly how the wrong tab gets confirmed.
+const CONFIRM_PHRASE = 'DELETE ' + config.cohort;
 
 // A shared secret protects an administrative route. It is not a participant
 // identity and nothing about it is stored: no cookie, no session, no record of

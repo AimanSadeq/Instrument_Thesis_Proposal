@@ -83,15 +83,15 @@ ${['consent_responses', 'pre_training_responses', 'daily_reflections', 'post_tra
 </section>
 
 <section class="section danger">
-<h2>Delete all source records</h2>
-<p>Irreversible. Run only after an export has been downloaded and its row counts checked.</p>
+<h2>Delete this cohort's source records</h2>
+<p>Irreversible. Run only after an export has been downloaded and its row counts checked. It removes the records of cohort <strong>${esc(config.cohort)}</strong> and no other cohort's.</p>
 <form method="post" action="/admin/delete" class="instrument">
 <input type="hidden" name="secret" value="${esc(secret)}">
 <div class="field">
-<label class="field-label" for="confirm">Type <code>DELETE ALL RESEARCH DATA</code> to confirm</label>
+<label class="field-label" for="confirm">Type <code>DELETE ${esc(config.cohort)}</code> to confirm</label>
 <input type="text" id="confirm" name="confirm" autocomplete="off" spellcheck="false">
 </div>
-<div class="actions"><button type="submit" class="btn btn-danger">Delete all records</button></div>
+<div class="actions"><button type="submit" class="btn btn-danger">Delete this cohort's records</button></div>
 </form>
 </section>` : `<section class="section">
 <h2>Export</h2>
