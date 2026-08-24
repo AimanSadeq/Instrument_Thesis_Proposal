@@ -129,7 +129,12 @@ blueprint.** Reconnecting a blueprint overwrites dashboard values, which is how
 1. New web service from the same repository, same United States region, same
    build and start commands, `autoDeploy` off.
 2. Copy `DATABASE_URL`, `DATABASE_SSL` and `DATABASE_CA_CERT` from the first
-   service. Same database, deliberately.
+   service. Same database, deliberately. **If `DATABASE_CA_CERT` is a path**
+   such as `/etc/secrets/prod-ca-2021.crt`, copying the variable is not enough:
+   Secret Files belong to one service. Add the certificate to this service's
+   own Secret Files as well, or the service will refuse to start and say it
+   cannot read the certificate. Pasting the certificate text into the variable
+   instead avoids the second step entirely.
 3. Set `COHORT` to something that names the client and cannot be confused with
    the other, and `PROGRAMME_DAYS` to that programme's length.
 4. Generate **new** `ADMIN_SECRET` and `EXPORT_SECRET`. Do not copy them. The
