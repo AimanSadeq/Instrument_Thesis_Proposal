@@ -1,0 +1,517 @@
+
+===== SLIDE 1 =====
+SDA Bocconi School of Management
+DBA THESIS PROPOSAL 
+Presentation
+Leveraging Artificial Intelligence
+for Financial Literacy Development
+A Design-Based Research Study of AI-Assisted Training Design,
+Gamification, and Organisational Outcomes
+Aiman S. Sadeq
+Supervisor: Professor Emanuele Borgonovo
+1
+--- notes 1 ---
+1
+
+===== SLIDE 2 =====
+PROBLEM STATEMENT
+THE PROBLEM
+Why current financial literacy training falls short - and why AI-driven gamification needs design principles
+PRACTICAL
+Training that doesn't stick
+Financial literacy programs still rely on lectures, slide decks, and pen-and-paper workshops. Engagement is low, retention is weak, and learners rarely change real financial behaviour.
+THEORETICAL
+An under-studied intersection
+Gamification and AI are well-researched separately, but there is no validated framework for how AI-driven gamification should be designed for financial literacy - what mechanics work, for whom, and when.
+OPPORTUNITY
+AI changes what's possible
+Generative AI now enables personalised scenarios, adaptive difficulty, and real-time feedback at scale - but educators lack design principles to harness it effectively for financial learning.
+Conventional training fails to change behaviour, yet there is no validated design framework for AI-driven gamification in financial literacy.
+--- notes 2 ---
+3
+
+===== SLIDE 3 =====
+1
+MOTIVATION
+: 
+Why do we care?
+AI has transformed how finance works. Yet the way professionals learn finance has not kept pace. Financial literacy is a must
+AI Has Transformed Finance
+Asset pricing and algorithmic trading
+Credit risk and fraud detection
+Financial reporting and NLP analysis
+Robo-advisory and portfolio management
+Year 1 Literature Review
+40 studies from leading finance journals
+But Competence Is Built
+the Old Way
+Professionals learn finance through static slides and lectures
+ Information asymmetry (time and effort)
+Financial literacy: new content and methods
+3
+--- notes 3 ---
+4
+
+===== SLIDE 4 =====
+2
+LITERATURE
+What Do We Know?
+Stream 1: AI in Finance &
+Competence Dev.
+Year 1 LR + Zawacki-Richter (2019), Yan (2024)
+Stream 2: Financial
+Competence
+Kaiser et al. (2022), OECD/INFE, Knowles (2025)
+Stream 3: AI-Assisted
+Training Design
+Mayer (2021), Clark & Mayer (2023), Noetel (2022)
+Stream 4: Gamification &
+Simulation
+Ryan & Deci (2000), Sailer & Homner (2020)
+Stream 5: Organizational
+Adoption
+Davis (1989), Venkatesh (2003, 2022)
+Stream 6: Training
+Evaluation
+Kirkpatrick (2016), Holton (1996)
+Stream 7: Design-Based Research Methodology
+Braun & Clarke (2006, 2024)  |  Gale et al. (2013)
+140+ verified sources  
+24 of 26 journals Scopus Q1  
+7 Streams
+4
+--- notes 4 ---
+5
+
+===== SLIDE 5 =====
+2
+CONCEPTUAL
+ 
+FRAMEWORK
+What Do We Know, How the Theories Connect
+FINANCIAL COMPETENCE
+DEVELOPMENT
+INTERVENTION
+AI-Assisted Training Design
+Mayer | Clark & Mayer | Gagne
+RQ1
+ENGAGEMENT
+Gamification & Simulation
+Self-Determination Theory
+Mechanics, Dynamics, Aesthetics
+SDT | MDA Framework
+RQ2
+ADOPTION
+Organizational Readiness
+Technology Acceptance Model
+Unified Theory of Acceptance and Use of Technology
+TAM | UTAUT
+RQ3
+EVALUATION
+Kirkpatrick NWKM | OECD/INFE
+RQ4
+GOVERNANCE
+UNESCO | OECD AI | KSA PDPL
+RQ5
+5
+--- notes 5 ---
+7
+
+===== SLIDE 6 =====
+3
+THE
+ 
+RESEARCH
+ 
+GAP
+What don't we know? 
+Gap 1
+AI in Training Design
+No published study has examined generative AI as the primary designer of finance training artefacts for professional learners.
+Zero studies identified in systematic Scopus review.
+Gap 2
+Gamification in Finance
+Gamification is rarely applied to finance education for professionals. Sailer and Homner (2020) confirm its effectiveness in general learning; application to finance competence remains unexplored.
+No studies combine gamification + finance professional training.
+Gap 3
+The Convergence Gap
+No study integrates AI-assisted design + gamification + finance professional training + DBR methodology in a single research design.
+This thesis fills that confirmed convergence gap.
+6
+--- notes 6 ---
+10
+
+===== SLIDE 7 =====
+3
+RESEARCH
+ 
+QUESTIONS
+What don't we know?
+How can generative AI be leveraged to develop financial competence in organisations,
+and what design principles govern effective AI-assisted finance training?
+RQ1
+What role does AI play in the production of finance training artefacts, and how does AI-human collaboration affect artefact quality and relevance?
+Mayer’s multimedia principles  |  Clark & Mayer eLearning guidelines  |  Gagné’s Nine Events
+RQ2
+How do AI-designed gamification and simulation mechanics influence professionals' engagement with, and understanding of, financial decision-making?
+Self-Determination Theory  |  MDA Framework  |  Gamification meta-analyses
+RQ3
+What organizational and individual factors enable or constrain the adoption of AI-assisted finance training in professional settings? 
+TAM / UTAUT  |  AIS eLibrary
+RQ4
+To what extent does AI-assisted finance training contribute to the development of financial competence, as perceived by professionals and their organizations?
+Kirkpatrick Partners, LLC  |  OECD/INFE Financial Competence Framework
+RQ5
+What governance principles should guide the responsible use of AI in developing finance training for regulated professional environments?
+UNESCO  |  OECD AI Principles  |  KSA PDPL  |  UAE PDPL
+CONVERGENCE GAP: Zero published studies combine AI-assisted design + gamification + finance professional training + DBR
+7
+--- notes 7 ---
+12
+
+===== SLIDE 8 =====
+1
+PLATFORM CONCEPTUALISATION
+What do you do?
+Design Requirements
+Audience
+KSA government and corporate professionals with no prior finance background. Mixed seniority. Bilingual context (English / Arabic).
+Learning Scope
+Balance Sheet, Income Statement, Cash Flow Statement, and Financial Analysis. Applied through decision-making scenarios.
+Delivery Mechanism
+Team-based gamified simulation. 3 competitive rounds. Points, leaderboards, and strategic decision pressure (SDT: Ryan and Deci, 2000).
+7 AI-Designed Component Types
+Facilitator Presentations
+Instructor Manuals
+Delegates’ Materials
+Case Studies
+Workshops
+Assessments and Exercises
+eLearning Modules
+Theory Base
+Mayer (2021) multimedia principles guided structure. SDT (Ryan and Deci, 2000) and MDA Framework governed gamification design. Kirkpatrick (2016) framed evaluation intent.
+8
+--- notes 8 ---
+13
+
+===== SLIDE 9 =====
+METHODOLOGY
+DESIGN-BASED RESEARCH - 
+What do you do?
+An iterative cycle of theory, design, and refinement in real-world context
+01
+ANALYSIS
+Identify 
+problem
+ in context; review theory and prior research
+02
+DESIGN
+Develop intervention grounded in theoretical principles
+03
+EVALUATION
+Implement in real-world setting; collect mixed-method data
+04
+REFLECTION
+Refine the design and contribute to theory; iterate
+ITERATE  →  refine intervention + theory across cycles
+--- notes 9 ---
+14
+
+===== SLIDE 10 =====
+1
+PLATFORM ARCHITECTURE
+What do you do?
+AI-Designed Finance Training Platform
+Generative AI (Claude Code) designed all 7 training component types. The components feed into a 10-module learning journey and a 3-round financial simulation engine.
+Presentations
+Instructor Manuals
+Delegates' Materials
+Case Studies
+Workshops
+Assessments and Exercises
+eLearning Modules
+37 Professionals  |  KSA Ministry  |  3-Round Financial Simulation  |  Team Competition
+10
+--- notes 10 ---
+16
+
+===== SLIDE 11 =====
+1
+EARLY
+ 
+EXPERIMENTS
+What do you do?
+Cohort 1: Completed
+Setting
+KSA Ministry of Finance professionals. Two groups. Co-delivered by researcher and colleague. 3-day programme.
+Participants
+37 professionals total
+Group A: 21 senior executives
+Group B: 16 managers
+Data Collected
+Post-training satisfaction surveys
+Researcher observations (non-participant)
+Facilitator notes and AI prompt logs
+Cohort 2
+
+5+: In Progress
+Setting
+~20 KSA professionals. Delivered independently by colleague. Full structured instrument suite deployed.
+5 Research Instruments (Bilingual)
+Consent and briefing sheet
+Pre-training questionnaire
+Daily reflection cards (3 days)
+Post-training evaluation (Likert scale)
+Facilitator instructions document
+All instruments bilingual: English and Arabic.
+Key message: Cycle 1 is not a plan. It is underway with real data from real professionals in an authentic KSA setting.
+11
+Cycle 1: Testing the Platform with Real Professionals
+--- notes 11 ---
+18
+
+===== SLIDE 12 =====
+4
+RESEARCH
+ 
+DESIGN
+What do you do?
+Design-Based Research (DBR)
+A systematic but flexible methodology aimed to improve educational practices through iterative analysis, design, development, and implementation (Wang & Hannafin, 2005)
+Cohort 1: NATURALISTIC PILOT
+AI designed all 8 training components
+Cohort 1: 37 professionals (KSA Ministry)
+   - 21 senior executives + 16 managers
+   - Satisfaction surveys, observations collected
+Cohort 2: ~20 professionals (upcoming)
+   - Structured research instruments deployed
+No redesign between cohorts
+Design: make cycle 1 smaller, more focus on Cycle 2 
+Cohort 2
+5+
+: SCALED DELIVERY
+Multiple Cohorts
+Refined materials based on Cycle 1 findings
+Multiple organisations (private + government)
+KSA market, Oct 2026 - Feb 2027
+Full research rigour:
+   - Formal interviews (12-15)
+   - Streamline slides per Mayer; refine gamification to better support autonomy/competence (SDT)
+   - Focus groups, structured observation
+   - Artefact analysis + AI prompt logs
+Qualitative  |  Interpretivist / Constructivist  |  Iterative Design-Study Coupling  |  Authentic Professional Settings
+12
+--- notes 12 ---
+19
+
+===== SLIDE 13 =====
+4
+DATA & ANALYSIS
+What do you do?
+Data Sources (Triangulated)
+Semi-structured interviews (trainers, SMEs, L&D managers)
+Focus groups (learners)
+Non-participant observation (workshops)
+Artefact analysis (8 AI-designed components)
+AI prompt/output logs
+Daily reflection cards + post-training evaluations
+Analysis Strategy
+Reflexive Thematic Analysis (RTA)
+Six-phase interpretive method; researcher subjectivity treated as analytic resource.
+Braun & Clarke (2006, 2019, 2022)
+Framework Method
+Matrix-based charting of coded data by case and theme; transparent cross-case comparison.
+Ritchie & Spencer (1994); Gale et al. (2013)
+RTA surfaces learner meanings
+Framework Method enables cross-case comparison across DBR cycles
+Descriptive statistics anchor outcomes - yielding transparency and measurable impact.
+13
+Descriptive Quantitative Analysis
+Pre/post evaluation scores and engagement metrics summarised with means and distributions.
+Kirkpatrick L1/L2 outcomes; descriptive statistics
+--- notes 13 ---
+22
+
+===== SLIDE 14 =====
+4
+CURRENT
+ 
+STATUS
+Where Am I in the Process?
+Completed: make it small
+AI-designed gamification portal (8 components)
+3-round financial simulation (fully functional)
+Cycle 1 Cohort 1: 37 professionals trained
+Satisfaction surveys + observations collected
+Year 1 Literature Review (AI in Finance)
+Year 2 Literature Map (140+ verified sources)
+Systematic search protocol (7 Scopus strings)
+Research instruments (English + Arabic)
+In Progress / Next
+Cohort 2 data collection
+Retrospective coding of Cohort 1 data
+Execute Scopus searches (institutional access)
+Draft thesis proposal (~9,500 words)
+Conceptual framework diagram
+Cycle 2 planning (2026-2027)
+Ethics approval for Cycle 2
+TP: 30 Sep 2026  |  Thesis: 23 Nov 2027
+Key message: This is not a plan. Cycle 1 is already underway with real data from real professionals.
+14
+
+===== SLIDE 15 =====
+15
+
+===== SLIDE 16 =====
+5
+TIMELINE
+Tentative Schedule
+Apr-May
+2026
+Cohort 2 data
+Scopus searches
+May-Aug
+2026
+Full-text reading/Analysis
+TP Draft 1
+Aug
+2026
+TP Draft 2
+Supervisor review
+Sep 30
+2026
+TP SUBMISSION
+Blackboard
+June 2026
+- Feb 2027
+Cycle 2 delivery and
+Formal data collection
+Mar -
+Nov 2027
+Analysis + Writing
+Thesis: 23 Nov 2027
+YOU ARE HERE
+Year 1 (completed Sep 2025): Literature Review on AI and Machine Learning in Finance  -  40 studies from leading finance journals
+16
+
+===== SLIDE 17 =====
+5
+GOVERNANCE
+ 
+PROTOCOL
+Responsible-AI and Data-Protection Design Assurance (RQ5): using platforms requires abiding by local rules and regulations
+AI Design-Assurance Protocol
+Human-in-the-Loop Review
+All AI-generated artefacts reviewed and fact-checked by subject-matter expert before deployment. Errors and biases logged in AI prompt/output audit trail.
+Source Transparency
+AI model, prompts, and outputs disclosed in methodology appendix. Versioned change logs maintained across both DBR cycles.
+Alignment Sources
+UNESCO (2023) Guidance on Generative AI in Education and Research; OECD AI Principles; U.S. Dept. of Education AI Report (2023)
+Data Protection Compliance
+KSA PDPL (Implementing Regulations 2023)
+Consent and notice; data minimisation; purpose limitation; secure storage; cross-border transfer controls documented in ethics appendix.
+UAE PDPL (Federal Law No. 45 of 2021)
+Applicable where participants are UAE-based or data transits UAE jurisdiction. Same core principles: consent, minimisation, access rights.
+Practical Controls
+Anonymised participant data; consent forms issued before each cohort; recordings/LMS logs stored with restricted access; retained only for research duration.
+17
+
+===== SLIDE 18 =====
+6
+CONTRIBUTIONS
+What Will This Thesis Deliver?
+Theoretical
+Evidence-based design principles for AI-driven financial competence development
+First study at the intersection of AI + gamification + finance training + DBR
+Practical
+Playbook for organisations deploying AI-assisted finance training
+Validated gamification portal ready for commercial deployment
+Publication
+One paper targeting a Q1 journal in finance/management learning
+Academy of Management L&E, Management Learning, or Journal of Financial Education
+This thesis fills a confirmed gap at the intersection of AI, gamification, and finance professional training
+using Design-Based Research in authentic KSA professional settings.
+18
+Practitioner
+AI-Assisted Finance Training Playbook
+Design principles, patterns, and pitfalls distilled from two DBR cycles
+A replicable framework for organizations deploying AI in finance training
+
+===== SLIDE 19 =====
+Thank You
+I welcome your feedback and questions.
+Aiman S. Sadeq
+DBA Candidate  |  SDA Bocconi School of Management
+Supervisor: Professor Emanuele Borgonovo
+19
+
+===== SLIDE 20 =====
+20
+APPENDIX
+
+===== SLIDE 21 =====
+COMPONENT-METHOD MAPPING
+How Each AI-Designed Artefact Is Studied
+COMPONENT
+DESIGN LENS
+PRIMARY DATA SOURCE
+ANALYSIS APPROACH
+Presentations (PowerPoints)
+Mayer multimedia principles; text-image coherence; signaling; redundancy
+Artefact audit; trainer and learner interviews
+Framework matrix + RTA; rate slides against Mayer/Clark-Mayer rubrics
+Instructor Manual
+Gagné's Nine Events; clarity of learning objectives; activity alignment
+Artefact audit; trainer interviews
+Framework matrix; trace objective-activity-assessment alignment
+Delegates' Materials
+Cognitive load; worked examples; practice opportunities
+Artefact audit; learner focus groups
+RTA; code for usability, clarity, relevance; map to outcomes
+Case Studies
+Authenticity; decision complexity; transfer to workplace
+Observations; learner/trainer interviews
+RTA; pattern matching to Kirkpatrick L2-L3 narratives
+Assessments and Exercises
+Construct alignment; feedback quality; retrieval practice
+Artefact audit; learner reflections
+Framework analysis; perceived fairness and learning value
+eLearning Modules
+Clark and Mayer evidence-based eLearning; navigation/usability
+Think-aloud sessions; module artefacts
+RTA + design rubric scores; AI-generated vs human-edited
+Gamification and Simulation
+SDT needs (autonomy, competence, relatedness); MDA mapping
+Gameplay observation; learner/trainer interviews
+RTA; code against SDT; annotate mechanics-dynamics-aesthetics
+21
+
+===== SLIDE 22 =====
+THE FINPLAY PORTAL
+The Platform in Action: Live Screens from FinPlay
+Learning Mode Selection
+10-Module Learning Journey
+3-Round Financial Simulation
+22
+
+===== SLIDE 23 =====
+RESEARCH INSTRUMENTS
+Data Collection Tools and Example Questions
+Trainer / SME Interviews
+“Walk me through where you kept and overruled AI suggestions in the PowerPoints and instructor manual. What made a suggestion trustworthy?”
+“How did AI help or hinder building case studies, assessments, and exercises - and what did you change after pilot delivery?”
+“What would make you keep using these AI-designed materials?” (TAM/UTAUT: usefulness, ease, social influence, facilitating conditions.)
+Learner Focus Groups
+“Compare your experience with AI-designed eLearning vs previous modules.” (Probe: clarity, feedback, cognitive load.)
+“Did gamified elements (leaderboards, badges, timed challenges) help you persist or learn better? Why?” (Probe: autonomy, competence, relatedness.)
+Workshop Observation Guide
+Note where AI-designed slides or case prompts catalyse peer discussion; where facilitators deviate from AI draft plans; and how learners respond during exercises.
+Maps to Kirkpatrick L1–L3 evidence.
+Artefact Audit Rubrics
+Slides / eLearning
+Coherence, signaling, segmenting, modality, personalisation (Mayer)
+Instructor Manual
+Objective clarity, activity alignment, anticipated misconceptions (Gagné)
+Gamification
+MDA mapping (mechanic→dynamic→aesthetic) + SDT support (autonomy, competence, relatedness)
+23

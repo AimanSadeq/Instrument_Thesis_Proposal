@@ -1,0 +1,69 @@
+Subject: One procedural question before Cohort 1 - the School's Consent Form
+
+Dear Emanuele,
+
+Thank you for confirming the arrangements on 21 August. The instrument platform is built and
+matches what I described to you: no identifiers of any kind, no login, no linkage between
+responses, and a calendar date with no time component. The consent and information wording is
+in place in both languages.
+
+One procedural question remains, and it is the only one I cannot resolve myself.
+
+Section 3.5 of the DBA guidelines refers to a "Consent Form" that candidates complete where
+research involves human subjects. It is mentioned once and not described, which leaves two
+things open:
+
+  - What it consists of. If it is a template the School expects participants to be given, the
+    wording I have prepared may need recasting into that format rather than used as written. If
+    it is an application for committee review, what I have is what would accompany it.
+
+  - When it is due. The protocol treats Cohort 1 as a single-site pilot and defers the
+    submission to Cycle 2. I may be reading that threshold too narrowly. If it should be filed
+    through ecr.unibocconi.it before 6 September, it needs starting now, since it is the one
+    item here that cannot be put right after the session has run.
+
+I have attached the participant materials in both languages. The consent and information sheet is
+the first page of each; the four instruments follow it. That way you can see what would either be
+submitted or replaced. If the Consent Form is simply not required for a pilot of this kind, a
+line saying so is all I need.
+
+Two smaller points while I have you. The consent wording states no retention period. Because the
+responses carry no identifiers there is no personal data to retain, and the source records are
+deleted once the export is verified; tell me if you would nonetheless expect a period stated in
+the participant text. And the materials quote no ethics approval reference, since none has been
+issued. Say if one should appear on them before the session.
+
+One correction to my note of 21 August, where I said a further cohort follows in October. It is a
+different organisation rather than a repeat at ELM, and it is not yet confirmed, so I will write
+Cycle 1 in the proposal as one confirmed cohort with a second in negotiation.
+
+With kind regards,
+
+Aiman Sadeq
+Doctoral candidate, SDA Bocconi School of Management
+
+
+---
+Notes before sending, not part of the email:
+
+  * The paper-versus-screen question is gone. You told him on 21 August that instruments would
+    be collected online and he approved it, so raising it again would reopen a settled point.
+
+  * The one-tick-versus-two question is gone. That belonged to a different design. Your actual
+    consent is a single agree or decline.
+
+  * Attach exactly two files, from the instrument repository:
+        docs/paper/instruments-en.docx
+        docs/paper/instruments-ar.docx
+    Despite the name, each opens with the consent and information sheet, then the four
+    instruments after a page break. Order inside instruments-en.docx: consent and information,
+    pre-training questionnaire, daily reflection, post-training evaluation.
+
+  * The Research Protocol is now at v1.1, and it supersedes the version he has. v1.1 is what
+    the built platform was checked against: online collection, no login, printed packs as a
+    recorded fallback, US hosting stated plainly, and section 10 lists every change from v1.0.
+    Attach it if he has only ever seen v1.0:
+        Research_Protocol_DMP_v1.1_Sadeq.docx
+
+  * Consider also docs/paper/information-sheet.pdf if you want him to see the take-home sheet,
+    though the wording in it is the same as the front of the paper packs.

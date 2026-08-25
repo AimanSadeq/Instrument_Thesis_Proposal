@@ -3,6 +3,20 @@
 This serves four research instruments to training participants for a doctoral
 study at SDA Bocconi. Read `docs/VERIFICATION.md` before changing anything.
 
+## Two things live here
+
+The **instrument platform** (`src`, `public`, `db`, `scripts`, `tests`) collects
+participant data and is governed by the rules below. The **thesis build**
+(`thesis/`) turns the sources in `docs/source/` into the three documents that go
+to SDA Bocconi. They are independent: nothing in `thesis/` is imported by the
+platform, and the platform's privacy scanners read `src`, `public` and `db` only.
+
+One rule spans both, and it is the one that matters most: **no participant
+response, of any kind, may enter this repository or any generative AI system.**
+That now includes interview recordings and transcripts, which Protocol v1.3
+section 7 covers explicitly, along with the two ways it is most easily broken:
+automated transcription services and pasting transcript text into an assistant.
+
 ## The rules are not preferences
 
 The anonymity properties below are commitments made in writing to a

@@ -1,0 +1,269 @@
+<title>Road to September 30</title>
+<style>
+  :root {
+    --paper:#f4f6f8; --card:#ffffff; --ink:#1b2531; --ink-soft:#47566a; --ink-faint:#7a8798;
+    --line:#dbe2ea; --accent:#24527a; --accent-ink:#1c4265; --accent-soft:#e8eff5;
+    --crit:#a8432c; --crit-bg:#f7e9e4; --ok:#2e6e4e; --ok-bg:#e6f1ea; --wait:#8a6a1f; --wait-bg:#f6efdc;
+    --chip:#eef2f6; --shadow:0 1px 2px rgba(27,37,49,.06), 0 4px 14px rgba(27,37,49,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:#10161d; --card:#171f29; --ink:#e5eaf1; --ink-soft:#a8b4c2; --ink-faint:#788595;
+      --line:#28323f; --accent:#6ea4cf; --accent-ink:#8db8da; --accent-soft:#1c2a38;
+      --crit:#d98a72; --crit-bg:#33201a; --ok:#66b48c; --ok-bg:#17291f; --wait:#cfa84e; --wait-bg:#2b2414;
+      --chip:#202a36; --shadow:0 1px 2px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#10161d; --card:#171f29; --ink:#e5eaf1; --ink-soft:#a8b4c2; --ink-faint:#788595;
+    --line:#28323f; --accent:#6ea4cf; --accent-ink:#8db8da; --accent-soft:#1c2a38;
+    --crit:#d98a72; --crit-bg:#33201a; --ok:#66b48c; --ok-bg:#17291f; --wait:#cfa84e; --wait-bg:#2b2414;
+    --chip:#202a36; --shadow:0 1px 2px rgba(0,0,0,.45);
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0 18px 90px; background:var(--paper); color:var(--ink);
+    font:15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+  .wrap { max-width:960px; margin:0 auto; }
+  header { padding:44px 0 6px; }
+  .kicker { font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); font-weight:700; margin:0 0 10px; }
+  h1 { font-family:Georgia, "Times New Roman", serif; font-size:clamp(30px,5vw,40px); margin:0 0 10px; line-height:1.08; text-wrap:balance; }
+  .lede { color:var(--ink-soft); max-width:72ch; margin:0 0 6px; }
+  .datebar { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0; }
+  .datebar span { font:600 12px ui-monospace, SFMono-Regular, Menlo, monospace; background:var(--chip); border:1px solid var(--line); border-radius:6px; padding:4px 10px; color:var(--ink-soft); }
+  .datebar span.hot { background:var(--crit-bg); color:var(--crit); border-color:transparent; }
+  section { margin:34px 0 0; }
+  .sec-head { display:flex; align-items:baseline; gap:12px; border-bottom:2px solid var(--line); padding-bottom:6px; margin-bottom:12px; }
+  .sec-head h2 { font-family:Georgia, serif; font-size:21px; margin:0; }
+  .sec-head .note { font-size:12.5px; color:var(--ink-faint); }
+  .callout { border-left:4px solid var(--crit); background:var(--card); border-radius:0 10px 10px 0; padding:14px 18px; margin:14px 0 0; box-shadow:var(--shadow); }
+  .callout.blue { border-left-color:var(--accent); }
+  .callout b { color:var(--accent-ink); }
+  .callout.hotb b { color:var(--crit); }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:680px) { .cols { grid-template-columns:1fr; } }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; box-shadow:var(--shadow); }
+  .panel h3 { margin:0 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.08em; }
+  .panel.ok h3 { color:var(--ok); } .panel.open h3 { color:var(--crit); }
+  .panel ul { margin:0; padding-left:18px; }
+  .panel li { margin:5px 0; font-size:13.5px; color:var(--ink-soft); }
+  .panel li b { color:var(--ink); font-weight:600; }
+  /* week blocks */
+  .week { display:grid; grid-template-columns:150px 1fr; gap:0; background:var(--card); border:1px solid var(--line); border-radius:10px; margin:12px 0; box-shadow:var(--shadow); overflow:hidden; }
+  @media (max-width:640px) { .week { grid-template-columns:1fr; } }
+  .week .when { background:var(--accent-soft); padding:14px 14px; border-right:1px solid var(--line); }
+  @media (max-width:640px) { .week .when { border-right:none; border-bottom:1px solid var(--line); } }
+  .week .when .w { font-family:Georgia, serif; font-weight:700; font-size:17px; color:var(--accent-ink); }
+  .week .when .d { font:600 11.5px ui-monospace, Menlo, monospace; color:var(--ink-soft); margin-top:3px; }
+  .week .when .theme { font-size:12px; color:var(--ink-soft); margin-top:8px; font-style:italic; }
+  .week .what { padding:12px 16px 13px; }
+  .week .what ul { margin:0; padding-left:18px; }
+  .week .what li { margin:5px 0; font-size:13.5px; color:var(--ink-soft); }
+  .week .what li b { color:var(--ink); font-weight:600; }
+  .week .what li.mile { color:var(--ink); }
+  .week .what li.mile b { color:var(--crit); }
+  .week.hot { border-color:var(--crit); }
+  .week.hot .when { background:var(--crit-bg); }
+  .week.hot .when .w { color:var(--crit); }
+  /* tables */
+  .tbl-wrap { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow); }
+  table { border-collapse:collapse; width:100%; font-size:13.5px; }
+  th { text-align:left; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); padding:10px 12px 8px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  td { padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-soft); }
+  td b { color:var(--ink); font-weight:600; }
+  tr:last-child td { border-bottom:none; }
+  td.n { font-weight:700; color:var(--accent-ink); white-space:nowrap; font-variant-numeric:tabular-nums; }
+  td.w { white-space:nowrap; font:600 12.5px ui-monospace, Menlo, monospace; color:var(--ink-soft); }
+  .pill { display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.05em; border-radius:999px; padding:2px 9px; white-space:nowrap; }
+  .pill.you { color:var(--accent-ink); background:var(--accent-soft); }
+  .pill.ai { color:var(--ink-soft); background:var(--chip); }
+  .pill.crit { color:var(--crit); background:var(--crit-bg); }
+  .pill.wait { color:var(--wait); background:var(--wait-bg); }
+  .pill.ok { color:var(--ok); background:var(--ok-bg); }
+  ol.rules { margin:8px 0 0; padding-left:20px; }
+  ol.rules li { margin:7px 0; font-size:14px; color:var(--ink-soft); }
+  ol.rules li b { color:var(--ink); }
+  .stmt { background:var(--chip); border:1px dashed var(--line); border-radius:8px; padding:12px 15px; font-size:13.5px; color:var(--ink-soft); font-style:italic; margin-top:10px; }
+  .foot { margin-top:40px; font-size:12px; color:var(--ink-faint); border-top:1px solid var(--line); padding-top:12px; }
+</style>
+
+<div class="wrap">
+<header>
+  <p class="kicker">SDA Bocconi DBA &middot; Thesis Proposal &middot; Aiman S. Sadeq</p>
+  <h1>Road to September 30</h1>
+  <p class="lede">A six-week execution plan for the Thesis Proposal &mdash; built from your approved outline, your literature map, and the four SDA Bocconi grading criteria. The document is fully specified; what remains is disciplined assembly, three evidence operations, and two supervisor review rounds.</p>
+  <div class="datebar">
+    <span>Today &middot; Sat 16 Aug</span>
+    <span class="hot">Draft 1 to supervisor &middot; Mon 1 Sep</span>
+    <span>Draft 2 &middot; Fri 19 Sep</span>
+    <span class="hot">Upload &middot; Tue 29 Sep (buffer 30th)</span>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head"><h2>The critical path</h2></div>
+  <div class="callout hotb"><b>30 September &mdash; TP uploaded to Blackboard &mdash; is the hard, immovable deadline.</b> The schedule below exists to protect it: the guidelines require the uploaded version to be one the supervisor has already approved, and Professor Borgonovo&rsquo;s stated turnaround is roughly two weeks per draft. Working backwards from the 30th: Draft 1 must reach him by <b>Monday 1 September</b> to fit one full feedback-and-revise round plus a short approval pass, with the 29th targeted for upload so the final day stays as buffer.</div>
+  <div class="callout blue"><b>First action, this week: the supervisor email.</b> Late August is holiday season in Italy. Before writing anything, email Professor Borgonovo the drafting calendar, confirm he can review in the 1&ndash;12 September window, and offer section-wise review (Methodology + Literature Review first) if a full-draft round is too tight for him. His answer calibrates everything downstream.</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Where things stand</h2><span class="note">status confirmed 16 Aug</span></div>
+  <div class="cols">
+    <div class="panel ok">
+      <h3>Banked &mdash; ready to use</h3>
+      <ul>
+        <li><b>Supervisor-approved framing</b> (Approach B: AI in finance; education as delivery mechanism)</li>
+        <li><b>Primary RQ + five sub-RQs</b>, each with a theoretical lens</li>
+        <li><b>Detailed TP outline</b> with word budgets (~9,500 target) mapped to all four grading criteria</li>
+        <li><b>7-stream literature map</b>: 140+ verified sources, 24/26 journals Scopus Q1</li>
+        <li><b>DBA 8 presentation delivered</b> (22 May) &mdash; narrative already faculty-tested</li>
+        <li><b>Intervention field-tested</b>: practice deliveries to 37 KSA Ministry professionals (pre-research; contribute no data)</li>
+        <li><b>Five bilingual paper instruments</b> ready for Cohort 1 (6&ndash;9 Sep; add a Day-4 reflection card) + facilitator guide</li>
+        <li><b>FinPlay platform</b> with embedded digital instruments, pre/post assessment, telemetry, consent-versioned research export (Aug 2026)</li>
+      </ul>
+    </div>
+    <div class="panel open">
+      <h3>Open &mdash; on the clock</h3>
+      <ul>
+        <li><b>TP prose: zero words written</b> &mdash; the central task</li>
+        <li><b>Scopus searches not executed</b> &mdash; and the May presentation already asserts &ldquo;zero studies in systematic Scopus review&rdquo;; the claim must be backed by a real, logged search before the TP repeats it</li>
+        <li><b>No research data yet</b> &mdash; practice-delivery materials were not retained; the study’s data begin with Cohort 1</li>
+        <li><b>Cohort 1 delivers 6&ndash;9 September at a second client</b> (~25 professionals, four days, researcher-delivered, five bilingual instruments self-administered) &mdash; consent sign-off with the supervisor must precede it</li>
+        <li><b>Ethics</b>: Bocconi ethics-portal step not started; AI-writing-ethics document still to be provided</li>
+        <li><b>Naming inconsistencies</b> across documents (competence vs literacy; 7 vs 8 components; LR ordering) &mdash; resolved via the decision queue below</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Week by week</h2><span class="note">writing track + evidence track run in parallel</span></div>
+
+  <div class="week">
+    <div class="when"><div class="w">Week 1</div><div class="d">Sun 17 &ndash; Sat 23 Aug</div><div class="theme">Lock the frame, write the heaviest section</div></div>
+    <div class="what"><ul>
+      <li class="mile"><b>Day 1: supervisor email</b> &mdash; calendar, review windows, section-wise option</li>
+      <li>Resolve decisions D1&ndash;D3 (title wording, component count, LR ordering) so every later sentence uses one vocabulary</li>
+      <li>Build the skeleton document: all headings, word budgets, SDA Bocconi formatting from the first page (A4, 12pt, double-spaced, 2.5&nbsp;cm margins, APA)</li>
+      <li><b>Draft Section 4 &mdash; Methodology</b> (2,500&ndash;3,000w). Highest-graded section, zero new inputs needed: DBR justification, sampling, data collection, RTA + Framework Method, RTARG/trustworthiness, advantages &amp; limitations, ethics incl. PDPL</li>
+      <li><b>Evidence track: run Scopus searches</b> &mdash; 1&ndash;2 streams per day with institutional access, log dates and counts in the search log, record PRISMA flow</li>
+      <li>Start the Bocconi ethics conversation (ecr.unibocconi.it) with the supervisor &mdash; committee timelines are outside your control, so open the file now</li>
+    </ul></div>
+  </div>
+
+  <div class="week">
+    <div class="when"><div class="w">Week 2</div><div class="d">Sun 24 &ndash; Sat 30 Aug</div><div class="theme">Literature review + preliminary evidence</div></div>
+    <div class="what"><ul>
+      <li><b>Draft Section 2 &mdash; Literature Review</b> (3,000&ndash;3,500w) in the supervisor-approved finance-first order: AI in finance &rarr; financial competence frameworks &rarr; AI-assisted training design &rarr; gamification/simulation &rarr; adoption &rarr; evaluation &rarr; conceptual framework &rarr; gap</li>
+      <li>Build the <b>conceptual framework diagram</b> (your slide 5 is already 80% of it) and the data-to-RQ alignment matrix</li>
+      <li><b>Evidence track: Cohort 1 launch readiness (ELM, 6&ndash;9 Sep, ~25 participants, you deliver)</b> &mdash; consent form reviewed with the supervisor before the session, instruments printed incl. a Day-4 reflection card, self-administration and anonymous-return logistics set, your facilitator run-sheet prepared</li>
+      <li><b>Draft Section 3 &mdash; Empirical Setting</b> (800&ndash;1,000w) incl. the positionality passage &mdash; written by you first, in your own words</li>
+      <li>Close the Scopus log; if any stream&rsquo;s results complicate the &ldquo;zero studies&rdquo; claim, recalibrate the gap wording now, not in review</li>
+    </ul></div>
+  </div>
+
+  <div class="week hot">
+    <div class="when"><div class="w">Week 3</div><div class="d">Sun 31 Aug &ndash; Sat 6 Sep</div><div class="theme">Assemble and hand off Draft 1</div></div>
+    <div class="what"><ul>
+      <li><b>Draft Section 1 &mdash; Introduction</b> (1,200&ndash;1,500w) last, so the gap statement matches the executed searches exactly</li>
+      <li><b>Draft Section 5 &mdash; Preliminary Findings</b> (500&ndash;1,000w): design-execution status + Cohort 1 launch; early descriptive results added in Draft 2 if instrument returns are processed in time</li>
+      <li>Assemble appendices A&ndash;I: instruments (paper + platform suite as one evolving family), diagrams, alignment matrix, ethics/consent, PDPL summary</li>
+      <li>Draft the <b>Statement regarding the use of AI</b> (two-level structure below); full APA reference pass; word-count audit</li>
+      <li class="mile"><b>Mon 1 Sep: Draft 1 to Professor Borgonovo</b> &mdash; with a one-paragraph reading guide flagging where you most want his judgement</li>
+    </ul></div>
+  </div>
+
+  <div class="week">
+    <div class="when"><div class="w">Week 4</div><div class="d">Sun 7 &ndash; Sat 13 Sep</div><div class="theme">Polish while feedback is out</div></div>
+    <div class="what"><ul>
+      <li>Cover page: apply the Bocconi template, add the two guideline-required fields it lacks (date + exact word count)</li>
+      <li>Consistency sweep against the D1&ndash;D3 decisions; page numbering (Roman front matter incl. AI statement, Arabic body)</li>
+      <li>Diagrams redrawn to print quality; second APA pass; reference manager reconciliation</li>
+      <li>Process Cohort 1 instrument returns: descriptive tallies + first-pass RTA of open text &mdash; feeds the Draft 2 upgrade of Section 5</li>
+      <li>Ethics portal + AI-ethics document: fold the provided guidance into the final AI statement wording</li>
+    </ul></div>
+  </div>
+
+  <div class="week">
+    <div class="when"><div class="w">Week 5</div><div class="d">Sun 14 &ndash; Sat 20 Sep</div><div class="theme">Revision round</div></div>
+    <div class="what"><ul>
+      <li>Supervisor feedback lands (expected ~12&ndash;15 Sep): triage into <i>must-fix</i> / <i>should-fix</i> / <i>discuss</i>, resolve in that order</li>
+      <li>Your full-document read-aloud pass &mdash; every sentence that doesn&rsquo;t sound like you gets rewritten by you</li>
+      <li class="mile"><b>Fri 19 Sep: Draft 2 to Professor Borgonovo</b> with a change log against his comments</li>
+    </ul></div>
+  </div>
+
+  <div class="week hot">
+    <div class="when"><div class="w">Week 6</div><div class="d">Sun 21 &ndash; Tue 30 Sep</div><div class="theme">Approval, PDF, upload</div></div>
+    <div class="what"><ul>
+      <li>Final approval exchanges; last corrections only &mdash; no new content</li>
+      <li>Final PDF build and compliance check: both word counts computed (cover count includes references; the 8,000&ndash;11,000 band excludes references and appendices), fonts/margins/spacing verified, ToC page numbers regenerated</li>
+      <li class="mile"><b>Tue 29 Sep: upload to Blackboard</b> &mdash; the 30th stays as pure buffer for platform trouble</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Writing map</h2><span class="note">who leads each section &mdash; the authorship protocol in practice</span></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Section</th><th>Words</th><th>Raw material already in hand</th><th>Lead</th></tr>
+    <tr><td><b>1. Introduction</b> &mdash; RQ, significance, definitions, TP structure</td><td class="w">1,200&ndash;1,500</td><td>Year 1 LR bridge; presentation slides 2&ndash;3; five RQs finalised</td><td><span class="pill you">YOU SEED</span> <span class="pill ai">AI SHAPES</span></td></tr>
+    <tr><td><b>2. Literature Review</b> &mdash; six streams, conceptual framework, gap</td><td class="w">3,000&ndash;3,500</td><td>7-stream verified map (140+ sources); stream word budgets; narrative flow already written</td><td><span class="pill ai">AI DRAFTS FROM YOUR MAP</span> <span class="pill you">YOU REWRITE &amp; JUDGE</span></td></tr>
+    <tr><td><b>3. Empirical Setting</b> &mdash; context, access, participants, positionality</td><td class="w">800&ndash;1,000</td><td>Cohort 1 facts; VIFM/KSA context; only you know the access story</td><td><span class="pill you">YOU WRITE</span> <span class="pill ai">AI TIGHTENS</span></td></tr>
+    <tr><td><b>4. Methodology</b> &mdash; DBR, sampling, methods, analysis, quality, limits, ethics</td><td class="w">2,500&ndash;3,000</td><td>Complete design in context doc; component&ndash;method mapping (slide 21); instruments; governance protocol (slide 17)</td><td><span class="pill ai">AI DRAFTS FROM YOUR DESIGN</span> <span class="pill you">YOU REWRITE &amp; JUDGE</span></td></tr>
+    <tr><td><b>5. Preliminary Findings</b> &mdash; status, early themes, next steps</td><td class="w">500&ndash;1,000</td><td>Cohort 1 surveys/observations &rarr; RTA themes (Week 2 output)</td><td><span class="pill you">YOU INTERPRET</span> <span class="pill ai">AI STRUCTURES</span></td></tr>
+    <tr><td><b>References</b> (excluded from band)</td><td class="w">60&ndash;80 src</td><td>Literature map is pre-verified; APA style mandated</td><td><span class="pill ai">AI FORMATS</span> <span class="pill you">YOU SPOT-CHECK</span></td></tr>
+    <tr><td><b>Appendices A&ndash;I</b> &mdash; instruments, diagrams, matrix, ethics, PDPL</td><td class="w">excluded</td><td>Instruments exist (paper + platform); diagrams 80% done in slides</td><td><span class="pill ai">AI ASSEMBLES</span> <span class="pill you">YOU APPROVE</span></td></tr>
+  </table></div>
+  <div class="callout blue" style="margin-top:12px"><b>Word-count correction that buys you room:</b> your outline assumed appendices count inside the 8,000&ndash;11,000 band. The official guidelines say the band <i>excludes</i> references and appendices. That frees roughly 500&ndash;1,000 words for the graded sections &mdash; and means instruments can be included in full rather than truncated.</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Three evidence operations</h2><span class="note">each feeds a specific graded claim</span></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Operation</th><th>Window</th><th>Feeds</th><th>Bounded scope</th></tr>
+    <tr><td class="n">Scopus execution</td><td class="w">W1&ndash;W2</td><td>The convergence-gap claim in Sections 1 and 2.8 &mdash; currently asserted but undocumented</td><td>Run the 7 prepared strings with institutional access; log date + counts + screening numbers per stream; PRISMA flow. The 140+ source map already exists &mdash; this documents the process and tests the zero-studies claim honestly. If a stream surfaces near-misses, the gap statement gets sharpened, which strengthens it.</td></tr>
+    <tr><td class="n">Cohort 1 delivery (early Sep)</td><td class="w">W2&ndash;W4</td><td>Section 5 upgrade in Draft 2 &mdash; the difference between &ldquo;a plan&rdquo; and &ldquo;a study underway&rdquo;</td><td>W2: consent reviewed with supervisor, instruments printed, colleague briefed, return logistics agreed. Post-delivery (W3/W4): descriptive tallies + first-pass RTA of open text, explicitly labelled preliminary. Draft 1 never depends on this data; Draft 2 absorbs it if ready.</td></tr>
+    <tr><td class="n">Instrument harmonisation</td><td class="w">W3</td><td>Methodology 4.4 + Appendices &mdash; one coherent instrument suite</td><td>Present the five bilingual paper instruments (Cohort 1, September) and the platform&rsquo;s embedded digital suite (pre/post assessment, reflections, telemetry, consent-versioned export) as one instrument family that evolves across DBR cycles &mdash; paper in Cycle 1, platform-embedded at scale in Cycle 2. The evolution itself is DBR narrative.</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Authorship &amp; AI protocol</h2><span class="note">how the document stays yours &mdash; and provably so</span></div>
+  <p class="lede" style="font-size:14px">AI sits in this thesis at two levels, and the TP must keep them cleanly separated: AI as the <b>research object</b> (the AI-designed training artefacts, with prompt/output logs already part of your governance protocol) and AI as <b>production assistance</b> for the TP document itself. The school requires disclosure of the second; your methodology already showcases the first.</p>
+  <ol class="rules">
+    <li><b>You seed every section before AI touches it.</b> Bullets, a voice memo, a rough paragraph &mdash; the argument enters in your words. AI structures, tightens, and checks; it does not originate positions.</li>
+    <li><b>Three passages are yours alone:</b> the positionality statement (3.4), every interpretive claim in Preliminary Findings (5.2), and the final formulation of the research gap. These carry your judgement &mdash; the thing being examined.</li>
+    <li><b>You rewrite what carries the argument.</b> Topic sentences, transitions, and all evaluative language get a rewrite pass in your own phrasing. The read-aloud test in Week 5 is the gate: anything that doesn&rsquo;t sound like you goes back.</li>
+    <li><b>Keep the version trail.</b> Your seed notes, AI-assisted intermediates, and your rewrites, dated. This is the audit trail that makes the disclosure statement verifiably true &mdash; and it mirrors the prompt/output logging your own methodology applies to the training artefacts.</li>
+    <li><b>No AI-fabricated scholarship.</b> Every reference comes from your verified map or a logged search; AI formats citations but never introduces a source you haven&rsquo;t seen.</li>
+  </ol>
+  <div class="stmt">Draft disclosure skeleton (per the school&rsquo;s own template, finalised once your AI-ethics document arrives): &ldquo;During production of this work, the author utilized generative artificial intelligence, namely [tools]. These tools were used to structure drafts from the author&rsquo;s outlines and notes, format references, check consistency, and copy-edit; all research questions, study design, interpretations, and conclusions are the author&rsquo;s own, and AI-generated training materials are themselves an object of study described in the Methodology. The author reviewed all content and asserts the content within this document is factually accurate and free of plagiarism. The author takes full responsibility for the submitted document.&rdquo;</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Decision queue</h2><span class="note">small calls, taken one at a time, earliest-needed first</span></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>#</th><th>Decision</th><th>Needed by</th><th>Recommendation</th></tr>
+    <tr><td class="n">D1</td><td>Title vocabulary: financial <b>competence</b> vs financial <b>literacy</b> (documents currently split)</td><td class="w">W1 day 1</td><td><b>Competence</b> &mdash; matches the supervisor-approved framing, the OECD/INFE vocabulary, and the professional (not consumer) audience</td></tr>
+    <tr><td class="n">D2</td><td>AI-designed component count: <b>7 types</b> vs <b>8</b> (slides say both)</td><td class="w">W1 day 1</td><td><b>7 component types</b> (assessments &amp; exercises as one type) &mdash; consistent with the faculty-reviewed May presentation</td></tr>
+    <tr><td class="n">D3</td><td>LR ordering: finance-first (April, supervisor-approved) vs education-first (February outline)</td><td class="w">W1 day 2</td><td><b>Finance-first</b> &mdash; Approach B was approved on exactly this logic; the February ordering is superseded</td></tr>
+    <tr><td class="n">D4</td><td>Section 5 scope if Cohort 1 returns aren’t processed by mid-September</td><td class="w">W3</td><td>Status-only Section 5 (guidelines: findings optional) &mdash; never hold a draft for incoming data</td></tr>
+    <tr><td class="n">D5</td><td>How prominently the FinPlay research infrastructure features in Cycle 2 methodology</td><td class="w">W2</td><td>One firm paragraph in 4.4 + appendix listing the embedded instrument suite &mdash; strengthens rigour without re-opening the approved design</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Risks</h2></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Risk</th><th>Likelihood</th><th>Mitigation</th></tr>
+    <tr><td><b>Supervisor unavailable in early September</b> (Italian holiday tail)</td><td><span class="pill crit">HIGH</span></td><td>Week 1 email books the window in advance; fallback is section-wise review starting with Methodology + LR in late August</td></tr>
+    <tr><td><b>Scopus results complicate the &ldquo;zero studies&rdquo; claim</b></td><td><span class="pill wait">MEDIUM</span></td><td>Searches run in W1&ndash;W2, before the Introduction is written; near-misses get absorbed into a sharper, more defensible gap statement</td></tr>
+    <tr><td><b>Cohort 1 slips or returns arrive late</b></td><td><span class="pill wait">MEDIUM</span></td><td>D4: no draft ever depends on incoming data; guidelines say preliminary findings are optional. Consent sign-off before the session is the one hard prerequisite</td></tr>
+    <tr><td><b>Word-count overrun</b></td><td><span class="pill wait">MEDIUM</span></td><td>Budgets enforced per section from the skeleton onwards; appendices excluded from the band per official guidelines</td></tr>
+    <tr><td><b>Ethics-portal timing</b></td><td><span class="pill ok">LOW for TP</span></td><td>The TP describes the ethics plan; committee approval gates Cycle 2 fieldwork, not the proposal. Starting the portal in W1 shows diligence</td></tr>
+    <tr><td><b>Document reads as AI-produced</b></td><td><span class="pill ok">MANAGED</span></td><td>The authorship protocol above: your seeds, your rewrites of argument-carrying prose, your three reserved passages, version trail, and a truthful two-level disclosure statement</td></tr>
+  </table></div>
+</section>
+
+<p class="foot">Prepared 16 August 2026 &middot; from the SDA Bocconi DBA Guidelines (&sect;3.2, 3.4, 3.5), TP Detailed Outline (Feb 2026), Complete Context Document (Apr 2026), DBA 8 presentation (May 2026), and the confirmed status of 16 Aug 2026. Companion assets: Research Data Map, Framework Grounding Map, Facilitator Delivery Guide.</p>
+</div>
