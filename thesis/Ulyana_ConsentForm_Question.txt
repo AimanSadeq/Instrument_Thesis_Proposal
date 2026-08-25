@@ -1,0 +1,68 @@
+To:      Ulyana [surname], DBA Programme Office
+Cc:      Professor Emanuele Borgonovo
+Subject: DBA Thesis Proposal: is the section 3.5 Consent Form required before fieldwork on 6 September?
+
+
+Dear Ulyana,
+
+I am a second-year DBA candidate, supervised by Professor Borgonovo, who is copied
+here. My fieldwork begins on 6 September and I have a question about the Consent
+Form that neither of us can answer from the guidelines.
+
+Section 3.5 refers to a "Consent Form" that candidates complete where research
+involves human subjects, accessed through ecr.unibocconi.it. It is mentioned once
+and not described, which leaves two things open.
+
+  1. Must it be completed before fieldwork begins, or may it accompany the larger
+     multi-organisation phase that follows in 2027?
+
+  2. What does it consist of? A template we are expected to give participants, or an
+     application for committee review?
+
+The reason I cannot judge question 1 myself is that my first cycle has two kinds of
+data, and they sit differently.
+
+The first is anonymous at source. Participants complete short questionnaires on their
+own phones. No name, employee number or email address is collected at any point;
+there is no login and no account; no response can be linked to another or to any
+person; and no IP address or time of day is retained. There is no personal data in
+the dataset to protect, because none is ever collected.
+
+The second is two semi-structured interviews with named practitioners, under written
+individual consent. An interview cannot be anonymous to the interviewer, so those two
+participants are identifiable to me and are offered confidentiality rather than
+anonymity.
+
+Had the study been only the first kind, I would have judged that the institutional
+process could reasonably accompany the larger phase. The two interviews are what make
+me unwilling to decide that on my own.
+
+Fieldwork starts on 6 September, so if the Consent Form is required beforehand I would
+be grateful to know this week rather than next. If it is not required for a phase of
+this kind, a line saying so is all I need.
+
+I am happy to send the research protocol and data management plan, which sets all of
+the above out in full, if that would help.
+
+With kind regards,
+
+Aiman Sadeq
+Doctoral candidate, SDA Bocconi School of Management
+
+
+---
+Notes before sending, not part of the email:
+
+  * Fill in Ulyana's surname and address, and add Giada if she handles this jointly.
+    Professor Borgonovo named them both.
+
+  * No attachments. She is being asked a procedural question, not to review a study.
+    The offer in the last line is there so she can ask if she wants it.
+
+  * The cc does double duty. Professor Borgonovo has not yet been told about the two
+    interviews, and this is how he learns, in the context that explains why they
+    matter. The full design change goes to him with Draft 1 on Monday.
+
+  * If nothing comes back by Thursday 27 August, send the same question to
+    ethics@unibocconi.it, which the guidelines name as the contact for exactly this.
+    Ten days is not enough room to discover that a committee submission was needed.
