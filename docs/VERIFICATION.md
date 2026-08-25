@@ -3,7 +3,7 @@
 **Build:** anonymous research instrument platform
 **Against:** *Build brief: anonymous research instrument platform*, section 7, and the hard requirements in section 3
 **Governing document:** Research Protocol and Data Management Plan v1.3. The section-by-section check against it, and the six items that need the candidate's decision, are in `PROTOCOL_CONFORMANCE.md`
-**Instrument content:** Research Instruments v2.1, English and Arabic
+**Instrument content:** Research Instruments v2.2, English and Arabic
 **Date of this report:** 21 August 2026
 
 Every line of the section 7 checklist is answered below, with what was
@@ -42,7 +42,7 @@ never prompts anyone, at any point, for any instrument.
   and no navigation.
 - Each instrument has its own short URL and its own QR code. The facilitator
   displays the right one at the right moment, exactly as the run sheet in
-  Research Instruments v2.1 part 3 already describes. A participant who
+  Research Instruments v2.2 part 3 already describes. A participant who
   declined simply does not open it, and nothing on their screen ever suggests
   that they should.
 
@@ -251,7 +251,7 @@ first screen.
 
 ```bash
 npm test                  # 40 tests: instruments, privacy, admin, export, deletion
-npm run verify:wording    # all 250 instrument strings against Research Instruments v2.1
+npm run verify:wording    # all 250 instrument strings against Research Instruments v2.2
 npm run verify:privacy    # source scan and schema checks, against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them
 npm run verify:browser    # real browser: the final-day rule, an offline submission, both consent options

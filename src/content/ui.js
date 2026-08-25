@@ -3,7 +3,7 @@
 /**
  * Interface chrome. Anything a participant can read that is not itself part
  * of an instrument. Kept separate so that instruments.js stays a verbatim
- * transcription of Research Instruments v2.1.
+ * transcription of Research Instruments v2.2.
  */
 
 const UI = {

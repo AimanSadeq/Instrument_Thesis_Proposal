@@ -1,0 +1,105 @@
+To:      Moayad Ghosheh
+Subject: NUPCO September: the research part, and the twenty minutes I need from you
+
+
+Moayad,
+
+Two NUPCO cohorts, 6 to 8 and 13 to 15 September, both yours. Everything about the
+training itself is as you know it. This note is only about the research feedback that
+runs alongside it, which you have not done before, and which I cannot help you with on
+the day because I am at another client all that week.
+
+Read this once, then let us take twenty minutes on a call before the 3rd.
+
+WHAT IT ACTUALLY IS
+
+Four short forms on participants' own phones. A consent screen on the morning of Day 1,
+a questionnaire after the opening briefing, a two-minute reflection at the end of each
+day, and an evaluation at the end of Day 3. You display a link and a QR code at each
+point and then step back. That is the whole of your involvement.
+
+The forms are anonymous. No name, no employee number, no login. You cannot see what
+anyone wrote, and neither can I until after the cohort finishes. The admin page shows
+you counts and nothing else, and that is not a setting I can change for you: the secret
+you hold has no route to the contents.
+
+FOUR THINGS THAT MATTER MORE THAN THEY LOOK
+
+  1. Do not help anyone complete a form. Answer what a question means if asked. Never
+     what to write.
+
+  2. Do not look at anyone's screen, and do not walk around while they are completing.
+
+  3. If a manager tells the room to fill it in, stop it, politely, there and then.
+     Participation has to be each person's own choice. If the room is instructed, the
+     consent is not consent and I cannot use any of the data from that cohort.
+
+  4. Counts only during the programme, never contents.
+
+Those four are not house style. They are commitments in writing to the university, and
+the study fails its ethics test without them.
+
+ONE CHANGE TO THE SCRIPT, AND IT MATTERS
+
+The Day 1 briefing script is written for me to read. Where it says "my doctoral
+research", you say "the doctoral research of my colleague Aiman Sadeq". Do not say it
+is yours. It is the moment people decide whether to take part, and a wrong word there
+is the worst place to have one. I have updated the run sheet so the substitution is
+printed next to the script; you will not have to remember it.
+
+The run sheet is also written for four days. Yours is three. Read every "Day 4" as your
+last day. The screens handle this themselves and will show the right days; only the
+paper version needs you to notice.
+
+WHAT I NEED YOU TO WRITE DOWN
+
+Whenever you depart from the materials, note it the same day. One line is plenty.
+"Skipped the icebreaker, group too senior." "Case study in Workshop 3 assumed they knew
+working capital, they did not, drew it on the board." "Round 1 took 35 minutes not 20."
+
+I am asking because it is the most valuable thing in the whole exercise for me. The
+materials were designed with AI, and my research question is what a human expert has to
+change when those materials meet a real room. You are the only person who can see that,
+because you did not design them and I did. Three days of scribbles beat an hour of
+recall two weeks later.
+
+WHAT I WILL SEND YOU
+
+  - The facilitator run sheet, part 3 of the instruments document
+  - The three-day printed pack, as a fallback if the network fails
+  - The admin link and a secret for NUPCO only, which is not the one I use elsewhere
+
+BEFORE THE 3RD
+
+Twenty minutes on a call, and I would like you to read the Day 1 briefing aloud once,
+with the substitution in it. Not because you need practice at speaking, but because
+saying a thing once is different from having read it, and you will be on your own that
+morning.
+
+One more thing, separately and after the cohorts are done, not now. I would like to
+interview you about how the materials held up. Forty-five minutes, and it is genuinely
+optional: say no and nothing changes between us or about the work. I will put that in
+writing properly when the time comes.
+
+Thanks. This will be a good one.
+
+Aiman
+
+
+---
+Notes before sending, not part of the email:
+
+  * Attach nothing yet. The run sheet and the pack go with the call invitation, so he
+    reads this first and the materials second.
+
+  * The interview ask is deliberately at the end, deliberately brief, and deliberately
+    deferred. Protocol v1.3 section 8 records the risk that a colleague finds it hard
+    to decline. Raising it in the same breath as "here is your job for September" would
+    make that worse. Written consent comes later and separately.
+
+  * Point 3, about a manager instructing the room, is the one to say out loud on the
+    call rather than leave in writing. It is the likeliest thing to happen and the
+    likeliest to be waved through in the moment by someone trying to be helpful.
+
+  * You still owe him the NUPCO ADMIN_SECRET once that service exists. Not the export
+    secret, and not ELM's.
