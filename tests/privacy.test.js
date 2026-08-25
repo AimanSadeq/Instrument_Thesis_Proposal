@@ -155,7 +155,7 @@ test('the printed fallback carries no name, date or signature field', async () =
 });
 
 test('the information page is information only, and says it is yours to keep', async () => {
-  // Research Protocol v1.2 section 5: given to participants, nothing collected.
+  // Research Protocol v1.3 section 5: given to participants, nothing collected.
   const { informationPack } = require('../src/render/paper');
   const sheet = informationPack();
   assert.ok(!/class="tick"/.test(sheet), 'the information page has nothing to fill in');

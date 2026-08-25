@@ -45,7 +45,7 @@ a way. That is the expected answer, not a failure.
 - `docs/VERIFICATION.md` — the report against the build brief, including the
   one requirement that cannot be met as written and the items still open.
 - `docs/PROTOCOL_CONFORMANCE.md` — the check against Research Protocol and DMP
-  v1.2, which is the governing document. Where it and the build brief
+  v1.3, which is the governing document. Where it and the build brief
   disagree, the protocol wins and the conflict is flagged rather than resolved
   in code.
 

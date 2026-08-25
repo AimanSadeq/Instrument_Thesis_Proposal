@@ -13,7 +13,7 @@ claim here is in the repository at `docs/VERIFICATION.md`.*
 The four research instruments described in Chapter [x] were delivered through
 a purpose-built web application rather than through a commercial survey
 service. Two considerations drove that decision. First, the anonymity
-commitments in the Research Protocol and Data Management Plan v1.2 are
+commitments in the Research Protocol and Data Management Plan v1.3 are
 specific enough that they had to be properties of the software, not settings
 within it: a claim that no identifier exists is only true if the system is
 incapable of creating one. Commercial survey platforms routinely record

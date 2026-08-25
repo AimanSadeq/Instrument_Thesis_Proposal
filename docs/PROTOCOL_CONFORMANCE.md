@@ -1,4 +1,4 @@
-# The platform against Research Protocol and DMP v1.2
+# The platform against Research Protocol and DMP v1.3
 
 The build brief names this protocol as the governing document and says that
 where the two disagree, the protocol wins and the conflict is to be flagged.
@@ -248,6 +248,23 @@ confirmation phrase now names the cohort rather than reading
 "DELETE ALL RESEARCH DATA" identically on every service.
 
 ---
+
+## Outside this platform's scope
+
+Protocol v1.3 adds an interview strand: two practitioner interviews in Cycle 1,
+with participants who are known by name and offered confidentiality rather than
+anonymity. **None of it touches this software.** Interviews are conducted and
+transcribed outside the platform, no interview material is entered into this
+database, and the anonymity properties checked above are unaffected: the
+learner instruments remain anonymous at source, and section 6A of the protocol
+scopes every anonymity claim to them explicitly.
+
+Two provisions in v1.3 are worth reading even so, because they are easy to
+breach with a laptop rather than with code. Interview recordings must not be
+uploaded to any automated transcription service, and transcript text must not
+be pasted into an AI assistant for coding help. Both would breach section 7's
+commitment that no participant response enters a generative AI system, which
+until v1.3 could only have been broken by exporting from here.
 
 ## Operational prerequisites this build does not cover
 

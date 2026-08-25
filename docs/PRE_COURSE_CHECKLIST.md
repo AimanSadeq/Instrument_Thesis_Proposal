@@ -2,7 +2,7 @@
 
 **Programme:** 6 to 9 September 2026, hotel venue, approximately 25 participants
 **Service:** https://instrument-platform.onrender.com
-**Export deadline:** 11 September 2026 (Protocol v1.2 section 7, within 48 hours)
+**Export deadline:** 11 September 2026 (Protocol v1.3 section 7, within 48 hours)
 
 Print this. Tick as you go. Anything not ticked by 5 September is a decision to
 make rather than a task to forget.
