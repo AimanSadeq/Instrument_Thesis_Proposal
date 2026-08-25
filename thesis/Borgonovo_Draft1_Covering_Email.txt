@@ -1,0 +1,100 @@
+To:      Professor Emanuele Borgonovo
+Subject: Re: Thesis Proposal - drafting calendar and your review window (submission 30 September)
+
+
+Dear Emanuele,
+
+Draft 1 is attached, with the protocol and the instruments that go with it.
+
+Before anything else, the design has changed since I wrote to you on 21 August, and
+one of the changes is significant enough that I would rather put it at the top than
+have you find it in Section 4. What you approved was a single September cohort,
+delivered by me, in which every participant was anonymous at source.
+
+WHAT MOVED
+
+A second client confirmed two further cohorts, 6 to 8 and 13 to 15 September. They run
+three days rather than four, and a colleague delivers both. I am neither present nor
+observing. Their participation in the research still depends on that client's written
+authorisation, which I have requested and not yet received, so Sections 3 and 4 are
+written so that nothing depends on it. Cycle 1 stands on the first cohort alone.
+
+Two of those cohorts being delivered by someone who did not design the materials gives
+Cycle 1 something the original design could not offer: the same programme and the same
+instruments, with and without the designer in the room. I have written that up
+conservatively rather than enthusiastically. Section 4.6 claims it, then immediately
+names the four things that vary at once, facilitator, organisation, sector and
+programme length, and says I do not treat facilitator identity as isolated.
+
+THE CHANGE THAT NEEDS YOUR VIEW
+
+I have added two interviews to Cycle 1, one with the colleague who delivers and one
+with a client training contact. They exist because the learner instruments cannot
+reach two of the three things the redesign is supposed to refine: how design work was
+divided between the AI and me, and what governs whether an organisation adopts
+materials of this kind. Learners see neither, so without these the reflection phase
+that drives the whole Design-Based Research logic would rest on one leg of three.
+
+The cost is that the study is no longer anonymous throughout. An interview cannot be
+anonymous to the interviewer. Those two participants are known to me and are offered
+confidentiality instead, which is a weaker promise, and the protocol says so in those
+terms rather than blurring it. Section 6A of the protocol is new and covers the whole
+strand; Section 10 lists every change from the version you last saw.
+
+This is what I have taken to Ulyana and Giada, with you copied. It seemed to me that
+adding identifiable participants to the first cycle is not a call I should make alone,
+and I have said so to them.
+
+ONE THING I REMOVED RATHER THAN ADDED
+
+Section 4.5 previously promised descriptive statistics on pre and post assessment
+scores in Cycle 1. It cannot deliver them. The instruments carry no linkage between
+submissions, deliberately, so no individual's before can be joined to their after.
+Paired gain scores are not merely unbuilt, they are foreclosed by the anonymity
+guarantee. I have cut the claim and said why, and accepted that RQ4 rests on perceived
+competence in Cycle 1. I would rather lose the measure than weaken the guarantee that
+makes declining the research invisible.
+
+WHERE IT IS NOT FINISHED
+
+Thirteen of the seventy-five references need author lists and titles completed from
+database exports. They are marked in the text so you can see them. Everything else is
+complete: the body is 9,236 words against the 8,000 to 11,000 band, the cover carries
+the exact count including references, and the structure follows section 3.2.
+
+WHAT WOULD HELP MOST
+
+If your reading time is limited, Sections 4.6 and 4.7 are where I would spend it. The
+grading criteria weight the discussion of advantages and limitations, and those two
+sections are where I have tried hardest and where I am least able to judge whether I
+have over-claimed or over-hedged. Section 2.8, the convergence gap, is the other place
+where an outside eye would help, since the claim that no study combines these four
+elements is the one a reader is most likely to test.
+
+I will work on the references and the polish while your comments are with me, and Draft
+2 follows in the week of 19 September, which leaves clear room before the 30th.
+
+With kind regards,
+
+Aiman Sadeq
+Doctoral candidate, SDA Bocconi School of Management
+
+
+---
+Notes before sending, not part of the email:
+
+  * Attach three files:
+        TP_Working_Draft_Sadeq_build30.docx
+        Research_Protocol_DMP_v1.3_Sadeq.docx
+        Research_Instruments_v2.1_Sadeq.docx
+
+  * Complete the thirteen references first if you can. The email is honest about them
+    either way, but a supervisor who opens a clean bibliography reads the rest more
+    generously. REFERENCES_TODO.md lists what each one needs.
+
+  * Do not soften the sentence about interviews not being anonymous. It is the reason
+    the Ulyana question exists, and he is copied on that thread, so the two accounts
+    have to match.
+
+  * The last paragraph commits you to Draft 2 in the week of 19 September. That is
+    already in your plan; it is stated here so his review window is explicit.
