@@ -69,11 +69,24 @@ const P = (text, opts = {}) => new Paragraph({
   ...(opts.para || {}),
 });
 
-// Bracketed drafting guidance - visually distinct, to be replaced by prose.
-const G = (text) => new Paragraph({
-  children: [new TextRun({ text: `[${text}]`, italics: true, color: '8A6A1F' })],
-  spacing: { line: 480 },
-});
+// Drafting guidance for the candidate, never for the reader.
+//
+// These are notes to self. "STATUS: drafted, your rewrite pass pending" tells a
+// supervisor that the candidate has not read their own work, which is not the
+// message. So by default they are collected and printed to the terminal at
+// build time, and do not enter the document at all. Set NOTES=1 to render them
+// inline when you want to see them in context.
+//
+// The default is off rather than on deliberately: the version you send by
+// accident should be the clean one.
+const SHOW_NOTES = process.env.NOTES === '1';
+const NOTES = [];
+const G = (text) => {
+  NOTES.push(text);
+  return SHOW_NOTES
+    ? new Paragraph({ children: [new TextRun({ text: `[${text}]`, italics: true, color: '8A6A1F' })], spacing: { line: 480 } })
+    : new Paragraph({ children: [] });
+};
 
 const H1 = (text) => new Paragraph({ heading: HeadingLevel.HEADING_1, children: [new TextRun(text)], spacing: { before: 240, after: 120, line: 480 } });
 const H2 = (text) => new Paragraph({ heading: HeadingLevel.HEADING_2, children: [new TextRun(text)], spacing: { before: 200, after: 80, line: 480 } });
@@ -128,7 +141,7 @@ const doc = new Document({
         centered('Aiman S. Sadeq'),
         centered('ID number: [ID NUMBER]'),
         centered(''),
-        centered('Date: [DD Month 2026]'),
+        centered(`Date: ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`),
         centered('Word count: [EXACT COUNT - includes list of references; excludes tables, figures, appendices]'),
         // Draft marker, filled by stamp-cover.js. Remove before final submission: the
         // guidelines prescribe what the cover page carries, and a build number is not on the list.
@@ -421,4 +434,8 @@ const doc = new Document({
 Packer.toBuffer(doc).then((buf) => {
   require('fs').writeFileSync(process.argv[2] || 'TP_Skeleton_Sadeq.docx', buf);
   console.log('written', (buf.length / 1024).toFixed(1) + 'KB');
+  if (NOTES.length && !SHOW_NOTES) {
+    console.log(`\n${NOTES.length} drafting notes, kept OUT of the document (NOTES=1 to render them inline):`);
+    NOTES.forEach((n, i) => console.log(`  ${String(i + 1).padStart(2)}. ${n.replace(/\s+/g, ' ').slice(0, 150)}`));
+  }
 });
