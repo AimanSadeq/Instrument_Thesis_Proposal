@@ -41,7 +41,7 @@ confidentiality instead, which is a weaker promise, and the protocol says so in 
 terms rather than blurring it. Section 6A of the protocol is new and covers the whole
 strand; Section 10 lists every change from the version you last saw.
 
-This is what I have taken to Ulyana and Giada, with you copied. It seemed to me that
+This is what I have taken to Ulyana and Professor Di Stefano, with you copied. It seemed to me that
 adding identifiable participants to the first cycle is not a call I should make alone,
 and I have said so to them.
 
