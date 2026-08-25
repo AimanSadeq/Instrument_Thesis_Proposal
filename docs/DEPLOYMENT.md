@@ -159,7 +159,12 @@ will carry R4. Read that header before displaying anything.
 3. Delete this cohort's source records through the admin page. The confirmation
    phrase is `DELETE ` followed by the cohort label.
 4. For a cohort that follows on the same service, change `COHORT` and, if the
-   length differs, `PROGRAMME_DAYS`, then redeploy.
+   length differs, `PROGRAMME_DAYS`, then redeploy. **This is not optional and
+   it cannot be repaired afterwards.** `COHORT` is read once at start-up, so a
+   second cohort begun under the previous label writes into the same dataset,
+   and no identifier or linkage exists to separate the two. The admin page now
+   warns when the configured cohort already holds rows from an earlier day;
+   heed it before anyone opens a link.
 
 ## 5. After the second cohort
 
