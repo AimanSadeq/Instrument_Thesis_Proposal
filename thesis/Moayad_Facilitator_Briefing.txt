@@ -87,7 +87,7 @@ forms are not connected to anything they do in the training.
 
   FinPlay, cohort 1 (6 to 8 Sept)   nupco1.finplay.viftraining.com
   FinPlay, cohort 2 (13 to 15 Sept) nupco2.finplay.viftraining.com
-  Research forms                    the instrument platform, address to follow
+  Research forms, both cohorts      nupco-instrument-thesis-proposal.onrender.com
   Facilitator password              the one you already use
   Corporate access code             generated on the morning, by you, in the panel
   Research admin secret             NUPCO only, to follow
