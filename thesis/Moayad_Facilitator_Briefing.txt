@@ -117,6 +117,7 @@ WHAT I WILL SEND YOU
   - The three-day printed pack, as a fallback if the network fails
   - The research admin link and secret for NUPCO, once that service exists
   - Both FinPlay addresses, confirmed, before the 3rd
+  - The rehearsal script, and the facilitator password so you can run it
 
 BEFORE THE 3RD
 
@@ -124,6 +125,23 @@ Twenty minutes on a call, and I would like you to read the Day 1 briefing aloud 
 with the substitution in it. Not because you need practice at speaking, but because
 saying a thing once is different from having read it, and you will be on your own that
 morning.
+
+And a dry run, about ninety minutes, on your own. I will send you a script to tick
+through. It is not a demonstration for my benefit and there is nothing in it you can get
+wrong: you create a throwaway group, sign in from your own phone and laptop, play a round,
+fire a shock, and then delete the whole thing. I am doing the same on my side.
+
+Two reasons it is worth your evening rather than mine alone. The first is practical. You
+will be running two groups by yourself while I am at another client, on a venue network
+neither of us has seen, and the problems that matter turn up on real devices rather than
+in browser tabs. The second is that I have told the university the two of us deliver from
+the same run sheet and the same checklist, and that we evidence that rather than assume
+it. Both of us rehearsing against the same script is the cheapest way to make that true.
+
+Do it on the throwaway group and nowhere else. Not on the NUPCO addresses. A rehearsal
+inside a group you are going to deliver leaves financial statements and a leaderboard
+behind that nothing in the panel can remove, and your first real participants would start
+the day looking at somebody else's numbers.
 
 One more thing, separately and after the cohorts are done, not now. I would like to
 interview you about how the materials held up. Forty-five minutes, and it is genuinely
