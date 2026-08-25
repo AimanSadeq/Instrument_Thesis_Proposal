@@ -106,8 +106,19 @@ ${['consent_responses', 'pre_training_responses', 'daily_reflections', 'post_tra
 </table>
 </div>` : '';
 
+  // A cohort label that already carries rows from a previous day almost always
+  // means the label was not changed between two cohorts on one service. Say so
+  // before the room arrives, not after the datasets have merged.
+  const stale = counts.earliestDate && counts.earliestDate !== counts.generatedForDate;
+  const staleBanner = stale ? `<div class="banner banner-error" role="alert">
+<p><strong>Cohort ${esc(counts.cohort)} already holds submissions, the earliest from ${esc(counts.earliestDate)}.</strong></p>
+<p>If a different group is starting today, stop. Change <code>COHORT</code> in the service environment to a new label and redeploy before anyone opens a link. Rows written now would join the existing ones under this label, and nothing could separate them afterwards: there is no identifier and no linkage to sort by.</p>
+<p>If this is the same group continuing, this is expected and you can ignore it.</p>
+</div>` : '';
+
   const body = `<h1>Admin: counts</h1>
 ${message ? `<div class="banner banner-error" role="alert"><p>${esc(message)}</p></div>` : ''}
+${staleBanner}
 ${deleteBlock}
 <p class="hint">Cohort <strong>${esc(counts.cohort)}</strong> · programme <strong>${esc(config.programmeDays)} days</strong>, so R4 appears on Day ${esc(config.programmeDays)} · date today in ${esc(config.timezone)}: <strong>${esc(counts.generatedForDate)}</strong> · instruments ${config.instrumentsOpen ? 'open' : '<strong>closed</strong>'}</p>
 

@@ -1,7 +1,13 @@
-# Pre-course checklist, Cohort 1
+# Pre-course checklist: the four-day cohort
 
-**Programme:** 6 to 9 September 2026, hotel venue, approximately 25 participants
-**Service:** https://instrument-platform.onrender.com
+**For the candidate.** The colleague delivering the three-day cohorts has his own
+list at `PRE_COURSE_CHECKLIST_3day.md`. They are different documents on purpose:
+different dates, a different service, a different admin secret and a different
+printed pack. Do not work from his and do not hand him yours.
+
+**Programme:** 6 to 9 September 2026, four days, hotel venue, approximately 25 participants
+**Service:** the four-day service, `PROGRAMME_DAYS=4`, cohort label `cohort-1`
+**Printed pack:** `docs/paper/` (the four-day set)
 **Export deadline:** 11 September 2026 (Protocol v1.3 section 7, within 48 hours)
 
 Print this. Tick as you go. Anything not ticked by 5 September is a decision to
@@ -25,22 +31,16 @@ make rather than a task to forget.
 - [ ] **Supervisor review** of the protocol and consent materials, per
       section 9.
 
-## B. Protocol decisions
+## B. What is still open
 
-The five open flags in `docs/PROTOCOL_CONFORMANCE.md`. Each needs a decision,
-not code.
+Six of the seven flags in `docs/PROTOCOL_CONFORMANCE.md` are closed, in
+Instruments v2.1 to v2.3 and Protocol v1.2 to v1.3. Two things remain.
 
-- [ ] **The voluntariness reminder.** Protocol says every subsequent instrument
-      opens with one; the pre-training questionnaire has none. Either add the
-      line (instruments v2.1) or amend the protocol.
-- [ ] **"Connection metadata is not logged, not retained."** Narrow this to
-      what the study can evidence, or confirm it against Render's answer.
-- [ ] **Response IDs** are generated when a row is written, not at export.
-      Substance holds; decide whether the wording changes or the code does.
-- [ ] **No responses into generative AI systems.** Applies to handling the
-      export, including pasting it into an assistant.
-- [ ] **The paper procedure**, described one way in the protocol and another in
-      the run sheet. Make them agree.
+- [ ] **Flag 3: what Render's edge retains, and for how long.** The protocol now
+      uses wording that is defensible whatever the answer, but the study has not
+      verified the behaviour. Check it in the dashboard and record the answer.
+- [ ] **The institutional Consent Form question**, with the programme office.
+      If it must be filed before fieldwork, that is a process to start now.
 
 ## C. Printing, by 3 September
 
@@ -90,7 +90,8 @@ not code.
       or three minutes to redeploy. Do it before the room arrives, never
       mid-session.
 - [ ] **Check the admin page**: counts all zero, header reads "instruments
-      open", cohort `cohort-1`, date correct.
+      open", cohort `cohort-1`, **programme 4 days**, date correct. If the header
+      says three days you are on the other cohort's service.
 - [ ] **Confirm the facilitator holds `ADMIN_SECRET`** and the URL. Not the
       export secret. That separation is the control protocol section 6 relies
       on.
@@ -130,10 +131,12 @@ not code.
       before-and-after table for the audit trail.
 - [ ] **Re-run `post_deploy_check.sql`.** Nine `pass`. Check 9's detail lists every cohort still holding rows; yours should not be among them.
 
-## J. Before Cohort 2, October
+## J. Before a later cohort on this same service
 
-- [ ] Cohort 1 exported, verified and deleted first.
-- [ ] Set `COHORT=cohort-2` in Render.
+- [ ] This cohort exported, verified and deleted first.
+- [ ] **Set a new `COHORT` label in Render and redeploy.** Reusing the label
+      merges two cohorts into one dataset with nothing to separate them by:
+      no identifiers, no linkage, no way to unpick it afterwards.
 - [ ] Set `INSTRUMENTS_OPEN=true` on the morning of Day 1.
 - [ ] New client, new authorisation confirmation.
 - [ ] Reprint everything.

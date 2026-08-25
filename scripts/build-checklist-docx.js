@@ -1,14 +1,17 @@
 'use strict';
 
 /**
- * Build the printable Word version of docs/PRE_COURSE_CHECKLIST.md.
+ * Build the printable Word version of a pre-course checklist.
  *
- * The markdown is the source of truth; this produces the copy the researcher
- * carries. `docx` is not a dependency of the application and deliberately is
- * not in package.json: install it where you run this.
+ * The markdown IS the source. This script used to carry its own copy of the
+ * checklist text as a list of tick() calls, which meant two documents saying
+ * almost the same thing and drifting apart. It now reads the markdown, so the
+ * printed copy and the repository copy cannot disagree.
  *
- *   npm install docx
- *   node scripts/build-checklist-docx.js docs/Pre_course_checklist_Cohort_1.docx
+ *   node scripts/build-checklist-docx.js docs/PRE_COURSE_CHECKLIST_4day.md
+ *   node scripts/build-checklist-docx.js docs/PRE_COURSE_CHECKLIST_3day.md
+ *
+ * Output name is derived from the input unless a second argument gives one.
  */
 
 const fs = require('fs');
@@ -97,133 +100,75 @@ function body(text) {
   });
 }
 
+const SRC = process.argv[2];
+if (!SRC || !/\.md$/.test(SRC)) {
+  console.error('usage: node scripts/build-checklist-docx.js docs/PRE_COURSE_CHECKLIST_4day.md [out.docx]');
+  process.exit(1);
+}
+const OUT = process.argv[3] || SRC.replace(/\.md$/, '.docx').replace(/PRE_COURSE_CHECKLIST/, 'Pre_course_checklist');
+
+const lines = fs.readFileSync(SRC, 'utf8').split('\n');
+const children = [];
+let pending = [];   // consecutive '- [ ]' lines belong to one item each
+
+for (let i = 0; i < lines.length; i += 1) {
+  const raw = lines[i];
+  const t = raw.trim();
+
+  if (/^-{3,}$/.test(t)) continue;
+
+  if (t.startsWith('# ')) { children.push(title(t.slice(2))); continue; }
+  if (t.startsWith('## ')) { children.push(section(t.slice(3))); continue; }
+
+  // A checklist item, possibly continued on following indented lines.
+  if (/^- \[ \]\s+/.test(t)) {
+    let text = t.replace(/^- \[ \]\s+/, '');
+    while (i + 1 < lines.length && /^\s{4,}\S/.test(lines[i + 1]) && !/^\s*- \[ \]/.test(lines[i + 1])) {
+      text += ' ' + lines[i + 1].trim();
+      i += 1;
+    }
+    children.push(tick(text));
+    continue;
+  }
+
+  if (!t) continue;
+
+  // A bold key/value line at the head of the file is metadata.
+  const kv = t.match(/^\*\*([^*]+):\*\*\s+(.+)$/);
+  if (kv && children.length < 12) { children.push(meta(kv[1], kv[2])); continue; }
+
+  // Everything else is prose. Join wrapped lines into one paragraph.
+  let text = t;
+  while (i + 1 < lines.length && lines[i + 1].trim() && !/^[-#*]/.test(lines[i + 1].trim())
+         && !/^\*\*[^*]+:\*\*/.test(lines[i + 1].trim())) {
+    text += ' ' + lines[i + 1].trim();
+    i += 1;
+  }
+  children.push(text.startsWith('**') && text.endsWith('**') ? note(text.slice(2, -2)) : body(text));
+}
+
 const doc = new Document({
-  creator: 'Instrument platform',
-  title: 'Pre-course checklist, Cohort 1',
-  description: 'Checklist for running Cohort 1 of the finance-for-non-finance programme',
-  styles: {
-    default: { document: { run: { font: 'Calibri', size: 21, color: INK } } }
-  },
+  creator: 'Aiman S. Sadeq',
+  title: (lines.find((l) => l.startsWith('# ')) || '# Pre-course checklist').slice(2),
+  styles: { default: { document: { run: { font: 'Calibri', size: 21, color: INK } } } },
   sections: [{
-    properties: { page: { margin: { top: 900, bottom: 900, left: 1000, right: 1000 } } },
-    headers: {
-      default: new Header({
-        children: [new Paragraph({
-          alignment: AlignmentType.RIGHT,
-          children: [new TextRun({ text: 'Pre-course checklist · Cohort 1 · 6 to 9 September 2026', size: 16, color: SOFT })]
-        })]
-      })
-    },
+    properties: { page: { margin: { top: 900, right: 900, bottom: 900, left: 900 } } },
     footers: {
       default: new Footer({
         children: [new Paragraph({
           alignment: AlignmentType.RIGHT,
-          children: [new TextRun({ children: ['Page ', PageNumber.CURRENT, ' of ', PageNumber.TOTAL_PAGES], size: 16, color: SOFT })]
-        })]
-      })
+          children: [new TextRun({ children: [PageNumber.CURRENT], size: 18, color: SOFT })],
+        })],
+      }),
     },
-    children: [
-      title('Pre-course checklist, Cohort 1'),
-      meta('Programme', '6 to 9 September 2026, hotel venue, approximately 25 participants'),
-      meta('Service', 'https://instrument-platform.onrender.com'),
-      meta('Export deadline', '11 September 2026 (Protocol v1.3 section 7, within 48 hours)'),
-      intro('Print this. Tick as you go. Anything not ticked by 5 September is a decision to make rather than a task to forget.'),
-
-      section('A. This week'),
-      tick('**Send the client coordinator the authorisation note.** Protocol section 7 requires their confirmation that completing externally hosted research forms is permitted, recorded in the audit trail.'),
-      tick('**File their reply.** A friendly "yes, fine" in writing is what section 7 asks for. Without it there is nothing in the file.'),
-      tick('**Set INSTRUMENTS_OPEN to false** in Render, Environment. Nothing should be collected before the cohort.'),
-      note('Setting it back to true is on the Day 1 list below, because forgetting is the obvious failure.'),
-      tick('**Note Render’s log retention** while you are in the dashboard. This is outstanding item O2, and it decides the wording in section 7 of the protocol.'),
-      tick('**Supervisor review** of the protocol and consent materials, per section 9.'),
-
-      section('B. Protocol decisions'),
-      body('The five open flags in PROTOCOL_CONFORMANCE.md. Each needs a decision, not code.'),
-      tick('**The voluntariness reminder.** The protocol says every subsequent instrument opens with one; the pre-training questionnaire has none. Either add the line, as instruments v2.1, or amend the protocol.'),
-      tick('**"Connection metadata is not logged, not retained."** Narrow this to what the study can evidence, or confirm it against Render’s answer.'),
-      tick('**Response IDs** are generated when a row is written, not at export. The substance holds; decide whether the wording changes or the code does.'),
-      tick('**No responses into generative AI systems.** This applies to handling the export, including pasting it into an assistant.'),
-      tick('**The paper procedure**, described one way in the protocol and another in the run sheet. Make them agree.'),
-
-      section('C. Printing, by 3 September'),
-      tick('**Information sheet**, one double-sided page per participant, plus spares. English one side, Arabic the other. Handed out on Day 1 to everyone, whether they take part or not.'),
-      tick('**Paper fallback, English.**'),
-      tick('**Paper fallback, Arabic.**'),
-      tick('**Four copies of the daily reflection per participant**, one for each day.'),
-      tick('**Collection box**, something to seal it with, and spare pens.'),
-      tick('**The link and QR code for each instrument**, ready to project. They are on the admin page; screenshot them into your slides so you are not logging in during a session.'),
-
-      section('D. Testing, by 3 September'),
-      tick('**PROGRAMME_DAYS matches this cohort.** The admin header states it. The day selector should offer exactly that many days and no more.'),
-      tick('**The last-day path on the live service.** Open /daily, choose the last day, confirm the R4 question appears, submit.'),
-      note('This is the only route in the application never exercised against the deployment, and it only matters on the last day, when there is no second chance.'),
-      tick('**Three real devices**, at least one Android and at least one iPhone. Check that Arabic reads right to left throughout, that the page does not zoom when you tap a text box, and that the Likert grid is usable one-handed.'),
-      tick('**Delete anything those tests created.** The admin page with the export secret, then DELETE followed by this cohort label.'),
-      tick('**Confirm this cohort has no rows.** Edit the cohort at the top of post_deploy_check.sql, run it in the Supabase SQL editor: nine rows, all pass. Check 9 lists every cohort holding rows; another cohort running this week is information, not a failure.'),
-
-      section('E. At the venue, 5 September'),
-      tick('**Open all four URLs on the hotel wi-fi**, on a device that is not yours.'),
-      tick('**Find the captive portal.** Hotel wi-fi usually makes you accept terms first. A participant who scans the QR code before clearing it gets the hotel’s page and concludes the link is broken. Know what it looks like.'),
-      tick('**Scan a projected QR code** from where the back row will sit.'),
-
-      section('F. Morning of Day 1, 6 September'),
-      tick('**Set INSTRUMENTS_OPEN to true.** Render, Environment, save. It takes two or three minutes to redeploy. Do it before the room arrives, never mid-session.'),
-      tick('**Check the admin page**: counts all zero, header reads "instruments open", the right cohort, the right programme length, date correct. Where two cohorts run the same week, this header is how you know you are on your own service.'),
-      tick('**Confirm the facilitator holds ADMIN_SECRET** and the URL. Not the export secret. That separation is the control protocol section 6 relies on.'),
-      tick('**Get the room onto the wi-fi and through the portal** before any link goes up.'),
-      tick('**Read the briefing** from the run sheet, English and Arabic.'),
-      tick('**Display the consent link.** Everyone opens it, whether taking part or not. Allow three minutes.'),
-      tick('**Display the pre-training questionnaire link.** Five minutes. Do not check who is completing it.'),
-
-      section('G. Each day'),
-      tick('Display the daily reflection link before people leave. Five minutes.'),
-      tick('After the session, **counts only** in the admin view, never contents.'),
-      tick('Record anything unusual in the **deviations log**: technical failures, fallback to paper, interruptions, anything said in the room that might have influenced responses.'),
-      tick('Write the **reflexivity journal** entry the same evening.'),
-
-      section('H. The last day'),
-      tick('Daily reflection link as usual. R4 appears when the last day is chosen.'),
-      tick('Then the post-training evaluation link. Ten minutes.'),
-      tick('Once everyone has finished, **set INSTRUMENTS_OPEN to false.**'),
-
-      section('I. Export and deletion, by 11 September'),
-      tick('The admin page with the **export secret**.'),
-      tick('**Note the counts** per instrument.'),
-      tick('**Download the JSON**, all instruments.'),
-      tick('**Download each CSV**, four files. Row counts are in the filenames.'),
-      tick('**Check the row counts** in the files against the counts on screen. This is what "verifiable as complete" means in section 7.'),
-      tick('**Store the exports encrypted**, access restricted to you.'),
-      tick('**Delete this cohort source records**: type DELETE followed by the cohort label. Keep the before-and-after table for the audit trail.'),
-      tick('**Re-run post_deploy_check.sql.** Nine pass. Check 9 detail lists every cohort still holding rows; yours should not be among them.'),
-
-      section('J. A cohort that shares this service, October'),
-      tick('The previous cohort exported, verified and deleted first.'),
-      tick('Set COHORT, and PROGRAMME_DAYS if the length differs, in Render.'),
-      note('A cohort running at the same time as another needs its own service instead, with its own COHORT, PROGRAMME_DAYS and its own two secrets. See section 3a of DEPLOYMENT.md. They may share the database: counts, exports and the delete are each scoped to the service cohort.'),
-      tick('Set INSTRUMENTS_OPEN to true on the morning of Day 1.'),
-      tick('New client, new authorisation confirmation.'),
-      tick('Reprint everything.'),
-
-      section('K. After Cohort 2'),
-      tick('Final export, counts verified.'),
-      tick('Delete all source records.'),
-      tick('**Delete the Supabase project and the Render service.** Section 7 commits to no research data remaining on third-party infrastructure beyond the collection period, and an empty table in a live project is not the same as no project.'),
-
-      section('If something fails on the day'),
-      body('**A participant says it would not send.** They will have seen a message saying nothing was recorded, with their answers still on screen. Ask them to press Submit again. If it fails twice, give them the paper copy and record the substitution.'),
-      body('**The site will not load for anyone.** Check INSTRUMENTS_OPEN and that the Render service is running. If the network is the problem, go to paper for that instrument.'),
-      body('**Paper is used at all.** Completed sheets go in the collection box unfolded and unmarked, the box is sealed in the room, and the substitution goes in the deviations log.'),
-      new Paragraph({
-        spacing: { before: 200 },
-        border: { top: { style: BorderStyle.SINGLE, size: 6, color: 'C9CFD8', space: 8 } },
-        children: rich('**Never**, on any day: read response contents, look at anyone’s screen, or help anyone complete an instrument. Answer what an item means, never what to write.')
-      })
-    ]
-  }]
+    children,
+  }],
 });
 
 Packer.toBuffer(doc).then((buffer) => {
-  const out = process.argv[2];
-  fs.writeFileSync(out, buffer);
-  console.log('written', out, fs.statSync(out).size, 'bytes');
+  fs.writeFileSync(OUT, buffer);
+  const { execFileSync } = require('child_process');
+  const xml = execFileSync('unzip', ['-p', OUT, 'word/document.xml'], { maxBuffer: 64 * 1024 * 1024 }).toString('utf8');
+  if (/<\/?\d/.test(xml)) throw new Error('numeric element name in document.xml: an array was not spread');
+  console.log('written', OUT, fs.statSync(OUT).size, 'bytes,', children.length, 'blocks');
 });

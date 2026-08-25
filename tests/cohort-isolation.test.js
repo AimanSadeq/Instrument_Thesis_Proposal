@@ -135,3 +135,37 @@ test('the researcher endpoint deletes no more than the library function does', a
   assert.equal(await countIn('consent_responses', THEIRS), 1,
     'the delete endpoint reached another cohort');
 });
+
+// Two cohorts, one service, a week apart. COHORT is read once at start-up, so
+// the second cohort needs a new label and a redeploy. Forgetting merges the two
+// datasets with nothing to separate them by. The admin page is the last place
+// that failure can be caught before it happens, so it has to shout.
+test('the admin page warns when this cohort already holds rows from an earlier day', async () => {
+  await truncate();
+  // A submission dated before today, under this service's own cohort.
+  await db.query(
+    `insert into research.consent_responses (cohort, submission_date, choice)
+     values ($1, current_date - 7, 'agree')`, [MINE]);
+
+  const page = await (await fetch(base + '/admin', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'secret=counts-only-secret'
+  })).text();
+
+  assert.match(page, /already holds submissions/,
+    'the admin page did not warn about pre-existing rows under this cohort label');
+  assert.match(page, /Change <code>COHORT<\/code>/, 'the warning does not say what to do');
+});
+
+test('the warning stays away when the rows are from today', async () => {
+  await truncate();
+  await fetch(base + '/?lang=en', form({ lang: 'en', choice: 'agree' }));
+  const page = await (await fetch(base + '/admin', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'secret=counts-only-secret'
+  })).text();
+  assert.doesNotMatch(page, /already holds submissions/,
+    'a cohort collecting normally today should not be warned at');
+});

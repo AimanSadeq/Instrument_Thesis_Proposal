@@ -172,6 +172,19 @@ async function counts() {
              from research.post_training_evaluations where cohort = $1 group by 1 order by 1`, only)
   ]);
 
+  // The oldest date this cohort already carries. Two cohorts run on one service
+  // a week apart, and COHORT is read once at start-up. If it is not changed
+  // between them, the second cohort's rows land under the first cohort's label
+  // and nothing can separate them afterwards: no identifier, no linkage. This
+  // is the value the admin page uses to say so loudly on the morning it matters.
+  const earliest = await query(
+    `select min(d)::text as d from (
+       select min(submission_date) as d from research.consent_responses where cohort = $1
+       union all select min(submission_date) from research.pre_training_responses where cohort = $1
+       union all select min(submission_date) from research.daily_reflections where cohort = $1
+       union all select min(submission_date) from research.post_training_evaluations where cohort = $1
+     ) all_dates`, only);
+
   const sum = (rows) => rows.reduce((t, r) => t + r.n, 0);
   const agreed = consent.rows.filter((r) => r.choice === 'agree');
   const declined = consent.rows.filter((r) => r.choice === 'decline');
@@ -179,6 +192,7 @@ async function counts() {
   return {
     cohort: config.cohort,
     generatedForDate: todayInZone(),
+    earliestDate: earliest.rows[0].d,
     totals: {
       consent: sum(consent.rows),
       consent_agree: sum(agreed),

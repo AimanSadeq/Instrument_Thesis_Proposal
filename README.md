@@ -104,6 +104,8 @@ db/migrations/               the schema
 db/checks/                   SQL that must return zero rows, forever
 docs/VERIFICATION.md         the report against the build brief checklist
 docs/PROTOCOL_CONFORMANCE.md the check against Research Protocol and DMP v1.3
+docs/PRE_COURSE_CHECKLIST_4day.md  the candidate's list for the four-day cohort
+docs/PRE_COURSE_CHECKLIST_3day.md  the colleague's list for the two three-day cohorts
 docs/DEPLOYMENT.md           Supabase and Render, and how to take it down again
 docs/OPERATIONS.md           what the facilitator and the researcher do on the day
 docs/source/                 Research Instruments v2.3, the content this must match
