@@ -64,15 +64,19 @@ To create the service by hand instead:
    | `DATABASE_URL` | the Supabase direct connection string |
    | `DATABASE_SSL` | `verify`, or `ca` with `DATABASE_CA_CERT` |
    | `COLLECTION_TIMEZONE` | `Asia/Riyadh`, or the zone the programme runs in |
-   | `COHORT` | `cohort-1`, then `cohort-2` before the October programme |
+   | `COHORT` | This cohort's label: `elm`, `nupco1`, `nupco2`. Lowercase letters, digits and hyphens, 2 to 40 characters; the service refuses to start otherwise, and refuses to start in production if it is not set at all. Matches the FinPlay cohort subdomain so one name means one group across both systems. |
    | `PROGRAMME_DAYS` | Training days in this cohort's programme. Defaults to `4`. Set `3` for a three-day programme. Decides the day selector and which day carries R4. Two cohorts of different lengths running at once need two services. |
    | `ADMIN_SECRET` | facilitator secret, counts only |
    | `EXPORT_SECRET` | researcher secret, export and delete. **Must differ** |
    | `INSTRUMENTS_OPEN` | `true` during a programme, `false` between them |
    | `PUBLIC_URL` | the public address, used only for links and QR codes |
 
-   The service refuses to start in production if `DATABASE_URL`, `ADMIN_SECRET`
-   or `EXPORT_SECRET` is missing, or if the two secrets are the same.
+   The service refuses to start in production if `DATABASE_URL`, `ADMIN_SECRET`,
+   `EXPORT_SECRET` or `COHORT` is missing, or if the two secrets are the same.
+   `COHORT` is on that list because a second service is made by copying the
+   first, and a service that inherited a default label would write a whole
+   cohort's rows under another cohort's name with nothing to separate them
+   afterwards. Refusing to start is the only failure mode that can be repaired.
 
 5. A short URL is worth arranging: participants type it from a screen. Either a
    custom domain on Render or a short redirect the client's IT can host.
@@ -135,8 +139,12 @@ blueprint.** Reconnecting a blueprint overwrites dashboard values, which is how
    own Secret Files as well, or the service will refuse to start and say it
    cannot read the certificate. Pasting the certificate text into the variable
    instead avoids the second step entirely.
-3. Set `COHORT` to something that names the client and cannot be confused with
-   the other, and `PROGRAMME_DAYS` to that programme's length.
+3. Set `COHORT` to this cohort's label and `PROGRAMME_DAYS` to that
+   programme's length. September: `elm` with `4`, and `nupco1` with `3`. The
+   labels match the FinPlay cohort subdomains on purpose, so one name means one
+   group in both systems and in the run sheets. The service will not start
+   without `COHORT`, so a service copied from the other one fails loudly rather
+   than quietly collecting into the wrong dataset.
 4. Generate **new** `ADMIN_SECRET` and `EXPORT_SECRET`. Do not copy them. The
    facilitator of one cohort has no business holding the other's secret, and the
    delete confirmation phrase is now `DELETE <cohort>`, which is only a
@@ -159,7 +167,8 @@ will carry R4. Read that header before displaying anything.
 3. Delete this cohort's source records through the admin page. The confirmation
    phrase is `DELETE ` followed by the cohort label.
 4. For a cohort that follows on the same service, change `COHORT` and, if the
-   length differs, `PROGRAMME_DAYS`, then redeploy. **This is not optional and
+   length differs, `PROGRAMME_DAYS`, then redeploy. In September that is
+   `nupco1` to `nupco2`, between 8 and 13 September. **This is not optional and
    it cannot be repaired afterwards.** `COHORT` is read once at start-up, so a
    second cohort begun under the previous label writes into the same dataset,
    and no identifier or linkage exists to separate the two. The admin page now

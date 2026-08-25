@@ -39,8 +39,14 @@ services:
         value: production
       - key: COLLECTION_TIMEZONE
         value: Asia/Riyadh
+      # This cohort's label, matching its FinPlay cohort subdomain so one name
+      # means one group across both systems. Validated at load (lowercase
+      # letters, digits and hyphens) and REQUIRED in production: a service
+      # copied from another one and left on the wrong label would write a whole
+      # cohort's rows under that other cohort's name, and nothing afterwards
+      # could separate them.
       - key: COHORT
-        value: cohort-1
+        value: elm
       # Training days in this cohort's programme. Four is what Research
       # Instruments v2.0 is written for; the September cohorts at the second
       # client are three. It decides the day selector, the day named in the

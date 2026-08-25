@@ -7,7 +7,7 @@ pack. Working from the wrong one puts the wrong day count in front of a room.
 
 **Programme:** three days, twice. 6 to 8 September and 13 to 15 September 2026, approximately 25 participants each
 **Service:** the three-day service, `PROGRAMME_DAYS=3`
-**Cohort labels:** `nupco-1` for the first group, **`nupco-2` for the second**. See section J; this is the one that cannot be fixed afterwards.
+**Cohort labels:** `nupco1` for the first group, **`nupco2` for the second**. See section J; this is the one that cannot be fixed afterwards.
 **Printed pack:** `docs/paper/3-day/` (not `docs/paper/`, which is the four-day set)
 **Export deadlines:** 10 September for the first group, 17 September for the second
 
@@ -120,13 +120,13 @@ Nobody else can do this for you. The candidate is at another client that week.
 **This is the step that cannot be repaired afterwards.**
 
 Both cohorts run on the same service. `COHORT` is read once when the service starts. If
-it still says `nupco-1` on 13 September, the second cohort's rows land under the first
+it still says `nupco1` on 13 September, the second cohort's rows land under the first
 cohort's label, and there is nothing to separate them by afterwards: no identifiers, no
 linkage, nothing. The two datasets become one and stay one.
 
 - [ ] First cohort exported and verified by the candidate.
-- [ ] **Change `COHORT` to `nupco-2` in Render, and redeploy.**
-- [ ] **Confirm on the admin page** that the header now reads `nupco-2` and the counts
+- [ ] **Change `COHORT` to `nupco2` in Render, and redeploy.**
+- [ ] **Confirm on the admin page** that the header now reads `nupco2` and the counts
       are zero. If it shows the first cohort's counts, the change did not take.
 - [ ] Reprint the packs for the second group.
 

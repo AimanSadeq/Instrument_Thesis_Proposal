@@ -55,10 +55,36 @@ async function main() {
   }
 
   console.log('\nSchema checks against ' + (process.env.DATABASE_URL || '').replace(/:[^:@/]*@/, ':***@'));
+  // Two kinds of file live in db/checks, and they report the opposite way round.
+  //
+  // A VIOLATION query looks for something that must not exist, so any row it
+  // returns is a finding and no rows means clean.
+  //
+  // A REPORT query - post_deploy_check.sql - returns one row per check with a
+  // `result` column. It always returns rows, so judging it by row count marked
+  // it failed even when all nine checks said pass, which is how a gate becomes
+  // something people learn to ignore. Judge it by its own verdicts instead.
   for (const file of fs.readdirSync(CHECK_DIR).filter((f) => f.endsWith('.sql')).sort()) {
     const sql = fs.readFileSync(path.join(CHECK_DIR, file), 'utf8');
     const result = await db.query(sql);
-    report(result.rowCount === 0, file, result.rowCount ? JSON.stringify(result.rows) : '');
+    const isReport = result.fields.some((f) => f.name === 'result');
+
+    if (!isReport) {
+      report(result.rowCount === 0, file, result.rowCount ? JSON.stringify(result.rows) : '');
+      continue;
+    }
+
+    // A report with no rows at all ran but checked nothing, which is not a pass.
+    if (result.rowCount === 0) {
+      report(false, file, 'the report returned no checks at all');
+      continue;
+    }
+    const failed = result.rows.filter((row) => String(row.result).toLowerCase() !== 'pass');
+    report(
+      failed.length === 0,
+      `${file} (${result.rowCount} checks)`,
+      failed.length ? JSON.stringify(failed) : ''
+    );
   }
 
   const keys = await db.query(`select conname from pg_constraint

@@ -39,9 +39,14 @@ const config = {
   // Calendar date is computed in this zone. Never a time, only a date.
   timezone: process.env.COLLECTION_TIMEZONE || 'Asia/Riyadh',
 
-  // Stamped on every row so the two cohorts can be exported separately.
+  // Stamped on every row so the cohorts can be exported separately.
   // A cohort label is shared by ~25 people and is not an identifier.
-  cohort: process.env.COHORT || 'cohort-1',
+  //
+  // The fallback is for local work only. In production COHORT must be set
+  // explicitly (see requireProductionConfig): a second service that inherited
+  // a default would write its cohort's rows under another cohort's label, and
+  // no identifier or linkage exists to separate them afterwards.
+  cohort: (process.env.COHORT || '').trim() || 'cohort-1',
 
   // How many training days this cohort runs. The programme is not always four
   // days: two of the September cohorts run three. Everything
@@ -73,11 +78,26 @@ if (!Number.isInteger(config.programmeDays) || config.programmeDays < 2 || confi
   throw new Error('PROGRAMME_DAYS must be a whole number from 2 to 6, got: ' + String(process.env.PROGRAMME_DAYS));
 }
 
+// Same reasoning for the cohort label. It reaches the database on every row and
+// the delete confirmation phrase is built from it, so a label with spaces or
+// punctuation is a phrase nobody can type correctly under pressure.
+if (!/^[a-z0-9][a-z0-9-]{1,39}$/.test(config.cohort)) {
+  throw new Error(
+    'COHORT must be 2 to 40 characters of lowercase letters, digits and hyphens, got: ' +
+      String(process.env.COHORT)
+  );
+}
+
 function requireProductionConfig() {
   const missing = [];
   if (!config.databaseUrl) missing.push('DATABASE_URL');
   if (!config.adminSecret) missing.push('ADMIN_SECRET');
   if (!config.exportSecret) missing.push('EXPORT_SECRET');
+  // Read the variable, not config.cohort, which carries the local-work fallback.
+  // One service per cohort means a new service is created by copying an existing
+  // one, and the single most damaging thing to forget is this label: the rows
+  // land under the other cohort and cannot be told apart later.
+  if (!(process.env.COHORT || '').trim()) missing.push('COHORT');
   if (missing.length) {
     throw new Error('Missing required environment variables: ' + missing.join(', '));
   }
