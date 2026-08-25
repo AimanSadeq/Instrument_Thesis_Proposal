@@ -79,11 +79,44 @@ because you did not design them and I did. And having run the ministry group alr
 you are the only one who can say what you did differently the second time, which is
 worth more still. Three days of scribbles beat an hour of recall two weeks later.
 
+ADDRESSES AND SECRETS, THE ONE PLACE TO LOOK ON THE MORNING
+
+There are two systems and they are separate on purpose. The training runs on FinPlay.
+The research forms run somewhere else entirely, which is what lets me tell the room the
+forms are not connected to anything they do in the training.
+
+  FinPlay, cohort 1 (6 to 8 Sept)   nupco1.finplay.viftraining.com
+  FinPlay, cohort 2 (13 to 15 Sept) nupco2.finplay.viftraining.com
+  Research forms                    the instrument platform, address to follow
+  Facilitator password              the one you already use
+  Corporate access code             generated on the morning, by you, in the panel
+  Research admin secret             NUPCO only, to follow
+
+Four things about that list.
+
+  1. The two FinPlay addresses are different sites, not one site with two groups. There
+     is no redirect between them. `nupco-1` with a hyphen is a dead address and returns
+     an error, so type it exactly as written above.
+
+  2. Your second group starts on a new address AND on a changed research label. Cohort 2
+     is not a continuation of cohort 1 in either system. The three-day checklist has this
+     as section J; it is the one step in the whole exercise that cannot be repaired
+     afterwards.
+
+  3. Generate the corporate access code on the morning of each cohort, not before. It is
+     created the moment you switch corporate mode on, and it belongs to that cohort
+     alone. A code written down in advance is a code that may no longer be the live one.
+
+  4. The research admin secret is yours for NUPCO and is not the one I use at the other
+     client. It shows counts and nothing else. If you are ever handed a secret that shows
+     you contents, it is the wrong secret and I need to know.
+
 WHAT I WILL SEND YOU
 
   - The facilitator run sheet, part 3 of the instruments document
   - The three-day printed pack, as a fallback if the network fails
-  - The admin link and a secret for NUPCO only, which is not the one I use elsewhere
+  - The research admin link and secret for NUPCO, once that service exists
+  - Both FinPlay addresses, confirmed, before the 3rd
 
 BEFORE THE 3RD
 
