@@ -112,6 +112,24 @@ Then, by hand:
   form. Confirm the counts return to zero before the first real session.
 - Print every instrument in both languages for the paper fallback.
 
+## Live services, as of 25 August 2026
+
+A dated record, because the dashboard is the source of truth and this file otherwise
+only says how to build one.
+
+| Service | Cohort label | Days | Serves |
+|---|---|---|---|
+| instrument-platform (the original) | `cohort-1` | 4 | ELM, 6 to 9 September |
+| nupco-instrument-thesis-proposal.onrender.com | `nupco1`, then `nupco2` per section J | 3 | both NUPCO cohorts |
+
+Post-deploy check run against `nupco1` on 25 August: nine passes, no rows in any cohort.
+
+The original service still carries the label `cohort-1` rather than `elm`. If it is to be
+renamed to match the FinPlay subdomain, the change must happen while the database holds no
+rows, because a label change after collection starts splits one cohort into two datasets
+with nothing to join them. As of 25 August the database is empty, so the rename is safe
+now and only now.
+
 ## 3a. Two cohorts at once
 
 Two cohorts start on 6 September: a four-day programme and a three-day one, in
