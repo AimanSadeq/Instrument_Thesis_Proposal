@@ -139,7 +139,7 @@ const doc = new Document({
         centered(''),
         centered('Thesis Proposal by'),
         centered('Aiman S. Sadeq'),
-        centered('ID number: [ID NUMBER]'),
+        centered('ID number: 3318335'),
         centered(''),
         centered(`Date: ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`),
         centered('Word count: [EXACT COUNT - includes list of references; excludes tables, figures, appendices]'),
