@@ -1,9 +1,16 @@
-# Anonymous research instrument platform
+# Anonymous research instrument platform, and the doctoral deliverables
 
 Four research instruments, English and Arabic, served to training participants
 on their own phones. Built for the doctoral study *Leveraging Artificial
 Intelligence for Financial Competence Development*, SDA Bocconi School of
 Management.
+
+The repository holds two things that belong together. This platform, which
+collects the data; and `thesis/`, which builds the three documents that go to
+the School: the Thesis Proposal, the Research Protocol and Data Management
+Plan, and the Research Instruments. They share the governing sources in
+`docs/source/`, so the protocol the platform is checked against and the
+protocol the supervisor reads are the same file.
 
 **The anonymity properties of this application are commitments made in writing
 to a university, not preferences.** Before changing anything, read
@@ -103,4 +110,10 @@ docs/source/                 Research Instruments v2.1, the content this must ma
 docs/paper/                  printed fallback and the take-away information page
 docs/APPENDIX_instrument_platform.md   draft methods appendix for the thesis
 docs/screenshots/            evidence, every screen, both languages, two phone sizes
+thesis/                      builds the three documents for the School; see thesis/README.md
 ```
+
+Nothing in `thesis/` is loaded, imported or executed by the platform, and the
+platform's checks do not scan it: `verify:privacy` and the privacy tests read
+`src`, `public` and `db` only. The two directories share the governing sources
+in `docs/source/` and nothing else.

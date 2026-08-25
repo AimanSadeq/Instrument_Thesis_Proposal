@@ -1,0 +1,126 @@
+To:      [NUPCO training / L&D contact]
+Cc:      Ahmad Rashid, Moayad Ghosheh
+Subject: FinPlay programme, September: one confirmation we need before Cohort 1
+
+
+Dear [Name],
+
+Thank you for confirming the two FinPlay cohorts, 6 to 8 September and 13 to 15
+September. Moayad Ghosheh will deliver both.
+
+There is one item I would like to settle in advance, and it is better raised now than
+on the morning of Day 1.
+
+Alongside the programme I run a doctoral research study at SDA Bocconi School of
+Management, supervised by Professor Emanuele Borgonovo, on how AI-assisted design
+affects the quality of professional finance training. Participants in our programmes
+are invited to complete a short set of anonymous feedback forms. I would like to
+extend that invitation to your two cohorts.
+
+
+WHAT WE ARE ASKING OF YOUR PEOPLE
+
+Four short forms, completed on their own phones, two to five minutes each: a consent
+screen on the morning of Day 1, a brief questionnaire after the opening briefing, a
+short reflection at the end of each day, and an evaluation at the end of Day 3.
+Participation is each person's own decision and is entirely separate from attending
+the training.
+
+
+WHAT IS AND IS NOT COLLECTED
+
+Nothing that identifies a person is collected at any point. Specifically, and in the
+terms your data team will want:
+
+  - No name, employee number, email address or job title. Role and experience are
+    recorded only as broad bands.
+  - No login and no account. There is no sign-in screen, so no participant list and
+    no contact record is created at any stage.
+  - No cookie, no browser storage, no device identifier.
+  - No IP address and no browser user-agent is retained.
+  - No time of day. Only the training day and the calendar date.
+  - No link between any two responses, including between one person's Day 1 and
+    Day 3 answers, and no connection of any kind to the FinPlay training platform
+    your people log in to.
+
+Because no personal data is collected, there is no individual record to disclose,
+correct or delete afterwards, and we say so plainly to participants rather than
+promising a withdrawal we could not perform.
+
+
+HOSTING, STATED PLAINLY
+
+The forms are hosted in the United States, on Render and Supabase. I would rather
+put that in front of you now than have it surface later. Since no personal data
+enters the dataset, this involves no cross-border transfer of personal data within
+the meaning of the Personal Data Protection Law. Connection metadata such as IP
+addresses is handled transiently at the network layer by the hosting provider, as it
+is for any online form including the common hosted survey tools, and is not logged,
+not retained and not associated with any response.
+
+
+WHAT WE NEED FROM NUPCO
+
+One written confirmation, from whoever owns your data policy, that your staff may
+complete anonymous research forms hosted outside the NUPCO network, on their own or
+on provided devices. A reply along these lines is sufficient:
+
+    "NUPCO confirms that participants in the September FinPlay programme may
+     complete anonymous research forms hosted outside our network, on their own
+     or on provided devices."
+
+One confirmation covers both cohorts. We need it before 6 September.
+
+
+WHAT NUPCO RECEIVES, AND WHAT IT DOES NOT
+
+No individual responses, and no list of who took part. Neither exists to share. Once
+both cohorts are complete I am glad to provide a summary at group level. Nobody's
+decision to take part, or not to, is visible to NUPCO or to the facilitator.
+
+
+IF YOUR POLICY DOES NOT ALLOW IT
+
+Then we use printed forms instead, collected in the room, and the programme runs
+exactly as planned. The research is an addition to the training, never a condition of
+it, and a no here costs you nothing.
+
+I am happy to send the participant information sheet, the consent wording and the
+full research protocol for your data team to review, or to join a short call with
+them. Please tell me which is easier.
+
+With kind regards,
+
+Aiman S. Sadeq
+Doctoral candidate, SDA Bocconi School of Management
+Virginia Institute of Finance and Management
+
+
+---
+Notes before sending, not part of the email:
+
+  * Who sends it. This is written from you, because the research is yours and the
+    signature carries the institution. If Ahmad should send it instead, change the
+    third paragraph to "My colleague Aiman Sadeq runs a doctoral research study" and
+    move your name to the cc line. Do not let it go out unsigned by a named person:
+    an anonymous request for a data-policy exception is the kind that stalls.
+
+  * Attach only if asked. The email offers the materials rather than attaching them.
+    A three-page ask with three attachments reads as a compliance exercise. If they
+    do ask, send:
+        docs/paper/information-sheet.pdf          the take-home page
+        docs/paper/3-day/instruments-en.pdf       consent wording, then the four
+                                                  instruments, in the 3-day version
+        Research_Protocol_DMP_v1.1_Sadeq.docx     the full protocol
+
+  * The 3-day pack is the right one for NUPCO. The 4-day pack in docs/paper is for
+    the other September cohort. The daily reflection sheet says which it is on the
+    front: "Daily Reflection, Days 1 to 3".
+
+  * What a yes obliges you to do. Protocol v1.1 section 7 requires the confirmation
+    to be recorded in the audit trail. Save their reply as a file with the date; the
+    email itself is the record.
+
+  * If they ask who the supervisor is or want to verify the study, Professor
+    Borgonovo's institutional page is the right pointer. Do not offer his email
+    without asking him first.

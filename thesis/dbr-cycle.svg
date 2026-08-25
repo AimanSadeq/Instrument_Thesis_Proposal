@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+
+  <!-- ----- CYCLE 1 (cx=250, cy=250, r=110) ----- -->
+  <text x="250" y="60" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a1a">CYCLE 1 - Structured Pilot</text>
+  <text x="250" y="82" text-anchor="middle" font-size="13" font-style="italic" fill="#555555">Cohort 1 &#183; ~25 professionals &#183; 6&#8211;9 September 2026</text>
+  <text x="250" y="258" text-anchor="middle" font-size="40" font-weight="bold" fill="#e2e7ee">1</text>
+  <path d="M 296.5 150.3 A 110 110 0 0 1 349.7 203.5" fill="none" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M 349.7 296.5 A 110 110 0 0 1 296.5 349.7" fill="none" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M 203.5 349.7 A 110 110 0 0 1 150.3 296.5" fill="none" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M 150.3 203.5 A 110 110 0 0 1 203.5 150.3" fill="none" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#arr)"/>
+  <rect x="197" y="123" width="106" height="32" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="250" y="144" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Analysis</text>
+  <rect x="307" y="234" width="126" height="32" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="370" y="255" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Design</text>
+  <rect x="182" y="345" width="136" height="32" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="250" y="366" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Implementation</text>
+  <rect x="67" y="234" width="126" height="32" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="130" y="255" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Reflection</text>
+
+  <!-- ----- systematic redesign bridge ----- -->
+  <line x1="440" y1="250" x2="558" y2="250" stroke="#1a1a1a" stroke-width="2.2" marker-end="url(#arr)"/>
+  <text x="500" y="230" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#1a1a1a">systematic</text>
+  <text x="500" y="247" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#1a1a1a">redesign</text>
+  <text x="500" y="272" text-anchor="middle" font-size="11.5" font-style="italic" fill="#555555">all Cycle 1 evidence</text>
+  <text x="500" y="287" text-anchor="middle" font-size="11.5" font-style="italic" fill="#555555">converts to design decisions</text>
+
+  <!-- ----- CYCLE 2 (cx=750, cy=250, r=110) ----- -->
+  <text x="750" y="60" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a1a">CYCLE 2 - Scaled Delivery</text>
+  <text x="750" y="82" text-anchor="middle" font-size="13" font-style="italic" fill="#555555">Multiple organizations &#183; refined materials &#183; 2026&#8211;2027</text>
+  <text x="750" y="258" text-anchor="middle" font-size="40" font-weight="bold" fill="#e2e7ee">2</text>
+  <path d="M 796.5 150.3 A 110 110 0 0 1 849.7 203.5" fill="none" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M 849.7 296.5 A 110 110 0 0 1 796.5 349.7" fill="none" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M 703.5 349.7 A 110 110 0 0 1 650.3 296.5" fill="none" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M 650.3 203.5 A 110 110 0 0 1 703.5 150.3" fill="none" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#arr)"/>
+  <rect x="697" y="123" width="106" height="32" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="750" y="144" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Analysis</text>
+  <rect x="807" y="234" width="126" height="32" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="870" y="255" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Design</text>
+  <rect x="682" y="345" width="136" height="32" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="750" y="366" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Implementation</text>
+  <rect x="567" y="234" width="126" height="32" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="630" y="255" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Reflection</text>
+
+  <!-- ----- dual output box ----- -->
+  <line x1="250" y1="382" x2="250" y2="452" stroke="#555555" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#arr)"/>
+  <line x1="750" y1="382" x2="750" y2="452" stroke="#555555" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#arr)"/>
+  <rect x="185" y="458" width="630" height="66" rx="8" fill="#e9eef4" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="500" y="485" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a1a1a">Dual output of each reflection phase</text>
+  <text x="500" y="508" text-anchor="middle" font-size="13" font-style="italic" fill="#444444">a concretely refined intervention &#8226; an updated statement of design principles for AI-assisted finance training</text>
+</svg>

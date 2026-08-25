@@ -1,0 +1,6 @@
+# Dependencies and build outputs. Everything here is regenerable from the
+# sources beside it, in one command, so the repository carries the recipe
+# rather than the dish. See README.md in this directory.
+node_modules/
+*.docx
+!cover.doc
