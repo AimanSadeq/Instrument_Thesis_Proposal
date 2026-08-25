@@ -1,14 +1,18 @@
-To:      Francesco Oberti
-Cc:      Prof. Giada Di Stefano, Prof. Emanuele Borgonovo
-Subject: Re: DBA Thesis Proposal: ethics application timing, fieldwork begins 6 September
+REPLY ALL on the existing thread. Do not start a new email and do not change the subject.
+ethics@unibocconi.it is already in Cc, which is the address Professor Di Stefano meant.
+
+To:      ethics@unibocconi.it (Mr Francesco Oberti)
+Cc:      Prof. Giada Di Stefano, Prof. Emanuele Borgonovo, Ulyana Sapozhnikava
+Subject: Re: DBA Thesis Proposal: is the section 3.5 Consent Form required before
+         fieldwork on 6 September?
 
 
 Dear Mr Oberti,
 
-Professor Di Stefano has kindly pointed me to you for the process side of an ethics
-application, and has already answered my substantive question: the consent form is
-required before I collect any data from individuals, and the portal generates it from the
-application. I am grateful for that, and my remaining question is only about timing.
+Professor Di Stefano has pointed me to you for the process side of an ethics application,
+and has answered my substantive question in the thread below: the consent form is required
+before I collect any data from individuals, and the portal generates it from the
+application. My remaining question is only about timing.
 
 My fieldwork begins on 6 September, twelve days from now, and three cohorts of working
 professionals run inside ten days. The training runs whatever happens; what is at stake is
@@ -42,7 +46,16 @@ asadeq@viftraining.com
 ---
 Notes before sending, not part of the email:
 
-  * Send to Oberti, cc Professor Di Stefano and Professor Borgonovo. She is the Director
+  * Reply-all on the existing thread rather than a new email. Professor Di Stefano's last
+    message already carries ethics@unibocconi.it in Cc, so Oberti receives it either way,
+    and the thread already contains her answer and Professor Borgonovo's request for
+    someone to direct questions to. A fresh email would make Oberti reconstruct all of it.
+
+  * Keep the original subject line even though it now reads as answered. Changing it
+    breaks the thread, and the thread is the context.
+
+  * Cc Professor Di Stefano and Professor Borgonovo, and keep Ulyana on it since she is on
+    the thread already. Professor Di Stefano is the Director
     of the DBA Programme as well as one of five on the ethics committee, so she is the
     academic point of reference and not merely a helpful colleague. She offered to answer
     further questions; the process question is still Oberti's, and copying her keeps the
