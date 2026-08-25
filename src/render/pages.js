@@ -8,7 +8,7 @@ const c = require('./components');
 const { CONSENT, PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING } = require('../content/instruments');
 
 /**
- * Note on the italic lines in Research Instruments v2.2: the timing notes
+ * Note on the italic lines in Research Instruments v2.3: the timing notes
  * ("Day 1, before training content begins. About five minutes.") are
  * instructions to whoever administers the instrument, so they are not shown
  * to participants. The voluntariness reminder is participant-facing (part 4,

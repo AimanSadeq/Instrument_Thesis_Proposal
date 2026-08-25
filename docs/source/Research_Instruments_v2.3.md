@@ -2,8 +2,8 @@
 
 **Study:** Leveraging Artificial Intelligence for Financial Competence Development
 **Candidate:** Aiman S. Sadeq · **Supervisor:** Professor Emanuele Borgonovo · SDA Bocconi School of Management
-**Version 2.2 · August 2026 · Aligned to Research Protocol and Data Management Plan v1.3**
-**Supersedes version 2.1. Changes from 2.1 are listed in Part 6, from 2.0 in Part 5, and from 1.0 in Part 4.**
+**Version 2.3 · August 2026 · Aligned to Research Protocol and Data Management Plan v1.3**
+**Supersedes version 2.2. Changes from 2.2 are listed in Part 7, from 2.1 in Part 6, from 2.0 in Part 5, and from 1.0 in Part 4.**
 
 ---
 
@@ -410,17 +410,48 @@ The instruments are self-administered online. The facilitator's role is to read 
 **Step 1.** Read the following aloud, in English and Arabic:
 
 **Where a colleague is delivering**, replace "my doctoral research" with "the doctoral
-research of my colleague Aiman Sadeq", replace "I have just said" in the last line with
-"is on that page", and drop the first person elsewhere. Everything else is read as
-written. The wording below is the candidate's version.
+research of my colleague Aiman Sadeq", replace "I will never know who wrote what" with
+"the researcher will never know who wrote what", and drop the first person elsewhere.
+Everything else is read as written. The wording below is the candidate's version.
+
+**Nothing evaluative about the materials is said here, deliberately.** The room is about
+to spend three or four days judging those materials, and a facilitator who calls them
+advanced, or ahead of the market, has told them the answer before asking the question.
+The novelty is stated as a fact and as a reason to be candid, which is the version that
+survives an examiner reading this page and produces better data besides. Enthusiasm
+about the programme belongs in the training opening, after the consent screen is closed.
+
+**English**
 
 > "Before we begin, I want to tell you about something. The training materials you will use this week were designed with artificial intelligence, as part of my doctoral research at SDA Bocconi School of Management, supervised by Professor Emanuele Borgonovo.
+>
+> These materials were designed in a way almost nobody has tried yet, and nobody has properly studied whether it works. That is exactly what this research is for, and it only works if the answers it gets are honest ones.
 >
 > You are invited to take part in that research by completing a few short feedback activities during the programme. This is completely voluntary and entirely separate from the training itself, which your employer arranged. Whether you take part or not makes no difference to your training and has no work consequence at all.
 >
 > Everything is anonymous. There is no name, no employee number, no login. These forms are completely separate from the FinPlay platform, so nothing you write can be connected to you or to anything you do in the training. I will never know who wrote what, and neither will your employer.
 >
 > The link is on the screen. The first page explains everything I have just said, and asks whether you would like to take part. Please choose whichever answer is right for you."
+
+**Arabic**
+
+Read as written rather than translated on the spot. A consent briefing improvised in
+the moment is not the same briefing twice, and two facilitators improvising it are not
+delivering the same study.
+
+> «قبل أن نبدأ، أود أن أطلعكم على أمر. المواد التدريبية التي ستستخدمونها هذا الأسبوع صُممت بمساعدة الذكاء الاصطناعي، وذلك ضمن بحثي لنيل درجة الدكتوراه في كلية SDA Bocconi لإدارة الأعمال، بإشراف البروفيسور إيمانويلي بورغونوفو.
+>
+> صُممت هذه المواد بطريقة لم يجربها إلا القليل حتى الآن، ولم يدرس أحد بعد ما إذا كانت فعّالة. وهذا بالضبط هو الغرض من هذا البحث، ولا ينجح إلا إذا كانت الإجابات صادقة.
+>
+> وأنتم مدعوون للمشاركة في هذا البحث من خلال إكمال بعض الأنشطة القصيرة خلال البرنامج. المشاركة طوعية تماماً ومنفصلة تماماً عن التدريب نفسه الذي رتبه صاحب العمل. وسواء شاركتم أم لم تشاركوا، فلن يؤثر ذلك على تدريبكم ولن تترتب عليه أي نتيجة وظيفية.
+>
+> كل شيء مجهول الهوية. لا يوجد اسم ولا رقم وظيفي ولا تسجيل دخول. وهذه النماذج منفصلة تماماً عن منصة FinPlay، فلا يمكن ربط ما تكتبونه بكم ولا بأي نشاط تقومون به في التدريب. لن أعرف أبداً من كتب ماذا، ولن يعرف صاحب العمل كذلك.
+>
+> الرابط معروض على الشاشة. الصفحة الأولى تشرح كل ما ذكرته للتو، وتسألكم إن كنتم ترغبون في المشاركة. اختاروا الإجابة المناسبة لكم.»
+
+**Where a colleague is delivering**, replace «بحثي لنيل درجة الدكتوراه» with
+«بحث زميلي أيمن صادق لنيل درجة الدكتوراه», and «لن أعرف أبداً من كتب ماذا» with
+«لن يعرف الباحث أبداً من كتب ماذا».
 
 **Step 2.** Display the link and QR code. Allow about three minutes. **Everyone opens the link, whether taking part or not.**
 
@@ -526,3 +557,29 @@ design is the only person who can produce it.
 
 **4. Alignment.** Version 2.1 was aligned to Research Protocol and Data Management Plan
 v1.2. This version is aligned to v1.3, which adds the interview strand.
+
+---
+
+# PART 7: CHANGES FROM VERSION 2.2
+
+**1. The Day 1 script says what is new about the materials, without evaluating them.**
+One sentence, added in both languages: the materials were designed in a way almost
+nobody has tried, nobody has studied whether it works, that is what the research is
+for, and it only works if the answers are honest.
+
+The intent behind the addition was to convey that the programme is at the edge of what
+the field is doing. It is placed and worded so that it does that without telling the
+room the answer to the question they are about to be asked. A facilitator who describes
+the materials as advanced, or ahead of the market, two minutes before the participants
+begin evaluating those materials, has primed the reaction data that RQ2 and RQ4 depend
+on, compounded the deference risk that Sections 3.4 and 4.6 of the proposal concede,
+and asserted in the consent briefing the very thing RQ1 exists to establish. Stating the
+novelty as a fact and as a reason for candour costs none of that and recruits better
+answers. Section 8 of the protocol lists facilitator influence as a named risk; this is
+the sentence that keeps it out of the script.
+
+**2. The Arabic script is written out rather than translated on the spot.** Version 2.2
+said "read the following aloud, in English and Arabic" and gave only English. With one
+facilitator that is a wording risk. With two it is a fidelity problem: an improvised
+briefing is not the same briefing twice, and two people improvising it are not
+delivering the same study. The colleague substitution is given for Arabic as well.

@@ -1,6 +1,6 @@
 # Running it on the day
 
-This follows the facilitator run sheet in Research Instruments v2.2, part 3.
+This follows the facilitator run sheet in Research Instruments v2.3, part 3.
 It says only what the software adds to it.
 
 ## The four links
