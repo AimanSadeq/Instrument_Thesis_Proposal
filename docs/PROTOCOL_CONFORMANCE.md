@@ -16,7 +16,7 @@ the software cannot make true as written; the rest are small.
 
 | Protocol says | Status |
 |---|---|
-| Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.2 |
+| Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.3 |
 | Daily Reflection Cards, one per training day | Built, and the programme length is configurable. See **Flag 7**, closed |
 | Delivered as web forms, own or provided devices | Built, mobile first |
 | Access by short URL and QR code displayed in the room | Built. Each instrument has its own address and its own QR code on the admin page |
@@ -116,7 +116,7 @@ gap comes from.
 The build follows the instruments document, verbatim, as instructed. So the
 two documents disagree, and the protocol is the one that wins.
 
-**CLOSED by Research Instruments v2.2.** The line was added to the
+**CLOSED by Research Instruments v2.3.** The line was added to the
 pre-training questionnaire rather than the protocol weakened, in identical
 wording to the other two instruments, in both languages, on screen and on
 paper. Weakening a participant safeguard to match the build is the wrong
@@ -225,7 +225,7 @@ where version 001 of the schema would have accepted it.
    procedure, section 6 to scope the dual role to the cohort the candidate
    delivers and to name its absence elsewhere as a comparison, and sections 8
    and 9 for the overlapping-cohort risks and the timeline.
-2. **Research Instruments v2.2** records the day-count substitution in Part 5:
+2. **Research Instruments v2.3** records the day-count substitution in Part 5:
    the five places it touches, what is substituted in each language, and the
    fact that the application refuses to start if an edit ever moves one of
    those phrases. What a three-day room reads is now written down rather than

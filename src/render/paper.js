@@ -6,7 +6,7 @@ const { CONSENT, PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING } = require('../c
 /**
  * The paper fallback.
  *
- * The run sheet in Research Instruments v2.2 part 3 says printed copies of
+ * The run sheet in Research Instruments v2.3 part 3 says printed copies of
  * every instrument travel to each session, for use when the network fails or
  * the client's wi-fi blocks the site. These sheets are generated from the same
  * content module as the screens, so the printed wording cannot drift from the
