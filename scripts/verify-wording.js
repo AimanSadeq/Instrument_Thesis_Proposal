@@ -2,7 +2,7 @@
 
 /**
  * Check that every word a participant reads appears verbatim in
- * docs/source/Research_Instruments_v2.1.md.
+ * docs/source/Research_Instruments_v2.2.md.
  *
  * This always checks the canonical four-day content, whatever PROGRAMME_DAYS
  * is set to, because that document is written for four days. A shorter
@@ -22,7 +22,7 @@ const path = require('path');
 const canonical = require('../src/content/instruments');
 const instruments = canonical.withProgrammeDays(canonical.CANONICAL_DAYS);
 
-const DOC = path.join(__dirname, '..', 'docs', 'source', 'Research_Instruments_v2.1.md');
+const DOC = path.join(__dirname, '..', 'docs', 'source', 'Research_Instruments_v2.2.md');
 
 /** Strip the markdown scaffolding, keep the words. */
 function normalise(text) {
@@ -125,7 +125,7 @@ for (const entry of strings) {
   }
 }
 
-console.log(`\n${strings.length} strings checked against Research Instruments v2.1.`);
+console.log(`\n${strings.length} strings checked against Research Instruments v2.2.`);
 console.log(missing === 0
   ? 'Every one appears verbatim in the source document.'
   : `${missing} string(s) NOT found in the source document.`);

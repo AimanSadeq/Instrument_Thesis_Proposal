@@ -40,10 +40,10 @@ here is a false statement in a doctoral thesis.
 | Post-training evaluation | `/eval` | A1–A5, B1–B5, C1–C4 on a 1–5 scale, D1–D4 |
 | Admin | `/admin` | Counts only for the facilitator; export and deletion for the researcher |
 
-Item wording is transcribed verbatim from Research Instruments v2.1 into
+Item wording is transcribed verbatim from Research Instruments v2.2 into
 `src/content/instruments.js`. Do not reword, reorder, add or drop items there
 without changing that document. `npm run verify:wording` checks every string
-against `docs/source/Research_Instruments_v2.1.md`, which is committed here.
+against `docs/source/Research_Instruments_v2.2.md`, which is committed here.
 
 ## Stack
 
@@ -66,7 +66,7 @@ npm start                     # http://localhost:3000
 
 ```bash
 npm test                  # 40 tests across instruments, privacy, admin, export, deletion
-npm run verify:wording    # every instrument string against docs/source/Research_Instruments_v2.1.md
+npm run verify:wording    # every instrument string against docs/source/Research_Instruments_v2.2.md
 npm run verify:privacy    # source scan and schema checks against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them
 npm run verify:browser    # real browser: the final-day rule, an offline submission, both consent options
@@ -81,7 +81,7 @@ in the same week cannot be handed each other's sheets.
 ## Programme length
 
 `PROGRAMME_DAYS` sets how many training days this cohort runs. It defaults to
-four, which is what Research Instruments v2.1 is written for; the September
+four, which is what Research Instruments v2.2 is written for; the September
 cohorts at the second client are three. It decides the day selector, the day
 named in the wording, and which day carries the cross-programme question R4.
 Two concurrent cohorts of different lengths need two services, because this is
@@ -106,7 +106,7 @@ docs/VERIFICATION.md         the report against the build brief checklist
 docs/PROTOCOL_CONFORMANCE.md the check against Research Protocol and DMP v1.3
 docs/DEPLOYMENT.md           Supabase and Render, and how to take it down again
 docs/OPERATIONS.md           what the facilitator and the researcher do on the day
-docs/source/                 Research Instruments v2.1, the content this must match
+docs/source/                 Research Instruments v2.2, the content this must match
 docs/paper/                  printed fallback and the take-away information page
 docs/APPENDIX_instrument_platform.md   draft methods appendix for the thesis
 docs/screenshots/            evidence, every screen, both languages, two phone sizes

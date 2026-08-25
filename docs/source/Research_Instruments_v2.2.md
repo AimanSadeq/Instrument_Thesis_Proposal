@@ -2,8 +2,8 @@
 
 **Study:** Leveraging Artificial Intelligence for Financial Competence Development
 **Candidate:** Aiman S. Sadeq · **Supervisor:** Professor Emanuele Borgonovo · SDA Bocconi School of Management
-**Version 2.1 · August 2026 · Aligned to Research Protocol and Data Management Plan v1.2**
-**Supersedes version 2.0. Changes from 2.0 are listed in Part 5; changes from 1.0 remain in Part 4.**
+**Version 2.2 · August 2026 · Aligned to Research Protocol and Data Management Plan v1.3**
+**Supersedes version 2.1. Changes from 2.1 are listed in Part 6, from 2.0 in Part 5, and from 1.0 in Part 4.**
 
 ---
 
@@ -389,11 +389,30 @@ Please rate each statement from 1 (strongly disagree) to 5 (strongly agree).
 
 *For the facilitator only. Not shown to participants.*
 
+**Two things vary by cohort, and both must be settled before Day 1.**
+
+**Programme length.** This run sheet is written for four days. Where a cohort runs a
+different number, read every "Day 4" below as the last day of that programme and
+"Days 1, 2, 3 and 4" as one reflection per training day. The screens substitute the
+day count automatically, as Part 5 sets out; this sheet does not, so the facilitator
+does it.
+
+**Who is delivering.** Where the candidate delivers, the Day 1 script below is read as
+written. **Where a colleague delivers, the first person singular is wrong and must be
+changed**, because the research is not theirs. The substitution is given with the
+script. A facilitator who describes someone else's doctorate as their own has
+misinformed the room at the exact moment consent is being sought.
+
 The instruments are self-administered online. The facilitator's role is to read the briefing, display the access link, and then step back. **Do not circulate, do not look at screens, and do not assist with completion.** If asked a question about an item, answer only about what the item means, never about what to write.
 
 ## Day 1, before any teaching content
 
 **Step 1.** Read the following aloud, in English and Arabic:
+
+**Where a colleague is delivering**, replace "my doctoral research" with "the doctoral
+research of my colleague Aiman Sadeq", replace "I have just said" in the last line with
+"is on that page", and drop the first person elsewhere. Everything else is read as
+written. The wording below is the candidate's version.
 
 > "Before we begin, I want to tell you about something. The training materials you will use this week were designed with artificial intelligence, as part of my doctoral research at SDA Bocconi School of Management, supervised by Professor Emanuele Borgonovo.
 >
@@ -421,9 +440,10 @@ Display the post-training evaluation link. Allow about ten minutes.
 
 ## After each session
 
-- Confirm submission counts per instrument in the admin view. **Counts only, never contents, during the programme.**
+- Confirm submission counts per instrument in the admin view. **Counts only, never contents, during the programme.** The admin secret is that cohort's own; it is not shared between cohorts.
 - Record anything unusual in the deviations log: technical failures, fallback to paper, interruptions, anything said in the room that might have influenced responses.
-- Write the reflexivity journal entry the same evening.
+- **Any facilitator**: note any point at which you departed from the AI-designed materials, and why. What you kept, what you adapted on the spot, what you abandoned. A line each is enough, written the same day. This is evidence for RQ1 and it cannot be reconstructed later.
+- **The candidate only**: write the reflexivity journal entry the same evening. A colleague facilitating is not conducting the research and does not keep one.
 
 ## If technology fails
 
@@ -483,3 +503,26 @@ cannot drift apart silently.
 
 **3. Alignment.** Version 2.0 was aligned to Research Protocol and Data
 Management Plan v1.1. This version is aligned to v1.2.
+
+---
+
+# PART 6: CHANGES FROM VERSION 2.1
+
+**1. The run sheet no longer assumes the candidate is the facilitator.** Two of the
+September cohorts are delivered by a colleague. The Day 1 briefing script was written
+in the first person singular and describes the doctorate as the speaker's own, which
+would have been false in those rooms and false at the moment consent is sought. Part 3
+now gives the substitution, and separates what any facilitator does from what only the
+candidate does: the deviations log is everyone's, the reflexivity journal is not.
+
+**2. The run sheet no longer assumes four days.** The screens substitute the day count
+automatically; this sheet is read by a person and does not, so it now says so and tells
+the facilitator to read "Day 4" as the last day of their programme.
+
+**3. Facilitators are asked to note departures from the materials as they go.** Which
+elements were kept, adapted or abandoned, written the same day. This is the primary
+evidence for RQ1 in Cycle 1, and a facilitator working from materials they did not
+design is the only person who can produce it.
+
+**4. Alignment.** Version 2.1 was aligned to Research Protocol and Data Management Plan
+v1.2. This version is aligned to v1.3, which adds the interview strand.

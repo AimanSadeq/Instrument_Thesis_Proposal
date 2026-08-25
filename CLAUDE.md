@@ -46,7 +46,7 @@ a way. That is the expected answer, not a failure.
 ## Where things are
 
 - `src/content/instruments.js` — instrument text, English and Arabic,
-  transcribed verbatim from `docs/source/Research_Instruments_v2.1.md`. Do not
+  transcribed verbatim from `docs/source/Research_Instruments_v2.2.md`. Do not
   reword, reorder, add or drop items. `npm run verify:wording` enforces this
   for the screens and the printed forms at once.
 - `src/content/ui.js` — everything else a participant can read.
