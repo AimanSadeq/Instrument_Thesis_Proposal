@@ -6,7 +6,7 @@ different dates, a different service, a different admin secret and a different
 printed pack. Do not work from his and do not hand him yours.
 
 **Programme:** 6 to 9 September 2026, four days, hotel venue, approximately 25 participants
-**Service:** the four-day service, `PROGRAMME_DAYS=4`, cohort label `cohort-1`
+**Service:** the four-day service, `PROGRAMME_DAYS=4`, cohort label `elm`
 **Printed pack:** `docs/paper/` (the four-day set)
 **Export deadline:** 11 September 2026 (Protocol v1.3 section 7, within 48 hours)
 
@@ -90,7 +90,7 @@ Instruments v2.1 to v2.3 and Protocol v1.2 to v1.3. Two things remain.
       or three minutes to redeploy. Do it before the room arrives, never
       mid-session.
 - [ ] **Check the admin page**: counts all zero, header reads "instruments
-      open", cohort `cohort-1`, **programme 4 days**, date correct. If the header
+      open", cohort `elm`, **programme 4 days**, date correct. If the header
       says three days you are on the other cohort's service.
 - [ ] **Confirm the facilitator holds `ADMIN_SECRET`** and the URL. Not the
       export secret. That separation is the control protocol section 6 relies

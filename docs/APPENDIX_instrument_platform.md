@@ -51,7 +51,7 @@ fields is:
 | Field | Values | Purpose |
 |---|---|---|
 | Random identifier | UUID, generated at insertion | Row key only. Not sequential, so it carries no order information |
-| Cohort | `cohort-1` or `cohort-2` | Shared by approximately 25 people; separates the September and October programmes |
+| Cohort | `elm`, `nupco1`, `nupco2` | Shared by approximately 25 people; separates the cohorts. Matches the training platform's cohort subdomain so one name means one group |
 | Calendar date | `YYYY-MM-DD` | Date only, computed in the collection timezone |
 | Training day | 1 to 4, daily reflection only | Chosen by the participant, not derived from the date |
 | Responses | The item values themselves | Closed items as stable codes, open items as written |

@@ -119,16 +119,15 @@ only says how to build one.
 
 | Service | Cohort label | Days | Serves |
 |---|---|---|---|
-| instrument-platform (the original) | `cohort-1` | 4 | ELM, 6 to 9 September |
+| instrument-platform (the original) | `elm` (renamed from `cohort-1` on 25 August, while the database held no rows) | 4 | ELM, 6 to 9 September |
 | nupco-instrument-thesis-proposal.onrender.com | `nupco1`, then `nupco2` per section J | 3 | both NUPCO cohorts |
 
 Post-deploy check run against `nupco1` on 25 August: nine passes, no rows in any cohort.
 
-The original service still carries the label `cohort-1` rather than `elm`. If it is to be
-renamed to match the FinPlay subdomain, the change must happen while the database holds no
-rows, because a label change after collection starts splits one cohort into two datasets
-with nothing to join them. As of 25 August the database is empty, so the rename is safe
-now and only now.
+Both labels now match the FinPlay cohort subdomains. The original service was renamed
+from `cohort-1` to `elm` on 25 August; the rename was safe because the database held no
+rows, and would not have been afterwards, since a label change once collection has begun
+splits one cohort into two datasets with nothing to join them.
 
 ## 3a. Two cohorts at once
 

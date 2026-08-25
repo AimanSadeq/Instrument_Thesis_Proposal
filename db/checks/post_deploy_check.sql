@@ -7,7 +7,7 @@
 -- deleted, and its rows are none of this service's business. The detail column
 -- names every cohort present, so you can see what else is in the database.
 
-with target as (select 'cohort-1'::text as cohort),
+with target as (select 'elm'::text as cohort),
 
 checks as (
 
