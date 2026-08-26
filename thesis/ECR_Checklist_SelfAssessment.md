@@ -54,6 +54,17 @@ external provider: recordings are transcribed personally by the researcher, with
 automated transcription services, and stored encrypted under the researcher's sole
 control.
 
+## Submission record
+
+Although optional under the outcome above, the project was submitted to the ECR on the
+expedite track on 26 August 2026 at 16:20, as an umbrella application covering both
+cycles. **Application code EA001257**, title as registered on the portal: "Leveraging
+Artificial Intelligence for Financial Competence Development: A Design-Based Research
+Study of AI-Assisted Training Design, Gamification, and Organizational Outcomes."
+Uploads: project description, portal-generated informed consent, Research Protocol and
+DMP v1.4, and the ethics course attendance certificate. Outcome to be recorded here when
+the two-member expedite check concludes; collection does not wait on it.
+
 ## Standing conditions
 
 This assessment holds for Cycle 1 as designed. It is reassessed, and submission made if
