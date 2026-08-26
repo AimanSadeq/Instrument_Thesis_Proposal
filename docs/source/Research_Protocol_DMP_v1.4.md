@@ -4,9 +4,9 @@
 
 Candidate: Aiman S. Sadeq · Supervisor: Professor Emanuele Borgonovo · Doctorate in Business Administration, SDA Bocconi School of Management
 
-Version 1.3 · August 2026 · Status: draft for supervisor review ahead of the September cohorts
+Version 1.4 · August 2026 · Status: draft for supervisor review ahead of the September cohorts
 
-*Supersedes version 1.2. Changes from 1.2 are summarised in Section 10, together with the earlier change logs.*
+*Supersedes version 1.3. Changes from 1.3 are summarised in Section 10, together with the earlier change logs.*
 
 **1. Purpose and research questions**
 
@@ -28,7 +28,7 @@ Cohort 1A and Cohort 1B run in the same week and overlap by three days. They are
 
 The multi-cohort structure gives Cycle 1 an internal iteration: what the first cohorts reveal about the instruments and the training materials can be acted upon and re-tested inside the cycle rather than deferred to Cycle 2. The variation in programme length and in facilitator is treated as informative rather than as noise, and Section 6 sets out what the second of those two variations does to the dual-role limitation.
 
-Cycle 2 (2026 to 2027) deploys systematically refined materials across multiple organizations with interviews, focus groups, and observation. Full institutional ethics review via the Bocconi ethics portal will be completed before Cycle 2 fieldwork begins.
+Cycle 2 (2026 to 2027) deploys systematically refined materials across multiple organizations with interviews, focus groups, and observation. The institutional ethics procedure was completed ahead of Cycle 1: the university's research-ethics course, the institutional Consent Form prepared through the Bocconi ethics portal, and the committee's self-assessment checklist, on which the project flags no critical element, so that formal ECR submission is optional under the committee's own rule. The assessment is revisited, and a submission made if required, before Cycle 2's multi-organization fieldwork.
 
 **3. Participants and recruitment**
 
@@ -178,13 +178,19 @@ Retention: for the duration of the doctoral research; anonymized digital data re
 
 Supervisor: Professor Emanuele Borgonovo reviews this protocol and the consent materials before the first September session (target: before 6 September 2026). The review and any resulting revisions form part of the audit trail. The change from a single September cohort to three, one of them delivered by a colleague, is a material change to the design he approved on 21 August 2026 and is drawn to his attention rather than left to be discovered in this document.
 
-Institutional ethics: SDA Bocconi procedures via ecr.unibocconi.it, with the full Consent Form process completed ahead of Cycle 2 fieldwork (2026 to 2027). The two Cycle 1 interviews are raised with the supervisor before they are conducted, because they introduce identifiable participants to a study whose earlier design had none, and the supervisor's view on whether they should await the institutional process is decisive.
+Institutional ethics: SDA Bocconi procedures via ecr.unibocconi.it, completed ahead of Cycle 1 on 25 August 2026: research-ethics course, Consent Form prepared through the portal, and the self-assessment checklist with no element flagged, making formal ECR submission optional under the committee's rule. The completed checklist record, with the reasoning on the two judgment items (gatekeeper access and external-provider GDPR compliance), is retained in the audit trail. The two Cycle 1 interviews are still raised with the supervisor before they are conducted, because they introduce identifiable participants to a study whose earlier design had none.
 
-Indicative sequence: instrument layer built and tested, with client authorisation confirmed for each participating organization, before 6 September 2026; Cohorts 1A and 1B delivered 6 to 9 and 6 to 8 September 2026; Cohort 1C delivered 13 to 15 September 2026; export and verification within 48 hours of each cohort's final day; the two practitioner interviews conducted after the September deliveries and transcribed by hand; instrument and material refinements applied ahead of any October cohort; Cycle 2 fieldwork from late 2026, following institutional ethics approval.
+Indicative sequence: instrument layer built and tested, with client authorisation confirmed for each participating organization, before 6 September 2026; Cohorts 1A and 1B delivered 6 to 9 and 6 to 8 September 2026; Cohort 1C delivered 13 to 15 September 2026; export and verification within 48 hours of each cohort's final day; the two practitioner interviews conducted after the September deliveries and transcribed by hand; instrument and material refinements applied ahead of any October cohort; Cycle 2 fieldwork from late 2026, following reassessment of the ethics checklist and ECR submission if any element then flags.
 
 Contact for participant questions: the candidate, and ethics@unibocconi.it as the institutional contact.
 
 **10. Summary of changes**
+
+*From version 1.3 to version 1.4*
+
+-   Section 2 and Section 9: the institutional ethics procedure is recorded as completed ahead of Cycle 1 (25 August 2026): ethics course, Consent Form via the portal, and the self-assessment checklist with no element flagged, so ECR submission is optional under the committee's rule. Earlier versions deferred the institutional process to Cycle 2; the committee's guidance of 25 August 2026 established that consent must precede any collection from individuals, and the procedure was completed accordingly.
+
+-   Section 9: Cycle 2 ethics wording changed from "following institutional ethics approval" to reassessment of the checklist with submission if any element flags.
 
 *From version 1.2 to version 1.3*
 

@@ -1,5 +1,11 @@
 # The platform against Research Protocol and DMP v1.3
 
+*Note, 25 August 2026: the protocol is now v1.4. The v1.4 changes are institutional-ethics
+wording only (course, portal consent form, and the self-assessment checklist completed ahead
+of Cycle 1; ECR submission optional as no checklist element flags); nothing the platform
+implements changed, so this conformance review against v1.3 remains accurate for every
+platform-facing provision.*
+
 The build brief names this protocol as the governing document and says that
 where the two disagree, the protocol wins and the conflict is to be flagged.
 This is that check, section by section.
