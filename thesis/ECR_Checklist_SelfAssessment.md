@@ -71,8 +71,8 @@ behavioral research in clinical trials e-learning course), completed by Aiman S.
 SBM tracking ID 62942, certificate dated 27 August 2026, signed by Lindsay Bullock,
 Executive Director. The certificate was not available at submission time (the SBM
 portal had not issued it); it was retrieved from the portal on 27 August 2026 and sent
-to the ethics committee by email to be attached to application EA001257. Stored as
-`thesis/SBM_GCP_Certificate_Sadeq.pdf`.
+to the ethics committee by email the same day, with the request to attach it to
+application EA001257. Stored as `thesis/SBM_GCP_Certificate_Sadeq.pdf`.
 
 ## Standing conditions
 
