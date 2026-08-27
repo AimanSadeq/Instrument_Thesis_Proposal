@@ -69,7 +69,10 @@ the two-member expedite check concludes; collection does not wait on it.
 Practice Training for Social and Behavioral Research" (the NIH/OBSSR GCP for social and
 behavioral research in clinical trials e-learning course), completed by Aiman S. Sadeq,
 SBM tracking ID 62942, certificate dated 27 August 2026, signed by Lindsay Bullock,
-Executive Director. Stored as `thesis/SBM_GCP_Certificate_Sadeq.pdf`.
+Executive Director. The certificate was not available at submission time (the SBM
+portal had not issued it); it was retrieved from the portal on 27 August 2026 and sent
+to the ethics committee by email to be attached to application EA001257. Stored as
+`thesis/SBM_GCP_Certificate_Sadeq.pdf`.
 
 ## Standing conditions
 
