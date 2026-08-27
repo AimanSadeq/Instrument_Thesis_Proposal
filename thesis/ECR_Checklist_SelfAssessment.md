@@ -65,6 +65,12 @@ Uploads: project description, portal-generated informed consent, Research Protoc
 DMP v1.4, and the ethics course attendance certificate. Outcome to be recorded here when
 the two-member expedite check concludes; collection does not wait on it.
 
+**Ethics course certificate (on file):** Society of Behavioral Medicine, "Good Clinical
+Practice Training for Social and Behavioral Research" (the NIH/OBSSR GCP for social and
+behavioral research in clinical trials e-learning course), completed by Aiman S. Sadeq,
+SBM tracking ID 62942, certificate dated 27 August 2026, signed by Lindsay Bullock,
+Executive Director. Stored as `thesis/SBM_GCP_Certificate_Sadeq.pdf`.
+
 ## Standing conditions
 
 This assessment holds for Cycle 1 as designed. It is reassessed, and submission made if
