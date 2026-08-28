@@ -66,6 +66,29 @@ The run sheet is also written for four days. Yours is three. Read every "Day 4" 
 last day. The screens handle this themselves and will show the right days; only the
 paper version needs you to notice.
 
+RUNNING THE ROOM FROM YOUR PHONE
+
+One practical thing on the FinPlay side, separate from the research. You can sign into
+the admin panel on your phone with the facilitator password for the NUPCO portals,
+which I will send with the rest, and carry the phone as a remote while you walk the
+room: unlock the move between modules, open the game, start the countdown
+timers. It beats going back to the laptop every time.
+
+Do one piece of setup first, once, on the phone. In the admin panel, open the Timer
+Overlay card and turn OFF the switch that says "Show the countdown on this device".
+Without that, the moment you start a break timer the countdown takes over your phone
+screen too, and your remote goes dark exactly when you need it. Leave the same switch
+ON on the laptop that feeds the projector; that is the screen the room should see.
+Each device remembers its own setting, so this is a one-time step.
+
+While you are in that card: the timer has two styles. Full Screen replaces the
+projected image with a large countdown, which is right for breaks. Corner Clock pins a
+small countdown in the corner with your slides still visible behind it, which is right
+for timed exercises. Pick per activity.
+
+If the phone asks for the password again mid-day, that is just iOS letting the tab go
+after it has been in your pocket a while. Re-enter it and carry on; nothing is lost.
+
 WHAT I NEED YOU TO WRITE DOWN
 
 Whenever you depart from the materials, note it the same day. One line is plenty.
@@ -118,4 +141,8 @@ Notes before sending, not part of the email:
     likeliest to be waved through in the moment by someone trying to be helpful.
 
   * You still owe him the NUPCO ADMIN_SECRET once that service exists. Not the export
-    secret, and not ELM's.
+    secret, and not ELM's. The FinPlay facilitator password for nupco1/nupco2 is a
+    separate credential again; the phone section above promises it "with the rest".
+
+  * The phone opt-out is worth doing together on the call. Thirty seconds of
+    screen-share beats his phone going dark under a break timer mid-cohort.
