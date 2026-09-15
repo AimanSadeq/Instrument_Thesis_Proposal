@@ -1,5 +1,21 @@
 # Pre-course checklist: the four-day cohort
 
+> **Not the October document. Read this note before using anything below.**
+>
+> *15 September 2026.* This list was written for the four-day delivery at the
+> technology company on 6 to 9 September 2026. That delivery ran as an ordinary
+> commercial course with the instrument layer switched off, because the Ethics
+> Committee's decision had not been issued when it began, and it left the study
+> altogether: it contributes no data and approval is not applied to it
+> retrospectively (Protocol v2.0 section 2).
+>
+> The October cohorts are three days each and are covered by
+> `PRE_COURSE_CHECKLIST_3day.md`. This document is kept because the four-day
+> text remains canonical and colleague-delivered four-day cohorts are a standing
+> feature of the design across 2026 and 2027. Its dates, export deadline and
+> protocol references are those of the September delivery and are left as
+> written; anyone reusing it for a future cohort replaces them.
+
 **For the candidate.** The colleague delivering the three-day cohorts has his own
 list at `PRE_COURSE_CHECKLIST_3day.md`. They are different documents on purpose:
 different dates, a different service, a different admin secret and a different

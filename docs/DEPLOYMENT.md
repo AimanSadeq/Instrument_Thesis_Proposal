@@ -124,6 +124,11 @@ only says how to build one.
 
 Post-deploy check run against `nupco1` on 25 August: nine passes, no rows in any cohort.
 
+Redeployed to the current commit on 15 September 2026, reported by the candidate, to
+pick up the readiness strip on the admin page. Auto-deploy is off on both services, so
+a merge to `main` changes nothing until somebody presses Manual Deploy; anything merged
+after that date is not live until the next one.
+
 Both labels now match the FinPlay cohort subdomains. The original service was renamed
 from `cohort-1` to `elm` on 25 August; the rename was safe because the database held no
 rows, and would not have been afterwards, since a label change once collection has begun
