@@ -67,7 +67,12 @@ async function main() {
   for (const file of fs.readdirSync(CHECK_DIR).filter((f) => f.endsWith('.sql')).sort()) {
     const sql = fs.readFileSync(path.join(CHECK_DIR, file), 'utf8');
     const result = await db.query(sql);
-    const isReport = result.fields.some((f) => f.name === 'result');
+    // A file that reports its own findings carries a verdict column, one way
+    // or another. Everything else is an assertion that must return no rows.
+    // inspect_rows.sql prints every stored row with a per-row verdict, so
+    // treating it as a zero-row assertion made this script fail on any
+    // database that actually held data, which is every live one.
+    const isReport = result.fields.some((f) => f.name === 'result' || f.name === 'verdict');
 
     if (!isReport) {
       report(result.rowCount === 0, file, result.rowCount ? JSON.stringify(result.rows) : '');
@@ -79,7 +84,11 @@ async function main() {
       report(false, file, 'the report returned no checks at all');
       continue;
     }
-    const failed = result.rows.filter((row) => String(row.result).toLowerCase() !== 'pass');
+    // Whichever column carries the verdict: post_deploy_check.sql calls it
+    // `result`, inspect_rows.sql calls it `verdict` because each row is a
+    // stored response rather than a named assertion.
+    const column = result.fields.some((f) => f.name === 'result') ? 'result' : 'verdict';
+    const failed = result.rows.filter((row) => !String(row[column]).toLowerCase().startsWith('pass'));
     report(
       failed.length === 0,
       `${file} (${result.rowCount} checks)`,
