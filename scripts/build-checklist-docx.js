@@ -36,7 +36,9 @@ function meta(label, value) {
     spacing: { after: 40 },
     children: [
       new TextRun({ text: label + '  ', bold: true, size: 19, color: SOFT }),
-      new TextRun({ text: value, size: 19, color: SOFT })
+      // The header lines carry setting names and cohort labels too, so they
+      // get the same inline treatment as the body rather than raw markers.
+      ...rich(value, 19)
     ]
   });
 }
@@ -73,12 +75,33 @@ function item(runs) {
 }
 
 /** Plain text with **bold** segments. */
+/**
+ * Inline markdown, rendered rather than printed. A checklist is carried into a
+ * room and read off a page: `PROGRAMME_DAYS=3` with its backticks showing is a
+ * value somebody may retype with the backticks attached.
+ */
 function rich(text, size = 21) {
-  return text.split(/(\*\*[^*]+\*\*)/).filter(Boolean).map((part) =>
-    part.startsWith('**')
-      ? new TextRun({ text: part.slice(2, -2), bold: true, size, color: INK })
-      : new TextRun({ text: part, size, color: INK }));
+  // Bold first, then code inside it, so that **`nupco2` for Cohort 1B** comes
+  // out bold with the label in monospace rather than with its markers showing.
+  const runs = [];
+  for (const part of text.split(/(\*\*[^*]+\*\*)/).filter(Boolean)) {
+    const bold = part.startsWith('**') && part.endsWith('**');
+    const inner = bold ? part.slice(2, -2) : part;
+    for (const piece of inner.split(/(`[^`]+`)/).filter(Boolean)) {
+      if (piece.startsWith('`') && piece.endsWith('`')) {
+        // Monospace, so a setting name reads as one and nobody retypes the
+        // backticks along with the value.
+        runs.push(new TextRun({
+          text: piece.slice(1, -1), font: 'Consolas', bold, size: size - 1, color: INK
+        }));
+      } else {
+        runs.push(new TextRun({ text: piece, bold, size, color: INK }));
+      }
+    }
+  }
+  return runs;
 }
+
 
 function tick(text) {
   return item(rich(text));

@@ -1,46 +1,64 @@
-# Pre-course checklist: the three-day cohorts
+# Pre-course checklist: the October cohorts
 
-**For the facilitator delivering them, who is not the candidate.** The candidate has a
-separate list for the four-day cohort. They are different documents on purpose:
-different dates, a different service, a different admin secret and a different printed
-pack. Working from the wrong one puts the wrong day count in front of a room.
+**Cohorts 1A and 1B, three days each, facilitated by the candidate.**
 
-**Programme:** three days, twice. 6 to 8 September and 13 to 15 September 2026, approximately 25 participants each
+**Programme:** three days, twice. 20 to 22 and 25 to 27 October 2026, approximately 20 to 25 participants each, at a large public-sector procurement organization
 **Service:** the three-day service, `PROGRAMME_DAYS=3`
-**Cohort labels:** `nupco1` for the first group, **`nupco2` for the second**. See section J; this is the one that cannot be fixed afterwards.
+**Cohort labels:** `nupco1` for Cohort 1A, **`nupco2` for Cohort 1B**. See section J; this is the one that cannot be fixed afterwards.
 **Printed pack:** `docs/paper/3-day/` (not `docs/paper/`, which is the four-day set)
-**Export deadlines:** 10 September for the first group, 17 September for the second
+**Export deadlines:** 24 October for 1A, 29 October for 1B. Within 48 hours of each cohort's final day, per Protocol v2.0 section 7.
+**Governing documents:** Research Protocol and DMP v2.0, Research Instruments v2.4
 
 Print this. Tick as you go.
 
 ---
 
-## A. Before anything
+## A. Two gates. Nothing runs until both are open.
 
-- [ ] **Client authorisation is in writing and filed.** Protocol section 7 requires the
-      client's confirmation that completing externally hosted research forms is
-      permitted. Without it, nothing is collected. This is the candidate's to obtain,
-      but do not open a link until you know it exists.
-- [ ] **Read the facilitator run sheet**, part 3 of Research Instruments v2.3. It is
-      short. The Day 1 script is written out in English and Arabic.
-- [ ] **`INSTRUMENTS_OPEN=false`** until the morning of Day 1.
+Neither is a formality and neither is yours to hurry. If either is still open on the
+morning of 20 October, the programme is delivered as training with the instrument layer
+switched off, exactly as September was. That is a normal outcome, not a failure, and it
+is the only correct one.
 
-## B. The script
+- [ ] **Amendment EA001257.01 determined.** The committee approved an application in
+      which the candidate delivered none of Cycle 1. You delivering these cohorts
+      restores the facilitator-researcher dual role, which is a material change to an
+      approved application. It was filed on 10 September 2026 and awaits determination.
+      **No cohort contributes data under the changed arrangement before it is
+      determined** (Protocol v2.0 sections 6 and 9).
+- [ ] **Client authorization confirmed in writing and filed.** Section 7 requires the
+      procurement organization's confirmation that completing externally hosted research
+      forms is permitted. As of v2.0 it is requested and not yet confirmed.
+- [ ] **Supervisor review** of the protocol and consent materials before the first
+      October session. Two changes from the version the committee approved are drawn to
+      his attention rather than left to be found: the September delivery leaving the
+      study, and delivery returning to you.
+- [ ] **`INSTRUMENTS_OPEN=false`** until the morning of each cohort's Day 1.
 
-- [ ] **You are not the researcher, and the script must say so.** Where it reads "my
-      doctoral research", say "the doctoral research of my colleague Aiman Sadeq".
-      Where it reads "I will never know who wrote what", say "the researcher will never
-      know". The substitution is printed beside the script in both languages.
-- [ ] **Read the Arabic as written**, not translated on the spot. Two facilitators
-      improvising a consent briefing are not running the same study.
-- [ ] **Rehearse it aloud once**, with the candidate, before 3 September. Saying it once
-      is different from having read it.
+## B. The script, and the dual role
+
+You designed the materials, you are delivering them, and you are the researcher. The
+protocol does not pretend otherwise, and neither should the room.
+
+- [ ] **Read the script as written**, English and Arabic, from part 3 of Research
+      Instruments v2.4. It says "my doctoral research" and "I will never know who wrote
+      what", and with you at the front both are true as written. The colleague
+      substitution in the run sheet is for colleague-delivered cohorts; it does not
+      apply here.
+- [ ] **Read the Arabic as written**, not translated on the spot.
+- [ ] **Rehearse it aloud once** before 11 October. Saying it once is different from
+      having read it.
 - [ ] **Nothing evaluative about the materials before the consent screen.** Not
-      advanced, not ahead of the market, however true. The room is about to judge those
-      materials and telling them the answer first spoils the data. Say all of that in
-      your training opening, after the consent screen closes.
+      advanced, not ahead of the market, however true. The room is about to judge
+      materials you built, and telling them the answer first spoils the data. Say all of
+      that in your training opening, after the consent screen closes.
+- [ ] **During completion: do not assist, do not look at screens, do not circulate.**
+      Section 6 leans on this. The controls carry the mitigation because they are
+      properties of the instruments rather than of who is standing at the front — but
+      only if the person at the front behaves as though a stranger were.
+- [ ] **Answer what an item means, never what to write.**
 
-## C. Printing, by 3 September
+## C. Printing, by 16 October
 
 Everything from `docs/paper/3-day/`. The daily reflection sheet says "Days 1 to 3" on
 the front, which is how you tell it apart from the four-day set in a stack.
@@ -51,25 +69,25 @@ the front, which is how you tell it apart from the four-day set in a stack.
 - [ ] **Three copies of the daily reflection per participant**, one per day. Not four.
 - [ ] **Collection box**, something to seal it with, spare pens.
 - [ ] **The link and QR code for each instrument**, screenshotted into your slides so
-      you are not logging in during a session. They come from **your** service's admin
-      page, not the other one's.
+      you are not logging into the admin page during a session.
 
-## D. Testing, by 3 September
+## D. Testing and rehearsal on the delivery devices, before 11 October
 
-- [ ] **The admin header says three days.** It states the cohort and the programme
-      length. If it says four, you are on the wrong service.
+Protocol section 9 sets this date, and it sits before Cohort 1C's window rather than
+before 1A's, so it holds whether or not 1C is confirmed.
+
+- [ ] **The admin header says three days** and the right cohort label. If it says four,
+      you are on the wrong service.
 - [ ] **The day selector offers exactly three days.** Open `/daily` and count.
-- [ ] **The last-day path.** Choose Day 3, confirm the cross-programme question
-      appears, submit. This route is never exercised until the day it matters.
-- [ ] **Three real devices**, at least one Android and one iPhone. Arabic reads right to
-      left throughout, the page does not zoom when you tap a text box, the rating grid
-      is usable one-handed.
-- [ ] **Delete anything those tests created.** The candidate does this; it needs the
-      export secret, which you do not hold.
+- [ ] **The last-day path.** Choose Day 3, confirm the cross-programme question appears,
+      submit. This route is never exercised until the day it matters.
+- [ ] **Three real devices**, at least one Android and one iPhone, including the tablets
+      you will hand out. Arabic reads right to left throughout, the page does not zoom
+      when you tap a text box, the rating grid is usable one-handed.
+- [ ] **Delete anything those tests created**, with the export secret, and confirm the
+      tables are empty with `db/checks/post_deploy_check.sql`.
 
-## E. At the venue, 5 September
-
-Nobody else can do this for you. The candidate is at another client that week.
+## E. At the venue, the day before each cohort
 
 - [ ] **Open all four URLs on the venue wi-fi**, on a device that is not yours.
 - [ ] **Find the captive portal.** Venue wi-fi usually makes you accept terms first. A
@@ -77,15 +95,14 @@ Nobody else can do this for you. The candidate is at another client that week.
       concludes the link is broken. Know what it looks like.
 - [ ] **Scan a projected QR code** from where the back row will sit.
 
-## F. Morning of Day 1
+## F. Morning of Day 1, each cohort
 
 - [ ] **`INSTRUMENTS_OPEN=true`.** Two or three minutes to redeploy. Before the room
       arrives, never mid-session.
 - [ ] **Admin page:** counts at zero, "instruments open", the right cohort label, three
       days.
 - [ ] **Get the room onto the wi-fi and through the portal** before any link goes up.
-- [ ] **Read the briefing** from the run sheet, English and Arabic, with the
-      substitution.
+- [ ] **Read the briefing** from the run sheet, English and Arabic.
 - [ ] **Display the consent link.** Everyone opens it, whether taking part or not.
       Three minutes.
 - [ ] **Display the pre-training questionnaire link.** Five minutes. Do not check who is
@@ -98,9 +115,10 @@ Nobody else can do this for you. The candidate is at another client that week.
       that is deliberate.
 - [ ] **Deviations log**: technical failures, fallback to paper, interruptions, anything
       said in the room that might have influenced responses.
-- [ ] **Your notes on the materials**: what you kept, what you adapted on the spot, what
-      you abandoned, and why. A line each, written the same day. This is the single most
-      useful thing you produce for the research and it cannot be reconstructed later.
+- [ ] **Reflexivity journal**, the same evening. Section 6 requires it, and with you
+      delivering your own materials it is doing more work than it was asked to do in the
+      approved design: what you adapted on the spot, what the room resisted, and where
+      you wanted them to like something.
 
 ## H. Day 3
 
@@ -109,26 +127,49 @@ Nobody else can do this for you. The candidate is at another client that week.
 - [ ] Then the post-training evaluation. Ten minutes.
 - [ ] Once everyone has finished: **`INSTRUMENTS_OPEN=false`.**
 
-## I. After each cohort
+## I. Export and deletion, within 48 hours of each final day
 
-- [ ] Tell the candidate the counts. Export and deletion are his, and need the export
-      secret.
-- [ ] Send him your deviations log and your notes on the materials.
+1A by 24 October, 1B by 29 October.
 
-## J. Between the two cohorts, 8 to 13 September
+- [ ] Admin page with the **export secret**. Note the counts per instrument.
+- [ ] **Download the JSON**, all instruments, and **each CSV**. Row counts are in the
+      filenames.
+- [ ] **Check the row counts** in the files against the counts on screen. This is what
+      "verifiable as complete" means in section 7.
+- [ ] **Store the exports encrypted**, access restricted to you.
+- [ ] **Delete all source records**: type `DELETE ALL RESEARCH DATA`. Keep the
+      before-and-after table for the audit trail.
+- [ ] **Re-run `post_deploy_check.sql`.** Nine passes, tables empty.
+
+## J. Between the two cohorts, 22 to 25 October
 
 **This is the step that cannot be repaired afterwards.**
 
 Both cohorts run on the same service. `COHORT` is read once when the service starts. If
-it still says `nupco1` on 13 September, the second cohort's rows land under the first
-cohort's label, and there is nothing to separate them by afterwards: no identifiers, no
-linkage, nothing. The two datasets become one and stay one.
+it still says `nupco1` on 25 October, Cohort 1B's rows land under 1A's label, and there
+is nothing to separate them by afterwards: no identifiers, no linkage, nothing. The two
+datasets become one and stay one.
 
-- [ ] First cohort exported and verified by the candidate.
+- [ ] Cohort 1A exported, verified and deleted.
 - [ ] **Change `COHORT` to `nupco2` in Render, and redeploy.**
 - [ ] **Confirm on the admin page** that the header now reads `nupco2` and the counts
-      are zero. If it shows the first cohort's counts, the change did not take.
+      are zero. If it shows 1A's counts, the change did not take.
 - [ ] Reprint the packs for the second group.
+
+## K. If Cohort 1C is confirmed
+
+Five days, 11 to 15 October 2026, at a further organization. Under discussion and not
+contracted; treated as a possible addition, not a dependency. If it is confirmed:
+
+- [ ] **Its own instance, its own cohort label, `PROGRAMME_DAYS=5`.** Never the
+      three-day service with the number changed: one service, one cohort, one label.
+- [ ] **Its own client authorization**, from that organization. Section A's second gate
+      is per organization.
+- [ ] **Everything in C, D and E, a week earlier**, and the supervisor review moves to
+      before 11 October.
+- [ ] **Export and delete within 48 hours of 15 October**, before the October cohorts
+      begin.
+- [ ] Both gates in section A apply to it in full.
 
 ## If something fails on the day
 
@@ -142,10 +183,3 @@ running. If the network is the problem, go to paper for that instrument.
 **Paper is used at all.** Completed sheets go in the collection box unfolded and
 unmarked, the box is sealed in the room before it leaves, and the substitution goes in
 the deviations log.
-
-**A manager tells the room to complete the forms.** Stop it, politely, there and then.
-Participation has to be each person's own decision. A room that was instructed has not
-consented, and the candidate cannot use any of that cohort's data.
-
-**Never**, on any day: read response contents, look at anyone's screen, or help anyone
-complete an instrument. Answer what an item *means*, never what to write.
