@@ -35,9 +35,9 @@ the end of the collection period.
 
 ## A.2 Design principle: anonymity at source
 
-The platform does not anonymise data after collection. It is constructed so
+The platform does not anonymize data after collection. It is constructed so
 that identifying data is never created. There is no participant record to
-pseudonymise, no key to destroy, and no re-identification procedure that
+pseudonymize, no key to destroy, and no re-identification procedure that
 could be compelled, because the information that would be needed for one is
 never brought into existence.
 
@@ -46,7 +46,7 @@ across days, so no within-person change can be measured; that is a deliberate
 constraint of Cycle 1 and is discussed in Chapter [x]. Responses cannot be
 withdrawn after submission, because a submitted response cannot be found
 again; participants are told this in the consent text. Partly completed forms
-cannot be resumed, because resuming requires recognising a device. And a
+cannot be resumed, because resuming requires recognizing a device. And a
 second submission from the same person cannot be detected or prevented, so
 submission counts are counts of submissions rather than of people.
 
@@ -104,11 +104,11 @@ else is discarded rather than stored. A field that is not part of the
 instrument cannot become a hidden identifier, and a closed-item value that is
 not one of the offered options is refused rather than recorded.
 
-## A.5 Consent as a screen behaviour
+## A.5 Consent as a screen behavior
 
 Consent is given by choosing one of two options on a screen. The two options
 are rendered by a single style rule, so they are identical in size, weight,
-colour and border; neither can be pre-selected, because each is a button
+color and border; neither can be pre-selected, because each is a button
 rather than a selectable control; both submit; and both navigate to the same
 confirmation page at the same address, whose text does not vary with the
 choice. The two resulting screens are byte-identical, which was verified by
@@ -170,7 +170,7 @@ counts before and after.
 ## A.8 Verification
 
 The platform's properties were verified by inspecting stored rows and
-observed behaviour, not by reading the source code. The verification comprises
+observed behavior, not by reading the source code. The verification comprises
 an automated test suite of forty tests covering the instruments, the
 privacy properties, the administrative separation, export and deletion; SQL
 checks asserting the absence of time columns, clock defaults, identifier-like

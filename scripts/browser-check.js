@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Behaviour checks that need a real browser: the final-day rule, and what a
+ * Behavior checks that need a real browser: the final-day rule, and what a
  * participant sees when a submission fails on a bad connection.
  *
  * Which day is the final one comes from the page, not from this script, so
@@ -38,7 +38,7 @@ async function main() {
   check(!(await r4.isVisible()), 'R4 is hidden until a day is chosen');
   await page.click('input[name="training_day"][value="2"]');
   check(Number(finalDay) === 2 ? await r4.isVisible() : !(await r4.isVisible()),
-    'R4 follows Day 2 correctly for this programme length');
+    'R4 follows Day 2 correctly for this program length');
   await page.click(`input[name="training_day"][value="${finalDay}"]`);
   check(await r4.isVisible(), `R4 appears on Day ${finalDay}, the last day`);
 

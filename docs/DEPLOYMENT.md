@@ -63,12 +63,12 @@ To create the service by hand instead:
    | `NODE_ENV` | `production` |
    | `DATABASE_URL` | the Supabase direct connection string |
    | `DATABASE_SSL` | `verify`, or `ca` with `DATABASE_CA_CERT` |
-   | `COLLECTION_TIMEZONE` | `Asia/Riyadh`, or the zone the programme runs in |
+   | `COLLECTION_TIMEZONE` | `Asia/Riyadh`, or the zone the program runs in |
    | `COHORT` | This cohort's label: `elm`, `nupco1`, `nupco2`. Lowercase letters, digits and hyphens, 2 to 40 characters; the service refuses to start otherwise, and refuses to start in production if it is not set at all. Matches the FinPlay cohort subdomain so one name means one group across both systems. |
-   | `PROGRAMME_DAYS` | Training days in this cohort's programme. Defaults to `4`. Set `3` for a three-day programme. Decides the day selector and which day carries R4. Two cohorts of different lengths running at once need two services. |
+   | `PROGRAMME_DAYS` | Training days in this cohort's program. Defaults to `4`. Set `3` for a three-day program. Decides the day selector and which day carries R4. Two cohorts of different lengths running at once need two services. |
    | `ADMIN_SECRET` | facilitator secret, counts only |
    | `EXPORT_SECRET` | researcher secret, export and delete. **Must differ** |
-   | `INSTRUMENTS_OPEN` | `true` during a programme, `false` between them |
+   | `INSTRUMENTS_OPEN` | `true` during a program, `false` between them |
    | `PUBLIC_URL` | the public address, used only for links and QR codes |
 
    The service refuses to start in production if `DATABASE_URL`, `ADMIN_SECRET`,
@@ -136,7 +136,7 @@ splits one cohort into two datasets with nothing to join them.
 
 ## 3a. Two cohorts at once
 
-Two cohorts start on 6 September: a four-day programme and a three-day one, in
+Two cohorts start on 6 September: a four-day program and a three-day one, in
 different organizations, with different facilitators. `COHORT` and
 `PROGRAMME_DAYS` are read once at start-up, so one service cannot serve both.
 Stand up a second service.
@@ -162,7 +162,7 @@ blueprint.** Reconnecting a blueprint overwrites dashboard values, which is how
    cannot read the certificate. Pasting the certificate text into the variable
    instead avoids the second step entirely.
 3. Set `COHORT` to this cohort's label and `PROGRAMME_DAYS` to that
-   programme's length. September: `elm` with `4`, and `nupco1` with `3`. The
+   program's length. September: `elm` with `4`, and `nupco1` with `3`. The
    labels match the FinPlay cohort subdomains on purpose, so one name means one
    group in both systems and in the run sheets. The service will not start
    without `COHORT`, so a service copied from the other one fails loudly rather
@@ -179,7 +179,7 @@ blueprint.** Reconnecting a blueprint overwrites dashboard values, which is how
    cohort next door reads as information rather than as a failure.
 
 **On the day**, keep them apart: two admin pages, two sets of QR codes, and the
-admin header on each states its cohort, its programme length, and which day
+admin header on each states its cohort, its program length, and which day
 will carry R4. Read that header before displaying anything.
 
 ## 4. Between cohorts

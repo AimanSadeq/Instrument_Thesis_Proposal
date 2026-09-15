@@ -21,7 +21,7 @@ list at `PRE_COURSE_CHECKLIST_3day.md`. They are different documents on purpose:
 different dates, a different service, a different admin secret and a different
 printed pack. Do not work from his and do not hand him yours.
 
-**Programme:** 6 to 9 September 2026, four days, hotel venue, approximately 25 participants
+**Program:** 6 to 9 September 2026, four days, hotel venue, approximately 25 participants
 **Service:** the four-day service, `PROGRAMME_DAYS=4`, cohort label `elm`
 **Printed pack:** `docs/paper/` (the four-day set)
 **Export deadline:** 11 September 2026 (Protocol v1.3 section 7, within 48 hours)
@@ -33,7 +33,7 @@ make rather than a task to forget.
 
 ## A. This week
 
-- [ ] **Send the client coordinator the authorisation note.** Protocol section 7
+- [ ] **Send the client coordinator the authorization note.** Protocol section 7
       requires their confirmation that completing externally hosted research
       forms is permitted, recorded in the audit trail.
 - [ ] **File their reply.** A friendly "yes, fine" in writing is what section 7
@@ -54,8 +54,8 @@ Instruments v2.1 to v2.3 and Protocol v1.2 to v1.3. Two things remain.
 
 - [ ] **Flag 3: what Render's edge retains, and for how long.** The protocol now
       uses wording that is defensible whatever the answer, but the study has not
-      verified the behaviour. Check it in the dashboard and record the answer.
-- [ ] **The institutional Consent Form question**, with the programme office.
+      verified the behavior. Check it in the dashboard and record the answer.
+- [ ] **The institutional Consent Form question**, with the program office.
       If it must be filed before fieldwork, that is a process to start now.
 
 ## C. Printing, by 3 September
@@ -74,7 +74,7 @@ Instruments v2.1 to v2.3 and Protocol v1.2 to v1.3. Two things remain.
 ## D. Testing, by 3 September
 
 - [ ] **`PROGRAMME_DAYS` matches this cohort.** Three for a three-day
-      programme, four for a four-day one. The admin page header states it, and
+      program, four for a four-day one. The admin page header states it, and
       the day selector should offer exactly that many days and no more.
 - [ ] **The last-day path on the live service.** Open `/daily`, choose the last day,
       confirm the R4 question appears, submit. This is the only route in the
@@ -86,7 +86,7 @@ Instruments v2.1 to v2.3 and Protocol v1.2 to v1.3. Two things remain.
 - [ ] **Delete anything those tests created.** `/admin` with the export secret,
       `DELETE ` followed by this service's cohort label.
 - [ ] **If a second cohort runs the same week**, confirm you are looking at the
-      right service: the admin header names the cohort and the programme
+      right service: the admin header names the cohort and the program
       length, the QR codes come from that service's own admin page, and the
       admin secret is that service's own. Do not reuse the other's.
 - [ ] **Confirm this cohort has no rows yet**: run `db/checks/post_deploy_check.sql` in
@@ -106,7 +106,7 @@ Instruments v2.1 to v2.3 and Protocol v1.2 to v1.3. Two things remain.
       or three minutes to redeploy. Do it before the room arrives, never
       mid-session.
 - [ ] **Check the admin page**: counts all zero, header reads "instruments
-      open", cohort `elm`, **programme 4 days**, date correct. If the header
+      open", cohort `elm`, **program 4 days**, date correct. If the header
       says three days you are on the other cohort's service.
 - [ ] **Confirm the facilitator holds `ADMIN_SECRET`** and the URL. Not the
       export secret. That separation is the control protocol section 6 relies
@@ -154,7 +154,7 @@ Instruments v2.1 to v2.3 and Protocol v1.2 to v1.3. Two things remain.
       merges two cohorts into one dataset with nothing to separate them by:
       no identifiers, no linkage, no way to unpick it afterwards.
 - [ ] Set `INSTRUMENTS_OPEN=true` on the morning of Day 1.
-- [ ] New client, new authorisation confirmation.
+- [ ] New client, new authorization confirmation.
 - [ ] Reprint everything.
 
 ## K. After Cohort 2

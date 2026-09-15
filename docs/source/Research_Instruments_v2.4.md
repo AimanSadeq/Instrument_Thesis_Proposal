@@ -1,7 +1,7 @@
 # Research Instruments, version 2.4
 Study: Leveraging Artificial Intelligence for Financial Competence Development
 Candidate: Aiman S. Sadeq · Supervisor: Professor Emanuele Borgonovo · SDA Bocconi School of Management
-Version 2.4 · September 2026 · Aligned to Research Protocol and Data Management Plan v1.5
+Version 2.4 · September 2026 · Aligned to Research Protocol and Data Management Plan v2.0
 Supersedes version 2.3. Changes from 2.3 are listed in Part 8, from 2.2 in Part 7, from 2.1 in Part 6, from 2.0 in Part 5, and from 1.0 in Part 4.
 # PART 1: ENGLISH INSTRUMENTS
 ## 1.1 Consent and Briefing
@@ -387,7 +387,7 @@ answers. Section 8 of the protocol lists facilitator influence as a named risk; 
 the sentence that keeps it out of the script.
 2. The Arabic script is written out rather than translated on the spot. Version 2.2
 # PART 8: CHANGES FROM VERSION 2.3
-1. Alignment. Version 2.3 was aligned to Research Protocol and Data Management Plan v1.3. This version is aligned to v1.5, under which no cohort enters the study before the Ethics Committee’s decision, the first instrumented cohorts are the three-day October 2026 cohorts delivered by the candidate, and colleague-delivered cohorts are a standing feature of the design across 2026 and 2027 rather than two named September dates.
+1. Alignment. Version 2.3 was aligned to Research Protocol and Data Management Plan v1.3. This version is aligned to v2.0, under which no cohort enters the study before the Ethics Committee’s decision, the first instrumented cohorts are the three-day October 2026 cohorts delivered by the candidate, a possible five-day cohort on 11 to 15 October 2026 is recorded as Cohort 1C and is not yet contracted, and colleague-delivered cohorts are a standing feature of the design across 2026 and 2027 rather than two named September dates. Delivery by the candidate is the change that v2.0 carries: versions 1.5 to 1.7 passed all Cycle 1 delivery to a professional colleague, and returning it to the candidate restores the facilitator-researcher dual role, filed as amendment EA001257.01 on 10 September 2026, with no cohort contributing data before that amendment is determined.
 2. No item, response option, ordering or script wording changes. The four-day text of Parts 1 and 2 remains canonical; the day-count substitution of Part 5 serves the three-day October cohorts, and the colleague substitution of Part 3 is retained for every colleague-delivered cohort whenever it runs.
 3. The September 2026 delivery for which version 2.3 was prepared ran as a commercial course with the instrument layer switched off. Nothing was collected, and this version records that no return exists from it.
 said "read the following aloud, in English and Arabic" and gave only English. With one

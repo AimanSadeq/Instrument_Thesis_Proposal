@@ -33,9 +33,9 @@ warns before it happens.
 
 The daily reflection asks the participant which day it is. It is not derived
 from the date, because a session can run late and a participant can complete
-on the way home. The cross-programme question appears only when the last day
+on the way home. The cross-program question appears only when the last day
 is chosen, and which day that is comes from `PROGRAMME_DAYS`. Check the admin
-page header before the programme starts: it says how many days this service is
+page header before the program starts: it says how many days this service is
 configured for and which day will carry R4.
 
 ## The admin page
@@ -49,14 +49,14 @@ configured for and which day will carry R4.
 It cannot show what anyone wrote. That is not a setting; the facilitator
 secret has no route to response contents, and it cannot export or delete.
 
-**Counts only, never contents, during the programme.** Read the counts after
+**Counts only, never contents, during the program.** Read the counts after
 each session, record them, and note anything unusual in the deviations log.
 
 The counts are this cohort's only. Where two cohorts run in the same week they
 have their own service, their own admin secret and their own admin page, and
 neither page shows the other's room even when both write to the same database.
 Check the header before you trust a number: it names the cohort and the
-programme length.
+program length.
 
 ## If something goes wrong
 
@@ -90,7 +90,7 @@ with `npm run build:paper` if the instrument content ever changes.
 `false`; a form that is closed says so plainly. Otherwise check the Render
 service is running.
 
-## After the programme
+## After the program
 
 The researcher, with the export secret:
 
@@ -104,4 +104,4 @@ The researcher, with the export secret:
 
 Between the two cohorts, do all four steps before changing `COHORT` to
 `cohort-2`, so the September data is exported and removed before the October
-programme adds to it.
+program adds to it.

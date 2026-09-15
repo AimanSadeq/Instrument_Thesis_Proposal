@@ -12,7 +12,7 @@
  *
  * This always checks the canonical four-day content, whatever PROGRAMME_DAYS
  * is set to, because that document is written for four days. A shorter
- * programme is checked separately, in tests/instruments.test.js, by requiring
+ * program is checked separately, in tests/instruments.test.js, by requiring
  * that it differs from the canonical text only in the day words.
  *
  * The build brief says: implement it verbatim, do not reword, reorder, add or

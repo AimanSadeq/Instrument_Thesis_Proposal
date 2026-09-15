@@ -43,7 +43,7 @@ the sessions take place at an external venue (a hotel), not on the employer's pr
 The item's own examples, incarcerated and hospitalized individuals, indicate custodial
 settings in which a gatekeeper controls members' lives; that is not this setting.
 Employer authorizations are nevertheless obtained in writing and recorded
-(CLIENT_AUTHORISATIONS.md) as good practice, not as gatekeeper control.
+(CLIENT_AUTHORIZATIONS.md) as good practice, not as gatekeeper control.
 
 **6c.** The learner instruments are anonymous at source: no name, identifier, contact
 detail, IP address or device identifier is collected, and no submission can be linked to
