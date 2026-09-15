@@ -6,6 +6,22 @@
 **Instrument content:** Research Instruments v2.3, English and Arabic
 **Date of this report:** 21 August 2026
 
+> **Note, 15 September 2026.** The governing documents have advanced: Research Protocol and
+> DMP **v2.0** and Research Instruments **v2.4**. The versions named above are left as written,
+> because this is a dated report of what was checked on 21 August and not a claim about today.
+>
+> What was re-checked, rather than assumed:
+>
+> - Protocol sections 4 (Instruments and mode of collection) and 5 (Consent procedure), the two
+>   the platform implements, were compared line by line from v1.4 to v2.0. Zero substantive
+>   changes: every difference is a bullet character or American spelling adopted as house style.
+>   See the note at the head of `PROTOCOL_CONFORMANCE.md`.
+> - `npm run verify:wording` was re-run against v2.4: **250 strings, every one verbatim**. The
+>   served instrument text needed no change. That script previously hardcoded the v2.3 filename
+>   and crashed once the source advanced; it now resolves the governing document by pattern.
+>
+> The three outstanding items below are unaffected and still outstanding.
+
 Every line of the section 7 checklist is answered below, with what was
 checked and how. Three things could not be verified from a build environment
 and are listed as **outstanding** with the exact steps to close them. One

@@ -62,8 +62,23 @@ cycles. **Application code EA001257**, title as registered on the portal: "Lever
 Artificial Intelligence for Financial Competence Development: A Design-Based Research
 Study of AI-Assisted Training Design, Gamification, and Organizational Outcomes."
 Uploads: project description, portal-generated informed consent, Research Protocol and
-DMP v1.4, and the ethics course attendance certificate. Outcome to be recorded here when
-the two-member expedite check concludes; collection does not wait on it.
+DMP v1.4, and the ethics course attendance certificate.
+
+**Outcome: approved.** The two-member expedite check concluded and the application was
+approved on 9 September 2026. The portal record reads: created 26 August 2026, submitted
+1 September 2026, last updated 9 September 2026, status Application Approved. Research
+Protocol and DMP v1.7, revised in response to the committee's pre-screening, is the version
+that stands approved; it is kept at `docs/source/approved/`.
+
+**Amendment EA001257.01**, an expedite application amendment covering the change of
+facilitator and the October cohorts, was filed on 10 September 2026 and is awaiting
+determination.
+
+Collection did not wait on the original decision and, as it turned out, did not need to: the
+four-day delivery of 6 to 9 September ran as an ordinary commercial course with the instrument
+layer switched off, because the decision had not been issued when it began. Approval was issued
+on that delivery's final day, but consent was never sought and the instruments never ran, so it
+contributes no data and is recorded as a practice delivery (Protocol v2.0, Section 2).
 
 **Ethics course certificate (on file):** Society of Behavioral Medicine, "Good Clinical
 Practice Training for Social and Behavioral Research" (the NIH/OBSSR GCP for social and

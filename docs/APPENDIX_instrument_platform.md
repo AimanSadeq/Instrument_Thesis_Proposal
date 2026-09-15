@@ -1,5 +1,12 @@
 # Appendix: the instrument delivery platform and its anonymity properties
 
+> **Note, 15 September 2026.** This appendix cites Research Protocol and DMP v1.3, the
+> governing version when it was drafted. The governing version is now v2.0, and the approved
+> version is v1.7 (application EA001257, approved 9 September 2026). The anonymity commitments
+> this appendix rests on are unchanged across those versions: sections 4 and 5, the two the
+> platform implements, were compared line by line from v1.4 to v2.0 and differ only in bullet
+> characters and American spelling. The prose below is left as the candidate wrote it.
+
 *Draft for the methods chapter. It describes the platform as built and
 verified on 21 August 2026. Three verification steps could only be completed
 on the client's premises and equipment; they are marked **[to confirm]** and

@@ -11,6 +11,17 @@ EA001257.01 which is awaiting determination, and the first instrumented
 cohorts are the October ones. This review therefore remains accurate for every
 control the platform implements.*
 
+*Checked rather than inferred, 15 September 2026: sections 4 (Instruments and mode of
+collection) and 5 (Consent procedure), the two the platform implements, were compared line by
+line from v1.4 to v2.0 with bullet markers and spelling normalised. Zero substantive changes —
+every difference is a bullet character or American spelling adopted as house style ("programme"
+to "program", "recognising" to "recognizing", "favourable" to "favorable"). That is the change
+logs' claim confirmed against the text, not restated.*
+
+*And the wording check was re-run, not assumed: `npm run verify:wording` against v2.4 reports
+250 strings, every one appearing verbatim in the source document. The served instrument text
+needed no change.*
+
 The build brief names this protocol as the governing document and says that
 where the two disagree, the protocol wins and the conflict is to be flagged.
 This is that check, section by section.
@@ -27,7 +38,7 @@ the software cannot make true as written; the rest are small.
 
 | Protocol says | Status |
 |---|---|
-| Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.3 |
+| Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.4 (re-run 15 September 2026: 250 strings, every one verbatim) |
 | Daily Reflection Cards, one per training day | Built, and the programme length is configurable. See **Flag 7**, closed |
 | Delivered as web forms, own or provided devices | Built, mobile first |
 | Access by short URL and QR code displayed in the room | Built. Each instrument has its own address and its own QR code on the admin page |

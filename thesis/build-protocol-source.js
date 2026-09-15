@@ -71,8 +71,19 @@ const children = [
     children: runs(head[4], { size: 20, italics: true }) }),
 ];
 
-// A body line that is entirely bold and starts with a section number is a heading.
-const HEADING = /^\*\*(\d+\.\s+[^*]+)\*\*$/;
+// A section heading, in either of the two forms the source has used.
+//
+// `**1. Purpose and research questions**` is the older form, carried from the pandoc export
+// that produced v1.0 to v1.4. `# 1. Purpose and research questions` is ordinary Markdown and
+// is what the instruments document has always used, so the protocol source moved to it at
+// v2.0 for consistency.
+//
+// Only the first form was recognised when that move happened, which meant every heading in
+// v2.0 rendered as body text with a literal "#" in front of it: twelve headings lost, the
+// document's outline gone, and nobody saw it because the rendered .docx had been deleted
+// rather than rebuilt. Accepting both forms fixes that without touching the source document,
+// and keeps every earlier version building exactly as before.
+const HEADING = /^(?:\*\*(\d+\.\s+[^*]+)\*\*|#\s+(\d+\.\s+.+))$/;
 
 for (; i < lines.length; i++) {
   const line = lines[i];
@@ -84,7 +95,7 @@ for (; i < lines.length; i++) {
     children.push(new Paragraph({
       heading: HeadingLevel.HEADING_1,
       spacing: { before: 260, after: 120 },
-      children: [new TextRun(clean(h[1]))],
+      children: [new TextRun(clean(h[1] || h[2]))],
     }));
     continue;
   }

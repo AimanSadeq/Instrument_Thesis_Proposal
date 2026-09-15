@@ -1,8 +1,14 @@
 'use strict';
 
 /**
- * Check that every word a participant reads appears verbatim in
- * docs/source/Research_Instruments_v2.4.md.
+ * Check that every word a participant reads appears verbatim in the governing
+ * instruments document, docs/source/Research_Instruments_v*.md.
+ *
+ * The filename is RESOLVED, not hardcoded. It used to name v2.3 directly, and when the
+ * governing document advanced to v2.4 this script did not fail with a clear complaint - it
+ * crashed on a missing file, which reads like a broken script rather than a stale check. The
+ * build scripts in thesis/ already resolve the same way and require exactly one match, so this
+ * follows them: one governing document, found by pattern, and a loud error if that is not true.
  *
  * This always checks the canonical four-day content, whatever PROGRAMME_DAYS
  * is set to, because that document is written for four days. A shorter
@@ -22,7 +28,20 @@ const path = require('path');
 const canonical = require('../src/content/instruments');
 const instruments = canonical.withProgrammeDays(canonical.CANONICAL_DAYS);
 
-const DOC = path.join(__dirname, '..', 'docs', 'source', 'Research_Instruments_v2.4.md');
+const SOURCE_DIR = path.join(__dirname, '..', 'docs', 'source');
+const matches = fs
+  .readdirSync(SOURCE_DIR)
+  .filter((f) => /^Research_Instruments_v[\d.]+\.md$/.test(f))
+  .sort();
+if (matches.length !== 1) {
+  throw new Error(
+    `expected exactly one instruments document in ${SOURCE_DIR}, found: ${
+      matches.join(', ') || 'none'
+    }`
+  );
+}
+const DOC = path.join(SOURCE_DIR, matches[0]);
+const DOC_VERSION = matches[0].match(/v([\d.]+)\.md$/)[1];
 
 /** Strip the markdown scaffolding, keep the words. */
 function normalise(text) {
@@ -125,7 +144,7 @@ for (const entry of strings) {
   }
 }
 
-console.log(`\n${strings.length} strings checked against Research Instruments v2.4.`);
+console.log(`\n${strings.length} strings checked against Research Instruments v${DOC_VERSION}.`);
 console.log(missing === 0
   ? 'Every one appears verbatim in the source document.'
   : `${missing} string(s) NOT found in the source document.`);
