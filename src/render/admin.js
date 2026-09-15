@@ -116,10 +116,27 @@ ${['consent_responses', 'pre_training_responses', 'daily_reflections', 'post_tra
 <p>If this is the same group continuing, this is expected and you can ignore it.</p>
 </div>` : '';
 
+  // The first thing to check on the morning of Day 1, answered by the page
+  // rather than read off a printed list: is the service open, is it empty, and
+  // is it the right cohort and length. It stays honest once a cohort is
+  // running: submissions present are "in progress", not a fault.
+  const submissions = totals.consent + totals.pre + totals.daily + totals.eval;
+  const readiness = table('Before you start', ['Check', 'State'], [
+    ['Instruments', config.instrumentsOpen
+      ? 'open, the links will accept submissions'
+      : 'CLOSED. Set INSTRUMENTS_OPEN to true before the room arrives'],
+    ['Submissions so far', submissions === 0
+      ? 'none, ready for a new group'
+      : `${submissions} already recorded, so a group is part way through`],
+    ['Cohort label', `${counts.cohort} — confirm this names the group in the room`],
+    ['Programme length', `${config.programmeDays} days, final-day question on Day ${config.programmeDays}`]
+  ]);
+
   const body = `<h1>Admin: counts</h1>
 ${message ? `<div class="banner banner-error" role="alert"><p>${esc(message)}</p></div>` : ''}
 ${staleBanner}
 ${deleteBlock}
+${readiness}
 <p class="hint">Cohort <strong>${esc(counts.cohort)}</strong> · programme <strong>${esc(config.programmeDays)} days</strong>, so R4 appears on Day ${esc(config.programmeDays)} · date today in ${esc(config.timezone)}: <strong>${esc(counts.generatedForDate)}</strong> · instruments ${config.instrumentsOpen ? 'open' : '<strong>closed</strong>'}</p>
 
 ${table('Totals', ['Instrument', 'Submissions'], [
