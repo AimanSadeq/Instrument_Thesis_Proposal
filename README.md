@@ -40,10 +40,10 @@ here is a false statement in a doctoral thesis.
 | Post-training evaluation | `/eval` | A1–A5, B1–B5, C1–C4 on a 1–5 scale, D1–D4 |
 | Admin | `/admin` | Counts only for the facilitator; export and deletion for the researcher |
 
-Item wording is transcribed verbatim from Research Instruments v2.3 into
+Item wording is transcribed verbatim from Research Instruments v2.4 into
 `src/content/instruments.js`. Do not reword, reorder, add or drop items there
 without changing that document. `npm run verify:wording` checks every string
-against `docs/source/Research_Instruments_v2.3.md`, which is committed here.
+against `docs/source/Research_Instruments_v2.4.md`, which is committed here.
 
 ## Stack
 
@@ -66,7 +66,7 @@ npm start                     # http://localhost:3000
 
 ```bash
 npm test                  # 40 tests across instruments, privacy, admin, export, deletion
-npm run verify:wording    # every instrument string against docs/source/Research_Instruments_v2.3.md
+npm run verify:wording    # every instrument string against docs/source/Research_Instruments_v2.4.md
 npm run verify:privacy    # source scan and schema checks against any database
 npm run verify:rows       # prints stored rows and asserts what is absent from them
 npm run verify:browser    # real browser: the final-day rule, an offline submission, both consent options
@@ -81,8 +81,8 @@ in the same week cannot be handed each other's sheets.
 ## Programme length
 
 `PROGRAMME_DAYS` sets how many training days this cohort runs. It defaults to
-four, which is what Research Instruments v2.3 is written for; the September
-cohorts at the second client are three. It decides the day selector, the day
+four, which is what Research Instruments v2.4 is written for; the October
+cohorts at the procurement organization are three. It decides the day selector, the day
 named in the wording, and which day carries the cross-programme question R4.
 Two concurrent cohorts of different lengths need two services, because this is
 read once at start-up, in the same way `COHORT` is.
@@ -103,12 +103,12 @@ src/db.js                    one independent row per submission, no clock readin
 db/migrations/               the schema
 db/checks/                   SQL that must return zero rows, forever
 docs/VERIFICATION.md         the report against the build brief checklist
-docs/PROTOCOL_CONFORMANCE.md the check against Research Protocol and DMP v1.3
-docs/PRE_COURSE_CHECKLIST_4day.md  the candidate's list for the four-day cohort
-docs/PRE_COURSE_CHECKLIST_3day.md  the colleague's list for the two three-day cohorts
+docs/PROTOCOL_CONFORMANCE.md the check against Research Protocol and DMP v2.0
+docs/PRE_COURSE_CHECKLIST_4day.md  kept for any future four-day cohort; not October's
+docs/PRE_COURSE_CHECKLIST_3day.md  the list for the October cohorts, 1A and 1B
 docs/DEPLOYMENT.md           Supabase and Render, and how to take it down again
 docs/OPERATIONS.md           what the facilitator and the researcher do on the day
-docs/source/                 Research Instruments v2.3, the content this must match
+docs/source/                 Research Instruments v2.4 and Protocol v2.0, the documents this must match
 docs/paper/                  printed fallback and the take-away information page
 docs/APPENDIX_instrument_platform.md   draft methods appendix for the thesis
 docs/screenshots/            evidence, every screen, both languages, two phone sizes

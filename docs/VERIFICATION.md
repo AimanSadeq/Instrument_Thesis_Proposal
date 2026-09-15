@@ -165,6 +165,26 @@ below remains one telephone rather than three.
 
 ---
 
+## 2b. Position at 15 September 2026
+
+Nothing in sections 2 and 2a is withdrawn; this records where the platform and
+the study stand today, so that a reader does not have to infer it from dates.
+
+| | |
+|---|---|
+| Instrument text | Research Instruments **v2.4**. `npm run verify:wording` passes against it: 250 participant-facing strings, all verbatim, item counts unchanged. v2.4 changes no item, response option, ordering or script wording from v2.3 |
+| Governing document | Research Protocol and DMP **v2.0** |
+| Ethics | Application EA001257 approved 9 September 2026. Amendment EA001257.01, the return of delivery to the candidate, filed 10 September and **awaiting determination**. No cohort contributes data under the changed arrangement until it is determined |
+| Data collected to date | **None.** The four-day delivery of 6 to 9 September ran as a commercial course with the instrument layer switched off and left the study. No research session has been run |
+| Deployment | The three-day service was redeployed to the current commit on 15 September 2026, reported by the candidate. Not verified from here: this environment cannot reach the service, and every statement in this report about the live system rests on output pasted back from it |
+| Instruments | Closed (`INSTRUMENTS_OPEN=false`), which is correct with no cohort running |
+| Test suite | 66 tests, passing, together with the wording and privacy checks |
+
+The next dated obligation is 11 October 2026: the instrument layer tested and
+rehearsed on the delivery devices, per Protocol v2.0 section 9.
+
+---
+
 ## 3. Outstanding items
 
 **O1. Real-device testing.** *Partly closed.* On 23 August the four instruments
