@@ -1,10 +1,15 @@
-# The platform against Research Protocol and DMP v1.3
+# The platform against Research Protocol and DMP v2.0
 
-*Note, 25 August 2026: the protocol is now v1.4. The v1.4 changes are institutional-ethics
-wording only (course, portal consent form, and the self-assessment checklist completed ahead
-of Cycle 1; ECR submission optional as no checklist element flags); nothing the platform
-implements changed, so this conformance review against v1.3 remains accurate for every
-platform-facing provision.*
+*Note, 15 September 2026: the protocol is now v2.0 and the instruments v2.4.
+Versions 1.5 through 2.0 changed no learner instrument, consent arrangement,
+anonymity control or data-management control; their own change logs say so in
+terms. What changed is the study's situation rather than the platform's
+obligations: the Ethics Committee approved application EA001257 on 9 September
+2026, the September delivery left the study having run with the instrument
+layer switched off, delivery returned to the candidate as amendment
+EA001257.01 which is awaiting determination, and the first instrumented
+cohorts are the October ones. This review therefore remains accurate for every
+control the platform implements.*
 
 The build brief names this protocol as the governing document and says that
 where the two disagree, the protocol wins and the conflict is to be flagged.

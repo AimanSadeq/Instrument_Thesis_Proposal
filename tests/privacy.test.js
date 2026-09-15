@@ -190,3 +190,37 @@ test('the response never carries a cookie, an ETag or a client hint request', as
     assert.equal(response.headers.get('referrer-policy'), 'no-referrer', path);
   }
 });
+
+test('the row inspector reports a clean row as pass and a contaminated one as FAIL', async () => {
+  // inspect_rows.sql is the check the researcher runs against the live
+  // database after a session. It has to do two things: stay quiet when the
+  // rows are clean, and name the problem when they are not. A version that
+  // only ever says pass would be worse than no check at all.
+  await truncate();
+  const sql = fs.readFileSync(path.join(__dirname, '..', 'db', 'checks', 'inspect_rows.sql'), 'utf8');
+
+  await db.query(`insert into research.daily_reflections
+    (cohort, submission_date, training_day, programme_days, r1)
+    values ('test-cohort', $1, 1, 4, 'A clean answer')`, [db.todayInZone()]);
+
+  let rows = (await db.query(sql)).rows;
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].verdict, 'pass');
+
+  // Each of these is something the protocol says is never stored.
+  const contaminants = [
+    ['submitted at 09:15', /time of day/],
+    ['sent from 10.1.2.3', /IP address/],
+    ['Mozilla/5.0 (Linux; Android 14)', /user agent/]
+  ];
+
+  for (const [text, expected] of contaminants) {
+    await db.query(`update research.daily_reflections set r1 = $1`, [text]);
+    rows = (await db.query(sql)).rows;
+    assert.equal(rows.length, 1, text);
+    assert.match(rows[0].verdict, /^FAIL/, `expected a FAIL verdict for: ${text}`);
+    assert.match(rows[0].verdict, expected, text);
+  }
+
+  await truncate();
+});
