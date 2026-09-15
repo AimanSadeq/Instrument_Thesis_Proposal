@@ -66,7 +66,7 @@ a way. That is the expected answer, not a failure.
 ## Before you finish
 
 ```bash
-npm test                  # 64 tests
+npm test                  # 66 tests
 npm run verify:wording    # instrument text against the source document
 npm run verify:privacy    # source scan and schema checks
 ```

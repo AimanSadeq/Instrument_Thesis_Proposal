@@ -137,6 +137,49 @@ test('deletion empties every table and reports the counts before and after', asy
   }
 });
 
+test('the admin page opens with a readiness strip that stays honest mid-cohort', async () => {
+  // Section F of the pre-course checklist, answered by the page: open, empty,
+  // right cohort, right length. It has to read correctly on the morning of
+  // Day 1 and on Day 2, when submissions exist and that is not a fault.
+  // Own state rather than whatever the previous test left behind.
+  await truncate();
+  await fetch(base + '/?lang=en', form({ choice: 'agree', lang: 'en' }));
+  await fetch(base + '/daily?lang=en',
+    form({ lang: 'en', training_day: '1', r1: SECRET_CONTENT.r1 }));
+
+  const page = await fetch(base + '/admin', form({ secret: COUNTS_SECRET }));
+  const html = await page.text();
+
+  assert.match(html, /Before you start/);
+  assert.match(html, /Instruments<\/td><td>open, the links will accept submissions/);
+  assert.match(html, /Submissions so far<\/td><td>\d+ already recorded, so a group is part way through/);
+  assert.match(html, /Cohort label<\/td><td>test-cohort — confirm this names the group in the room/);
+  assert.match(html, /Programme length<\/td><td>4 days, final-day question on Day 4/);
+
+  // It is a status strip, not a scolding: a cohort in progress is not an error.
+  const strip = html.slice(html.indexOf('Before you start'), html.indexOf('Totals'));
+  assert.ok(!/banner-error/.test(strip));
+
+  // And it still says nothing about what anyone wrote.
+  assert.ok(!strip.includes(SECRET_CONTENT.r1));
+  assert.ok(!strip.includes(SECRET_CONTENT.d1));
+});
+
+test('the readiness strip says so when the instruments are closed and empty', async () => {
+  const { config } = require('../src/config');
+  const wasOpen = config.instrumentsOpen;
+  try {
+    config.instrumentsOpen = false;
+    await truncate();
+    const page = await fetch(base + '/admin', form({ secret: COUNTS_SECRET }));
+    const html = await page.text();
+    assert.match(html, /Instruments<\/td><td>CLOSED\. Set INSTRUMENTS_OPEN to true before the room arrives/);
+    assert.match(html, /Submissions so far<\/td><td>none, ready for a new group/);
+  } finally {
+    config.instrumentsOpen = wasOpen;
+  }
+});
+
 test('repeated wrong secrets lock the admin route rather than allowing a guessing run', async () => {
   for (let attempt = 0; attempt < 12; attempt += 1) {
     await fetch(base + '/admin', form({ secret: 'attempt-' + attempt }));
