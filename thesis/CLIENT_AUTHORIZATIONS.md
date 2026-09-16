@@ -69,11 +69,21 @@ Route is Ahmad, who speaks to the client. Drafts prepared:
 Needed before 20 October. Without it these two cohorts are commercial deliveries only,
 whatever the ethics committee has decided.
 
-**The two drafts are stale and must not be sent as they stand.** They were written for the
-September arrangement: two cohorts on 6 to 8 and 13 to 15 September, delivered by Moayad
-Ghosheh. Both the dates and the person delivering have changed, and a request describing
-the wrong dates and the wrong facilitator is not one the coordinator can usefully answer.
-Correct them before sending.
+**Both drafts were corrected on 16 September 2026.** They had been written for the September
+arrangement, two cohorts on 6 to 8 and 13 to 15 September delivered by Moayad Ghosheh, and a
+request describing the wrong dates and the wrong facilitator is not one the coordinator can
+usefully answer. They now carry the October dates, the candidate as facilitator, the ethics
+approval reference, and Protocol v2.0 in place of v1.1.
+
+**What still blocks sending.** The authorization email is addressed to a placeholder, because
+nobody at NUPCO has been named yet. Getting that name is the first ask in the brief to Ahmad,
+so that brief goes first and the authorization request follows it.
+
+**And note the second gate.** Amendment EA001257.01, which covers the candidate delivering
+these cohorts rather than a colleague, is still awaiting determination. NUPCO's authorization
+and the amendment are independent, and both must clear before 20 October. The authorization is
+the one with an external party in the loop, so it has the longer lead time and should be asked
+for now regardless.
 
 ---
 
