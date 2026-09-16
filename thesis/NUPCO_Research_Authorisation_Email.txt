@@ -1,21 +1,23 @@
 To:      [NUPCO training / L&D contact]
-Cc:      Ahmad Rashid, Moayad Ghosheh
-Subject: FinPlay programme, September: one confirmation we need before Cohort 1
+Cc:      Ahmad Rashid
+Subject: FinPlay program, October: one confirmation we need before the first cohort
 
 
 Dear [Name],
 
-Thank you for confirming the two FinPlay cohorts, 6 to 8 September and 13 to 15
-September. Moayad Ghosheh will deliver both.
+Thank you for confirming the two FinPlay cohorts, 20 to 22 October and 25 to 27
+October, three days each. I will deliver both myself.
 
 There is one item I would like to settle in advance, and it is better raised now than
 on the morning of Day 1.
 
-Alongside the programme I run a doctoral research study at SDA Bocconi School of
+Alongside the program I run a doctoral research study at SDA Bocconi School of
 Management, supervised by Professor Emanuele Borgonovo, on how AI-assisted design
-affects the quality of professional finance training. Participants in our programmes
-are invited to complete a short set of anonymous feedback forms. I would like to
-extend that invitation to your two cohorts.
+affects the quality of professional finance training. The study has been reviewed by
+the School's Research Ethics Committee and recorded as approved, under application
+EA001257. Participants in our programs are invited to complete a short set of
+anonymous feedback forms, and I would like to extend that invitation to your two
+cohorts.
 
 
 WHAT WE ARE ASKING OF YOUR PEOPLE
@@ -65,11 +67,11 @@ One written confirmation, from whoever owns your data policy, that your staff ma
 complete anonymous research forms hosted outside the NUPCO network, on their own or
 on provided devices. A reply along these lines is sufficient:
 
-    "NUPCO confirms that participants in the September FinPlay programme may
+    "NUPCO confirms that participants in the October FinPlay program may
      complete anonymous research forms hosted outside our network, on their own
      or on provided devices."
 
-One confirmation covers both cohorts. We need it before 6 September.
+One confirmation covers both cohorts. We need it before 20 October.
 
 
 WHAT NUPCO RECEIVES, AND WHAT IT DOES NOT
@@ -81,7 +83,7 @@ decision to take part, or not to, is visible to NUPCO or to the facilitator.
 
 IF YOUR POLICY DOES NOT ALLOW IT
 
-Then we use printed forms instead, collected in the room, and the programme runs
+Then we use printed forms instead, collected in the room, and the program runs
 exactly as planned. The research is an addition to the training, never a condition of
 it, and a no here costs you nothing.
 
@@ -111,15 +113,25 @@ Notes before sending, not part of the email:
         docs/paper/information-sheet.pdf          the take-home page
         docs/paper/3-day/instruments-en.pdf       consent wording, then the four
                                                   instruments, in the 3-day version
-        Research_Protocol_DMP_v1.1_Sadeq.docx     the full protocol
+        Research_Protocol_DMP_v2.0_Sadeq.docx     the full protocol
 
-  * The 3-day pack is the right one for NUPCO. The 4-day pack in docs/paper is for
-    the other September cohort. The daily reflection sheet says which it is on the
-    front: "Daily Reflection, Days 1 to 3".
+  * The 3-day pack is the right one for NUPCO. Both cohorts are three days. The
+    4-day pack in docs/paper is not for a Cycle 1 cohort at all: the four-day
+    September delivery left the study and ran as an ordinary commercial course. The
+    daily reflection sheet says which pack it is on the front: "Daily Reflection,
+    Days 1 to 3".
 
-  * What a yes obliges you to do. Protocol v1.1 section 7 requires the confirmation
+  * What a yes obliges you to do. Protocol v2.0 section 7 requires the confirmation
     to be recorded in the audit trail. Save their reply as a file with the date; the
     email itself is the record.
+
+  * Do not promise a collection date yet. Amendment EA001257.01, filed 10 September
+    2026, covers you delivering the October cohorts yourself instead of a colleague,
+    and it is still awaiting determination. Under Protocol v2.0 no cohort contributes
+    data before it is determined. NUPCO's authorization and the amendment are
+    separate gates and both have to clear before 20 October. Ask for the
+    authorization now regardless: it is the one with an external party in the loop
+    and the longer lead time.
 
   * If they ask who the supervisor is or want to verify the study, Professor
     Borgonovo's institutional page is the right pointer. Do not offer his email
