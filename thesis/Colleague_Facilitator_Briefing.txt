@@ -4,10 +4,15 @@ September NUPCO cohorts, which in the event the candidate delivered, in October;
 cohort-specific parts are fields rather than facts now, so it survives that change and the
 next one. Sender's notes are at the bottom and are not part of the email.
 
-Delivery across the study: for the balance of 2026 and all of 2027, sessions are delivered by
-Aiman Sadeq and Moayad Ghosheh. Which of the two is in the room is the variable the design
-turns on, so this briefing goes out whenever the answer is the colleague, and the candidate's
-own cohorts run from the same run sheet and the same checklist.
+Delivery across the study: for the balance of 2026 and all of 2027, the FFNF Gamification is
+delivered by the candidate, Aiman Sadeq, and by colleagues, of whom Moayad Ghosheh is one. It
+is not a two-person rota and the set of colleagues is expected to grow.
+
+Whether the candidate or a colleague is in the room is the variable the design turns on, so
+this briefing goes out to every colleague on every cohort they deliver, and the candidate's
+own cohorts run from the same run sheet and the same checklist. With more than one colleague
+the fidelity obligation gets heavier rather than lighter: the study's claim is that everyone
+delivers from the same script, and that is evidenced per facilitator, not assumed once.
 
 
 To:      [Colleague]
@@ -174,9 +179,20 @@ Aiman
 Notes before sending, not part of the email:
 
   * Fill every bracketed field: [Colleague], [CLIENT], [MONTH], [DATES], [N], [DAYS], the
-    two cohort subdomains and [CALL DEADLINE]. For 2026 and 2027 the colleague is Moayad
-    Ghosheh. The template is addressed generically anyway, because a briefing that names
-    one person stops being reusable the day the arrangement widens.
+    two cohort subdomains and [CALL DEADLINE]. The template is addressed generically
+    because there is more than one colleague and the set is expected to grow; a briefing
+    that names one person stops being reusable the day the arrangement widens, which it
+    already has.
+
+  * Every colleague gets the full sequence, not an abbreviated one. This note, the
+    twenty-minute call with the briefing read aloud, their own rehearsal on a throwaway
+    group, and their own research admin secret for that client. A colleague who has
+    watched another deliver has still not rehearsed, and the evidence the university was
+    promised is per facilitator.
+
+  * The interview consent is per person and separate. Protocol v2.0 section 8 records the
+    risk that a colleague finds it hard to decline, and that risk does not shrink because
+    a different colleague already agreed.
 
   * Cut what does not apply. The template assumes two cohorts at one client. For a single
     cohort, drop the second address row and point 2 with it.
