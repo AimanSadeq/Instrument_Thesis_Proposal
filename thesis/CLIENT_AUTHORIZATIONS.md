@@ -15,6 +15,15 @@ under which the client coordinator confirms that completing externally hosted re
 forms on the client network or on personal devices is permitted under that organization's
 own data policy.
 
+**Who delivers.** For the balance of 2026 and all of 2027, sessions are delivered by Aiman
+Sadeq and Moayad Ghosheh. That split is not an administrative detail: it is the variable the
+design turns on, because a cohort the candidate delivers has the designer of the materials in
+the room while they are evaluated and a cohort the colleague delivers does not. Protocol v2.0
+Section 6 carries the dual role as a mitigated risk on the candidate's side and as absent on
+the colleague's, and Section 8 lists facilitator influence as live rather than absent for the
+same reason. The standing briefing for a colleague-delivered cohort is
+`Colleague_Facilitator_Briefing.txt`.
+
 ---
 
 ## ELM — granted, 25 August 2026. The cohort then left the study.
