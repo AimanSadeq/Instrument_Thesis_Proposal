@@ -1,7 +1,7 @@
 // Renders the current Research Protocol and Data Management Plan to .docx.
 //
 // The Markdown in ../docs/source is the governing document and the single
-// source of truth. This script only formats it: it does not rewrite, summarise or
+// source of truth. This script only formats it: it does not rewrite, summarize or
 // reorder anything. If the protocol needs to change, change the Markdown and rerun.
 //
 //     node build-protocol-source.js Research_Protocol_DMP_v1.2_Sadeq.docx
@@ -78,12 +78,24 @@ const children = [
 // is what the instruments document has always used, so the protocol source moved to it at
 // v2.0 for consistency.
 //
-// Only the first form was recognised when that move happened, which meant every heading in
+// Only the first form was recognized when that move happened, which meant every heading in
 // v2.0 rendered as body text with a literal "#" in front of it: twelve headings lost, the
 // document's outline gone, and nobody saw it because the rendered .docx had been deleted
 // rather than rebuilt. Accepting both forms fixes that without touching the source document,
 // and keeps every earlier version building exactly as before.
 const HEADING = /^(?:\*\*(\d+\.\s+[^*]+)\*\*|#\s+(\d+\.\s+.+))$/;
+
+// An UNNUMBERED heading, at any of the three depths Markdown gives us.
+//
+// The pattern above requires a number, because every top-level section of this protocol has
+// one. Annex A does not: it reproduces the participant-facing consent screen and titles it
+// `### Research Participation: Information and Consent`. That matched neither form, fell
+// through to the body-text branch, and rendered with a literal "###" in front of it in a
+// document that goes to the university. It is the same defect as the one described above,
+// surviving in the one heading that happened not to be numbered, which is exactly how the
+// first one survived: the check was written around the cases in front of it at the time.
+const SUBHEADING = /^(#{1,3})\s+(.+)$/;
+const SUBHEADING_LEVEL = [HeadingLevel.HEADING_1, HeadingLevel.HEADING_2, HeadingLevel.HEADING_3];
 
 for (; i < lines.length; i++) {
   const line = lines[i];
@@ -96,6 +108,16 @@ for (; i < lines.length; i++) {
       heading: HeadingLevel.HEADING_1,
       spacing: { before: 260, after: 120 },
       children: [new TextRun(clean(h[1] || h[2]))],
+    }));
+    continue;
+  }
+
+  const sh = t.match(SUBHEADING);
+  if (sh) {
+    children.push(new Paragraph({
+      heading: SUBHEADING_LEVEL[sh[1].length - 1],
+      spacing: { before: 220, after: 100 },
+      children: [new TextRun(clean(sh[2]))],
     }));
     continue;
   }

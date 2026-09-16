@@ -2,7 +2,7 @@
 
 **Cohorts 1A and 1B, three days each, facilitated by the candidate.**
 
-**Programme:** three days, twice. 20 to 22 and 25 to 27 October 2026, approximately 20 to 25 participants each, at a large public-sector procurement organization
+**Program:** three days, twice. 20 to 22 and 25 to 27 October 2026, approximately 20 to 25 participants each, at a large public-sector procurement organization
 **Service:** the three-day service, `PROGRAMME_DAYS=3`
 **Cohort labels:** `nupco1` for Cohort 1A, **`nupco2` for Cohort 1B**. See section J; this is the one that cannot be fixed afterwards.
 **Printed pack:** `docs/paper/3-day/` (not `docs/paper/`, which is the four-day set)
@@ -16,7 +16,7 @@ Print this. Tick as you go.
 ## A. Two gates. Nothing runs until both are open.
 
 Neither is a formality and neither is yours to hurry. If either is still open on the
-morning of 20 October, the programme is delivered as training with the instrument layer
+morning of 20 October, the program is delivered as training with the instrument layer
 switched off, exactly as September was. That is a normal outcome, not a failure, and it
 is the only correct one.
 
@@ -79,7 +79,7 @@ before 1A's, so it holds whether or not 1C is confirmed.
 - [ ] **The admin header says three days** and the right cohort label. If it says four,
       you are on the wrong service.
 - [ ] **The day selector offers exactly three days.** Open `/daily` and count.
-- [ ] **The last-day path.** Choose Day 3, confirm the cross-programme question appears,
+- [ ] **The last-day path.** Choose Day 3, confirm the cross-program question appears,
       submit. This route is never exercised until the day it matters.
 - [ ] **Three real devices**, at least one Android and one iPhone, including the tablets
       you will hand out. Arabic reads right to left throughout, the page does not zoom
@@ -122,7 +122,7 @@ before 1A's, so it holds whether or not 1C is confirmed.
 
 ## H. Day 3
 
-- [ ] Daily reflection as usual. The cross-programme question appears when Day 3 is
+- [ ] Daily reflection as usual. The cross-program question appears when Day 3 is
       chosen.
 - [ ] Then the post-training evaluation. Ten minutes.
 - [ ] Once everyone has finished: **`INSTRUMENTS_OPEN=false`.**

@@ -39,7 +39,7 @@ the software cannot make true as written; the rest are small.
 | Protocol says | Status |
 |---|---|
 | Four instruments, bilingual English and Arabic | Built, wording verified verbatim against Research Instruments v2.4 (re-run 15 September 2026: 250 strings, every one verbatim) |
-| Daily Reflection Cards, one per training day | Built, and the programme length is configurable. See **Flag 7**, closed |
+| Daily Reflection Cards, one per training day | Built, and the program length is configurable. See **Flag 7**, closed |
 | Delivered as web forms, own or provided devices | Built, mobile first |
 | Access by short URL and QR code displayed in the room | Built. Each instrument has its own address and its own QR code on the admin page |
 | No login, no account, no invitation by email or name, so no participant list or contact record is created at any stage | Satisfied. No authentication code and no contact field exists anywhere |
@@ -54,7 +54,7 @@ procedures of version 1.0 apply" for the paper fallback.
 
 | Protocol says | Status |
 |---|---|
-| Two options with equal prominence | Satisfied. One CSS rule renders both; computed size, weight, colour and border measured identical |
+| Two options with equal prominence | Satisfied. One CSS rule renders both; computed size, weight, color and border measured identical |
 | Both options submitted in the same way, both return the same closing screen | Satisfied. Same URL, byte-identical page, verified by hash |
 | Every person performs the same visible sequence of actions | Satisfied. One tap either way, and nothing remains on screen afterwards |
 | Participants receive a printed information page to keep, and nothing is collected from it | **Now built.** It was missing until this check: `docs/paper/information-sheet.pdf`, English and Arabic on one sheet, briefing text only, no options, no tick boxes, nothing to return |
@@ -105,7 +105,7 @@ procedures of version 1.0 apply" for the paper fallback.
 ### Flag 1. "Those who decline receive no further instrument prompts" (section 5)
 
 The strict reading, that a declining participant's device suppresses later
-instruments, cannot be implemented: it needs to recognise that device on a
+instruments, cannot be implemented: it needs to recognize that device on a
 later visit, which means a cookie, a stored value, a URL token or a
 fingerprint, all forbidden by section 6 of this same protocol.
 
@@ -173,7 +173,7 @@ protocol now also states the stronger true fact that participants never connect
 to the database at all. What remains outstanding is not a decision but a fact:
 **check what Render's edge retains, and for how long, and record the answer in
 the audit trail.** Until that is done the study has adopted safe wording
-without having verified the underlying behaviour.
+without having verified the underlying behavior.
 
 > Connection metadata, principally IP addresses, is processed transiently at
 > the network layer by the hosting infrastructure, as it is for any online
@@ -229,20 +229,20 @@ per-person object the design exists to avoid.
 Section 4 lists "Daily Reflection Cards, Days 1 to 4", and section 2 describes
 Cycle 1 as two cohorts. Both are now out of date. The September cohorts at the
 third client run three days each, delivered by a colleague rather than by the
-candidate, which makes four cohorts in Cycle 1 and two different programme
+candidate, which makes four cohorts in Cycle 1 and two different program
 lengths inside it.
 
 The build no longer assumes four. `PROGRAMME_DAYS` sets the length, the day
 selector offers exactly that many days, the wording names the right day in
-both languages, and the cross-programme question R4 attaches to the last day
+both languages, and the cross-program question R4 attaches to the last day
 rather than to Day 4. Each stored reflection records how many days its
-programme had, and the schema ties R4 to the last of them, so the guarantee is
-stronger than it was: a Day 4 row in a three-day programme is now refused,
+program had, and the schema ties R4 to the last of them, so the guarantee is
+stronger than it was: a Day 4 row in a three-day program is now refused,
 where version 001 of the schema would have accepted it.
 
 **CLOSED.** Both halves are done.
 
-1. **Protocol v1.2** rewrites section 2 for the cohort count, the two programme
+1. **Protocol v1.2** rewrites section 2 for the cohort count, the two program
    lengths and who delivers each, section 4 for the day count and the paper
    procedure, section 6 to scope the dual role to the cohort the candidate
    delivers and to name its absence elsewhere as a comparison, and sections 8
@@ -290,7 +290,7 @@ until v1.3 could only have been broken by exporting from here.
 
 ## Operational prerequisites this build does not cover
 
-- **Client authorisation** (section 7). The coordinator's confirmation that
+- **Client authorization** (section 7). The coordinator's confirmation that
   completing externally hosted forms is permitted must be recorded in the
   audit trail before the cohort. This is a hard prerequisite, not a formality:
   without it the platform cannot be used on the client's network.

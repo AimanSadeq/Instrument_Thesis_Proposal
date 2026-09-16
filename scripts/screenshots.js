@@ -58,7 +58,7 @@ async function main() {
       }
 
       // The two consent options, close up, and a measurement of both. They
-      // must match in size, weight, colour and border; only the words differ.
+      // must match in size, weight, color and border; only the words differ.
       await page.goto(`${BASE}/?lang=${lang}`, { waitUntil: 'networkidle' });
       const choices = page.locator('.consent-form');
       await choices.scrollIntoViewIfNeeded();

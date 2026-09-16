@@ -74,16 +74,16 @@ npm run screenshots       # captures docs/screenshots and re-checks that the bro
 npm run build:paper       # rebuilds the printed fallback in docs/paper, English and Arabic
 npm run build:paper:docx  # the same pack as Word documents
 
-Both honour `PROGRAMME_DAYS`. The four-day pack is written to `docs/paper`;
-a shorter programme goes to `docs/paper/<n>-day`, so that two cohorts running
+Both honor `PROGRAMME_DAYS`. The four-day pack is written to `docs/paper`;
+a shorter program goes to `docs/paper/<n>-day`, so that two cohorts running
 in the same week cannot be handed each other's sheets.
 
-## Programme length
+## Program length
 
 `PROGRAMME_DAYS` sets how many training days this cohort runs. It defaults to
 four, which is what Research Instruments v2.4 is written for; the October
 cohorts at the procurement organization are three. It decides the day selector, the day
-named in the wording, and which day carries the cross-programme question R4.
+named in the wording, and which day carries the cross-program question R4.
 Two concurrent cohorts of different lengths need two services, because this is
 read once at start-up, in the same way `COHORT` is.
 ```

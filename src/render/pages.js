@@ -16,7 +16,7 @@ const { CONSENT, PRE_TRAINING, DAILY_REFLECTION, POST_TRAINING } = require('../c
  */
 
 // --- Consent -----------------------------------------------------------------
-// Two submit buttons, identical in size, weight, colour and styling, neither
+// Two submit buttons, identical in size, weight, color and styling, neither
 // pre-selected and neither marked as primary. One tap submits, so nothing
 // lingers on screen for an observer to read, and both land on the same
 // confirmation page (/done?i=consent), whose URL and content do not vary with
@@ -66,7 +66,7 @@ ${c.form(PRE_TRAINING, lang, sections + '\n' + c.submitButton(lang))}`;
 // is visible under its "Day N only" heading, exactly as on the paper
 // instrument. The server stores it only when the last day was chosen. The day
 // itself is written into the markup so that the client script does not have to
-// assume a programme length.
+// assume a program length.
 function dailyPage({ lang, values = {}, errors = {}, error }) {
   const finalDay = String(config.programmeDays);
   const showFinalDay = String(values.training_day || '') === finalDay;

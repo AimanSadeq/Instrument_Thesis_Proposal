@@ -49,7 +49,7 @@ name stops being business correspondence.
 
 ## What else is here
 
-`guidelines.pdf` and `requirements-brief.md` are the DBA programme rules the
+`guidelines.pdf` and `requirements-brief.md` are the DBA program rules the
 proposal is written against, section 3.2 for structure and 3.4 for formatting.
 `style-profile.md` records the candidate's writing voice. `scopus-log*` holds
 the executed search protocol behind Section 2.8 and Appendix J. `year1-lr*` is
