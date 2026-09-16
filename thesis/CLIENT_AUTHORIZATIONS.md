@@ -15,14 +15,33 @@ under which the client coordinator confirms that completing externally hosted re
 forms on the client network or on personal devices is permitted under that organization's
 own data policy.
 
-**Who delivers.** For the balance of 2026 and all of 2027, sessions are delivered by Aiman
-Sadeq and Moayad Ghosheh. That split is not an administrative detail: it is the variable the
-design turns on, because a cohort the candidate delivers has the designer of the materials in
-the room while they are evaluated and a cohort the colleague delivers does not. Protocol v2.0
-Section 6 carries the dual role as a mitigated risk on the candidate's side and as absent on
-the colleague's, and Section 8 lists facilitator influence as live rather than absent for the
-same reason. The standing briefing for a colleague-delivered cohort is
-`Colleague_Facilitator_Briefing.txt`.
+**Who delivers.** For the balance of 2026 and all of 2027, the FFNF Gamification is delivered
+by the candidate, Aiman Sadeq, and by colleagues, of whom Moayad Ghosheh is one. It is not a
+two-person rota and the set of colleagues is expected to grow.
+
+That split is not an administrative detail: it is the variable the design turns on, because a
+cohort the candidate delivers has the designer of the materials in the room while they are
+evaluated and a colleague-delivered cohort does not. Protocol v2.0 Section 6 carries the dual
+role as a mitigated risk on the candidate's side and as absent on the colleague's, and
+Section 8 lists facilitator influence as live rather than absent for the same reason. The
+standing briefing for a colleague-delivered cohort is `Colleague_Facilitator_Briefing.txt`,
+and every colleague gets it, plus their own rehearsal and their own admin secret.
+
+**What more than one colleague changes.** The protocol already provides for this: Section 2
+says colleagues, plural, deliver several further runs across 2026 and 2027, so no amendment is
+needed to widen the set. Two consequences are worth stating anyway, because they are easy to
+lose.
+
+The first helps. A comparison against several colleagues is a comparison against the role
+rather than against one person, so a difference between the candidate's cohorts and theirs is
+harder to explain away as one individual's style.
+
+The second costs. Facilitator becomes a source of variance inside the colleague condition, and
+the fidelity claim, that everyone delivers from the same run sheet and the same checklist, is
+evidenced per facilitator rather than once. Whether the analysis treats colleague-delivered as
+a single condition or keeps facilitator identity as a variable is a question for the
+supervisor, and it should be settled before the first colleague-delivered cohort runs rather
+than after.
 
 ---
 
