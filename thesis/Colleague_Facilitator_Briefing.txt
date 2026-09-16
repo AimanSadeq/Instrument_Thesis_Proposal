@@ -1,21 +1,38 @@
-To:      Moayad Ghosheh
-Subject: NUPCO September: the research part, and the twenty minutes I need from you
+TEMPLATE. Fill the bracketed fields and send. This is the standing briefing for any cohort of
+the study that a colleague delivers rather than the candidate. It was written for the
+September NUPCO cohorts, which in the event the candidate delivered, in October; the
+cohort-specific parts are fields rather than facts now, so it survives that change and the
+next one. Sender's notes are at the bottom and are not part of the email.
+
+Delivery across the study: for the balance of 2026 and all of 2027, sessions are delivered by
+Aiman Sadeq and Moayad Ghosheh. Which of the two is in the room is the variable the design
+turns on, so this briefing goes out whenever the answer is the colleague, and the candidate's
+own cohorts run from the same run sheet and the same checklist.
 
 
-Moayad,
+To:      [Colleague]
+Subject: [CLIENT] [MONTH]: the research part, and the twenty minutes I need from you
 
-Two NUPCO cohorts, 6 to 8 and 13 to 15 September, both yours. Same three-day format you
-ran at the ministry, so the training itself is familiar ground. This note is only about
-the research feedback that runs alongside it, which is the part that is new, and which I
-cannot help you with on the day because I am at another client all that week.
 
-Read this once, then let us take twenty minutes on a call before the 3rd.
+[Colleague],
+
+[N] [CLIENT] cohorts, [DATES], both yours. Same [DAYS]-day format you have run before, so the
+training itself is familiar ground. This note is only about the research feedback that runs
+alongside it, which is the part that is new, and which I cannot help you with on the day
+because I am not in the room.
+
+That last point is not incidental. The cohorts you deliver and the cohorts I deliver are the
+two halves of the comparison this study rests on: the same materials and the same instruments,
+with and without the person who designed them standing at the front. Yours are the half I
+cannot produce myself.
+
+Read this once, then let us take twenty minutes on a call before [CALL DEADLINE].
 
 WHAT IT ACTUALLY IS
 
 Four short forms on participants' own phones. A consent screen on the morning of Day 1,
 a questionnaire after the opening briefing, a two-minute reflection at the end of each
-day, and an evaluation at the end of Day 3. You display a link and a QR code at each
+day, and an evaluation at the end of Day [DAYS]. You display a link and a QR code at each
 point and then step back. That is the whole of your involvement.
 
 The forms are anonymous. No name, no employee number, no login. You cannot see what
@@ -34,7 +51,7 @@ FOUR THINGS THAT MATTER MORE THAN THEY LOOK
      Participation has to be each person's own choice. If the room is instructed, the
      consent is not consent and I cannot use any of the data from that cohort.
 
-  4. Counts only during the programme, never contents.
+  4. Counts only during the program, never contents.
 
 Those four are not house style. They are commitments in writing to the university, and
 the study fails its ethics test without them.
@@ -44,10 +61,10 @@ ONE CHANGE TO THE SCRIPT, AND IT MATTERS
 The Day 1 briefing script is written for me to read. Where it says "my doctoral
 research", you say "the doctoral research of my colleague Aiman Sadeq". Do not say it
 is yours. It is the moment people decide whether to take part, and a wrong word there
-is the worst place to have one. I have updated the run sheet so the substitution is
-printed next to the script, in both languages; you will not have to remember it.
+is the worst place to have one. The run sheet has the substitution printed next to the
+script, in both languages; you will not have to remember it.
 
-The Arabic is now written out in full rather than left for you to translate as you go.
+The Arabic is written out in full rather than left for you to translate as you go.
 Please read it rather than improvise it. Two of us briefing two rooms in our own words
 is two different studies.
 
@@ -55,14 +72,14 @@ AND ONE THING TO KEEP OUT OF IT
 
 Do not tell the room the materials are advanced, or ahead of what the market offers,
 or anything of that kind, before the consent screen. I know it is tempting and I know
-it is arguably true. But they are about to spend three days telling me whether the
+it is arguably true. But they are about to spend [DAYS] days telling me whether the
 materials are any good, and if we answer that for them first the answers are worth
-much less. The script now says the honest version, that this was built in a way almost
+much less. The script says the honest version, that this was built in a way almost
 nobody has tried and nobody has yet tested, which is the reason their candid view
 matters. Say all the rest in your training opening once the consent screen is closed.
 That part is yours and I would not want you to hold back there.
 
-The run sheet is also written for four days. Yours is three. Read every "Day 4" as your
+The run sheet is written for four days. If yours is shorter, read every "Day 4" as your
 last day. The screens handle this themselves and will show the right days; only the
 paper version needs you to notice.
 
@@ -75,9 +92,9 @@ working capital, they did not, drew it on the board." "Round 1 took 35 minutes n
 I am asking because it is the most valuable thing in the whole exercise for me. The
 materials were designed with AI, and my research question is what a human expert has to
 change when those materials meet a real room. You are the only person who can see that,
-because you did not design them and I did. And having run the ministry group already,
-you are the only one who can say what you did differently the second time, which is
-worth more still. Three days of scribbles beat an hour of recall two weeks later.
+because you did not design them and I did. If you have run this material before, you are
+also the only one who can say what you did differently the second time, which is worth
+more still. [DAYS] days of scribbles beat an hour of recall two weeks later.
 
 ADDRESSES AND SECRETS, THE ONE PLACE TO LOOK ON THE MORNING
 
@@ -85,21 +102,21 @@ There are two systems and they are separate on purpose. The training runs on Fin
 The research forms run somewhere else entirely, which is what lets me tell the room the
 forms are not connected to anything they do in the training.
 
-  FinPlay, cohort 1 (6 to 8 Sept)   nupco1.finplay.viftraining.com
-  FinPlay, cohort 2 (13 to 15 Sept) nupco2.finplay.viftraining.com
-  Research forms, both cohorts      nupco-instrument-thesis-proposal.onrender.com
-  Facilitator password              the one you already use
-  Corporate access code             generated on the morning, by you, in the panel
-  Research admin secret             NUPCO only, to follow
+  FinPlay, cohort 1 ([DATES 1])  [cohort1].finplay.viftraining.com
+  FinPlay, cohort 2 ([DATES 2])  [cohort2].finplay.viftraining.com
+  Research forms, both cohorts   [client]-instrument-thesis-proposal.onrender.com
+  Facilitator password           the one you already use
+  Corporate access code          generated on the morning, by you, in the panel
+  Research admin secret          this client only, to follow
 
 Four things about that list.
 
   1. The two FinPlay addresses are different sites, not one site with two groups. There
-     is no redirect between them. `nupco-1` with a hyphen is a dead address and returns
-     an error, so type it exactly as written above.
+     is no redirect between them, and a near-miss spelling is a dead address that returns
+     an error, so type them exactly as written above.
 
   2. Your second group starts on a new address AND on a changed research label. Cohort 2
-     is not a continuation of cohort 1 in either system. The three-day checklist has this
+     is not a continuation of cohort 1 in either system. The pre-course checklist has this
      as section J; it is the one step in the whole exercise that cannot be repaired
      afterwards.
 
@@ -107,19 +124,19 @@ Four things about that list.
      created the moment you switch corporate mode on, and it belongs to that cohort
      alone. A code written down in advance is a code that may no longer be the live one.
 
-  4. The research admin secret is yours for NUPCO and is not the one I use at the other
-     client. It shows counts and nothing else. If you are ever handed a secret that shows
-     you contents, it is the wrong secret and I need to know.
+  4. The research admin secret is yours for this client and is not the one I use
+     elsewhere. It shows counts and nothing else. If you are ever handed a secret that
+     shows you contents, it is the wrong secret and I need to know.
 
 WHAT I WILL SEND YOU
 
   - The facilitator run sheet, part 3 of the instruments document
-  - The three-day printed pack, as a fallback if the network fails
-  - The research admin link and secret for NUPCO, once that service exists
-  - Both FinPlay addresses, confirmed, before the 3rd
+  - The printed pack for your day count, as a fallback if the network fails
+  - The research admin link and secret for this client
+  - Both FinPlay addresses, confirmed, before [CALL DEADLINE]
   - The rehearsal script, and the facilitator password so you can run it
 
-BEFORE THE 3RD
+BEFORE [CALL DEADLINE]
 
 Twenty minutes on a call, and I would like you to read the Day 1 briefing aloud once,
 with the substitution in it. Not because you need practice at speaking, but because
@@ -132,13 +149,13 @@ wrong: you create a throwaway group, sign in from your own phone and laptop, pla
 fire a shock, and then delete the whole thing. I am doing the same on my side.
 
 Two reasons it is worth your evening rather than mine alone. The first is practical. You
-will be running two groups by yourself while I am at another client, on a venue network
-neither of us has seen, and the problems that matter turn up on real devices rather than
-in browser tabs. The second is that I have told the university the two of us deliver from
-the same run sheet and the same checklist, and that we evidence that rather than assume
-it. Both of us rehearsing against the same script is the cheapest way to make that true.
+will be running the groups by yourself, on a venue network neither of us has seen, and the
+problems that matter turn up on real devices rather than in browser tabs. The second is
+that I have told the university the two of us deliver from the same run sheet and the same
+checklist, and that we evidence that rather than assume it. Both of us rehearsing against
+the same script is the cheapest way to make that true.
 
-Do it on the throwaway group and nowhere else. Not on the NUPCO addresses. A rehearsal
+Do it on the throwaway group and nowhere else. Not on the client addresses. A rehearsal
 inside a group you are going to deliver leaves financial statements and a leaderboard
 behind that nothing in the panel can remove, and your first real participants would start
 the day looking at somebody else's numbers.
@@ -156,17 +173,29 @@ Aiman
 ---
 Notes before sending, not part of the email:
 
+  * Fill every bracketed field: [Colleague], [CLIENT], [MONTH], [DATES], [N], [DAYS], the
+    two cohort subdomains and [CALL DEADLINE]. For 2026 and 2027 the colleague is Moayad
+    Ghosheh. The template is addressed generically anyway, because a briefing that names
+    one person stops being reusable the day the arrangement widens.
+
+  * Cut what does not apply. The template assumes two cohorts at one client. For a single
+    cohort, drop the second address row and point 2 with it.
+
   * Attach nothing yet. The run sheet and the pack go with the call invitation, so he
     reads this first and the materials second.
 
   * The interview ask is deliberately at the end, deliberately brief, and deliberately
-    deferred. Protocol v1.3 section 8 records the risk that a colleague finds it hard
-    to decline. Raising it in the same breath as "here is your job for September" would
-    make that worse. Written consent comes later and separately.
+    deferred. Protocol v2.0 section 8 records the risk that a colleague finds it hard to
+    decline. Raising it in the same breath as "here is your job for [MONTH]" would make
+    that worse. Written consent comes later and separately.
 
   * Point 3, about a manager instructing the room, is the one to say out loud on the
     call rather than leave in writing. It is the likeliest thing to happen and the
     likeliest to be waved through in the moment by someone trying to be helpful.
 
-  * You still owe him the NUPCO ADMIN_SECRET once that service exists. Not the export
-    secret, and not ELM's.
+  * You still owe him the ADMIN_SECRET for that client once the service exists. Not the
+    export secret, and not another client's.
+
+  * Client authorization first. Protocol v2.0 section 7 requires the client's written
+    confirmation before the cohort, and a colleague-delivered cohort is no exception.
+    Record it in CLIENT_AUTHORIZATIONS.md when it arrives.

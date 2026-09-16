@@ -15,6 +15,15 @@ under which the client coordinator confirms that completing externally hosted re
 forms on the client network or on personal devices is permitted under that organization's
 own data policy.
 
+**Who delivers.** For the balance of 2026 and all of 2027, sessions are delivered by Aiman
+Sadeq and Moayad Ghosheh. That split is not an administrative detail: it is the variable the
+design turns on, because a cohort the candidate delivers has the designer of the materials in
+the room while they are evaluated and a cohort the colleague delivers does not. Protocol v2.0
+Section 6 carries the dual role as a mitigated risk on the candidate's side and as absent on
+the colleague's, and Section 8 lists facilitator influence as live rather than absent for the
+same reason. The standing briefing for a colleague-delivered cohort is
+`Colleague_Facilitator_Briefing.txt`.
+
 ---
 
 ## ELM — granted, 25 August 2026. The cohort then left the study.
@@ -27,7 +36,10 @@ own data policy.
 > We have no objection to the participants taking part in the research activities as
 > described.
 
-Covered the cohort running 6 to 9 September, four days, self-delivered.
+Covered the cohort running 6 to 9 September, four days, delivered by Moayad Ghosheh. (This
+file previously recorded it as self-delivered, which was wrong. Colleague delivery is what
+v1.7 specified: versions 1.5 to 1.7 passed all Cycle 1 delivery to a professional colleague,
+and this cohort was prepared under v1.7.)
 
 **The permission was never used.** That delivery was prepared under v1.7 as Cohort 1A, but
 the Ethics Committee's decision had not been issued when it began, so it ran as an ordinary
@@ -37,6 +49,12 @@ Protocol v2.0 records it as a practice delivery rather than applying approval to
 retrospectively. The permission stands on the record, unused. A fresh one would be sought
 if this organization hosts an instrumented cohort later, because this one was given against
 a described set of research activities that did not then happen.
+
+**A consequence worth recording.** Because that delivery ran with the instrument layer off,
+no colleague-delivered cohort has yet run instrumented. The within-cycle comparison Protocol
+v2.0 rests on, the same materials and instruments with and without the candidate in the room,
+still has no data on the colleague side. The candidate's own side begins with Cohorts 1A and
+1B in October.
 
 **What it is.** Gatekeeper permission to approach the organization's staff, given by the
 person responsible for the program, after a description of what the research involves.
